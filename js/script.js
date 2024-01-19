@@ -1116,6 +1116,9 @@ const campo_sonoro_casa_prova = turf.polygon([[
 
     }
 
+    // call locate every 3 seconds... forever
+    // setInterval(navigator.geolocation.getCurrentPosition(success), 3000);
+
     navigator.geolocation.getCurrentPosition(success);
 
 

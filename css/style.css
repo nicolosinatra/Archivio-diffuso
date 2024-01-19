@@ -1,0 +1,19 @@
+body { margin: 0; padding: 0; }
+/* #consenso_localizzazione{
+    background-color: aquamarine;
+    position: fixed;
+    padding: 10px;
+    border-radius: 10%;
+    bottom: 20vh;
+    left: 50vw;
+    z-index: 5;
+} */
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+.mapboxgl-user-location-dot, .mapboxgl-user-location-dot::before{
+    background-color: #ca1579 !important;
+}
+.mapboxgl-user-location-show-heading .mapboxgl-user-location-heading:after, .mapboxgl-user-location-show-heading .mapboxgl-user-location-heading:before {
+    border-bottom: 7.5px solid #ca1579 !important;
+    content: "";
+    position: absolute;
+}

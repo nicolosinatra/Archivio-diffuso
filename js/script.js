@@ -1095,42 +1095,24 @@ const campo_sonoro_casa_prova = turf.polygon([[
     });
 
 
-    // Set an event listener that fires when a trackuserlocationstart event occurs.
-    geolocate.on('trackuserlocationstart', () => {
-        console.log('A trackuserlocationstart event has occurred.');
-    });
 
-    function isNumber(value) {
-        return typeof value === 'number';
-    }
-
-
-    var user_latitude;
-    var user_longitude;
 
     function success(pos) {
     user_coords = pos.coords;
-
-    user_latitude = parseFloat(user_coords.latitude);
-    user_longitude = parseFloat(user_coords.longitude);
 
     console.log("Your current position is:");
     console.log(`Latitude : ${user_coords.latitude}`);
     console.log(`Longitude: ${user_coords.longitude}`);
     console.log(`More or less ${user_coords.accuracy} meters.`);
 
-    console.log(isNumber(user_latitude));
-
     var user = turf.point([parseFloat(user_coords.longitude), parseFloat(user_coords.latitude)]);
-//     var poly = turf.polygon([[
-//   [-81, 41],
-//   [-81, 47],
-//   [-72, 47],
-//   [-72, 41],
-//   [-81, 41]
-//     ]]);
+    console.log("user dentro:"+ turf.booleanPointInPolygon(user, campo_sonoro_casa_prova));
 
-   console.log("user dentro:"+ turf.booleanPointInPolygon(user, campo_sonoro_casa_prova));
+    if(turf.booleanPointInPolygon(user, campo_sonoro_casa_prova)){
+        jQuery(".dentro_fuori").text("dentro");
+    }else{
+        jQuery(".dentro_fuori").text("fuori");
+    }
 
     }
 

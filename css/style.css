@@ -25,10 +25,16 @@ body { margin: 0; padding: 0; }
 }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 .mapboxgl-user-location-dot, .mapboxgl-user-location-dot::before{
-    background-color: #ca1579 !important;
+    background-color: #000000 !important;
 }
 .mapboxgl-user-location-show-heading .mapboxgl-user-location-heading:after, .mapboxgl-user-location-show-heading .mapboxgl-user-location-heading:before {
-    border-bottom: 7.5px solid #ca1579 !important;
+    border-bottom: 7.5px solid #000000 !important;
     content: "";
     position: absolute;
+}
+.mapboxgl-user-location-accuracy-circle {
+    background-color: #8b8b8b33 !important;
+    border-radius: 100%;
+    height: 1px;
+    width: 1px;
 }

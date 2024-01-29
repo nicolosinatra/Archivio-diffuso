@@ -3,7 +3,8 @@ const map = new mapboxgl.Map({
     container: 'map', // container ID
     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
     // style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    style: 'mapbox://styles/nicolosinatra/clmnjwye901wi01r4h6n9fekx', // style URL
+    // style: 'mapbox://styles/nicolosinatra/clmnjwye901wi01r4h6n9fekx', // style URL
+    style: 'mapbox://styles/mapbox/satellite-v9',
     center: [-24, 42], // starting center in [lng, lat]
     zoom: 1 // starting zoom
 });

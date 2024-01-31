@@ -8,6 +8,10 @@ const map = new mapboxgl.Map({
     zoom: 1 // starting zoom
 });
 
+var lat_prova=0;
+var lng_prova=0;
+
+var user_coords;
 
 const campo_sonoro_economia_corporativa_prova = turf.polygon([[
         [12.910300517671601,43.91176306150258],
@@ -1092,35 +1096,45 @@ const campo_sonoro_casa_prova = turf.polygon([[
     map.addControl(geolocate);
     map.on('load', () => {
         geolocate.trigger();
+        
     });
 
-
-
+    geolocate.on('trackuserlocationstart', () => {
+        setInterval(dammi_posizione, 5000);
+        // var user = turf.point([parseFloat(user_coords.longitude), parseFloat(user_coords.latitude)]);
+        // console.log("user dentro:"+ turf.booleanPointInPolygon(user, campo_sonoro_casa_prova));
+    
+        // if(turf.booleanPointInPolygon(user, campo_sonoro_casa_prova)){
+        //     jQuery(".dentro_fuori").text("dentro");
+        // }else{
+        //     jQuery(".dentro_fuori").text("fuori");
+        // }
+    });
+    
+    function aggiorna_posizione(){
+        lat_prova = lat_prova +1;
+        lng_prova = lng_prova +1;
+        console.log(lat_prova,lng_prova);
+    }
 
     function success(pos) {
     user_coords = pos.coords;
 
     console.log("Your current position is:");
-    console.log(`Latitude : ${user_coords.latitude}`);
+    console.log("Latitude :" + user_coords.latitude);
     console.log(`Longitude: ${user_coords.longitude}`);
     console.log(`More or less ${user_coords.accuracy} meters.`);
 
-    var user = turf.point([parseFloat(user_coords.longitude), parseFloat(user_coords.latitude)]);
-    console.log("user dentro:"+ turf.booleanPointInPolygon(user, campo_sonoro_casa_prova));
-
-    if(turf.booleanPointInPolygon(user, campo_sonoro_casa_prova)){
-        jQuery(".dentro_fuori").text("dentro");
-    }else{
-        jQuery(".dentro_fuori").text("fuori");
     }
 
+    // call locate every 1 second... forever
+    //setInterval(navigator.geolocation.getCurrentPosition(success), 1000);
+    
+
+    function dammi_posizione(){
+        navigator.geolocation.getCurrentPosition(success);
     }
 
-    // call locate every 3 seconds... forever
-    // setInterval(navigator.geolocation.getCurrentPosition(success), 3000);
-
-    navigator.geolocation.getCurrentPosition(success);
-
-
+    
 
 //});

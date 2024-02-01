@@ -787,6 +787,7 @@ function success(pos) {
     user_lng = user_crd.longitude;
     user_lat = user_crd.latitude;
 
+    map.setCenter([user_lng, user_lat]);
     console.log("Your current position is:");
     console.log("Latitude : " + user_lat);
     console.log(`Longitude: ${user_lng}`);

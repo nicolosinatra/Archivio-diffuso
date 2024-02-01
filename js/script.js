@@ -16,6 +16,8 @@ let id_posizione_aggiornata;
 let posizione_da_raggiungere;
 let options;
 
+
+
 const campo_sonoro_economia_corporativa_prova = turf.polygon([[
         [12.910300517671601,43.91176306150258],
         [12.910281959159315,43.91176240468912],
@@ -499,7 +501,7 @@ const campo_sonoro_casa_prova = turf.polygon([[
 
 
 
-const campo_sonoro_tabaccheria = turf.poligon([[
+const campo_sonoro_tabaccheria = turf.polygon([[
     [
         12.916044561733713,
         43.915397789466084
@@ -760,9 +762,7 @@ const campo_sonoro_tabaccheria = turf.poligon([[
         12.916044561733713,
         43.915397789466084
       ]
-]])
-
-
+]]);
 
 const geolocate = new mapboxgl.GeolocateControl({
     positionOptions: {
@@ -778,6 +778,8 @@ map.addControl(geolocate);
 map.on('load', () => {
     geolocate.trigger();      
 });
+
+
 
 
 function success(pos) {

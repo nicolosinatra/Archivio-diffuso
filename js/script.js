@@ -1,13 +1,13 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xvc2luYXRyYSIsImEiOiJjbGs4ZTd0aWowaXNqM2ZybzEzYmplaGF3In0.zJYGpj2MF2Nw8M8XHuXc8Q';
+
 var map = new mapboxgl.Map({
     container: 'map', // container ID
     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
     // style: 'mapbox://styles/mapbox/streets-v12', // style URL
     style: 'mapbox://styles/nicolosinatra/clmnjwye901wi01r4h6n9fekx', // style URL
-    center: [-24, 42], // starting center in [lng, lat]
-    zoom: 1 // starting zoom
+    center: [-12.9, 43.9], // starting center in [lng, lat]
+    zoom: 15.2 // starting zoom
 });
-
 
 var user_lat;
 var user_lng;
@@ -15,8 +15,6 @@ var user_lng;
 let id_posizione_aggiornata;
 let posizione_da_raggiungere;
 let options;
-
-
 
 const campo_sonoro_economia_corporativa_prova = turf.polygon([[
         [12.910300517671601,43.91176306150258],
@@ -778,8 +776,6 @@ map.addControl(geolocate);
 map.on('load', () => {
     geolocate.trigger();      
 });
-
-
 
 
 function success(pos) {

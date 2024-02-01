@@ -523,6 +523,17 @@ function success(pos) {
     console.log(`Longitude: ${user_lng}`);
     console.log(`More or less ${user_crd.accuracy} meters.`);
 
+    // $('.dentro_fuori').text(user_lng + ", "+ user_lat);
+
+    var user = turf.point([parseFloat(user_lng), parseFloat(user_lat)]);
+        console.log("user dentro:"+ turf.booleanPointInPolygon(user, campo_sonoro_casa_prova));
+    
+        if(turf.booleanPointInPolygon(user, campo_sonoro_casa_prova)){
+            jQuery(".dentro_fuori").text("dentro, " + user_lng + ", "+ user_lat);
+        }else{
+            jQuery(".dentro_fuori").text("fuori, " + user_lng + ", "+ user_lat);
+        }
+
     // per verificare se sono arrivato a destinazione
     /* if (posizione_da_raggiungere.latitude === user_crd.latitude && posizione_da_raggiungere.longitude === user_crd.longitude) {
         console.log("Congratulations, you reached the target");

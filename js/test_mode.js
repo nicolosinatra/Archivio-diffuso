@@ -17,6 +17,12 @@ var tracce_sonore = {
 
 var voce_narrante_economia_corporativa = new Howl({
   src: 'audio/voce_giorgio.mp3',
+  // autoplay: true,
+  loop: true,
+  volume: 1,
+  // onend: function() {
+  //   console.log('Finished!');
+  // }
   onplayerror: function() {
     voce_narrante_economia_corporativa.once('unlock', function() {
       voce_narrante_economia_corporativa.play();
@@ -24,8 +30,15 @@ var voce_narrante_economia_corporativa = new Howl({
   }
 });
 
+
 var suono1 = new Howl({
   src: 'audio/suono_1.mp3',
+  // autoplay: true,
+  loop: true,
+  volume: 1,
+  // onend: function() {
+  //   console.log('Finished!');
+  // }
   onplayerror: function() {
     suono1.once('unlock', function() {
       suono1.play();
@@ -35,6 +48,12 @@ var suono1 = new Howl({
 
 var suono2 = new Howl({
   src: 'audio/suono_2.mp3',
+  // autoplay: true,
+  loop: true,
+  volume: 1,
+  // onend: function() {
+  //   console.log('Finished!');
+  // }
   onplayerror: function() {
     suono2.once('unlock', function() {
       suono2.play();
@@ -44,6 +63,12 @@ var suono2 = new Howl({
 
 var suono3 = new Howl({
   src: 'audio/suono_3.mp3',
+  // autoplay: true,
+  loop: true,
+  volume: 1,
+  // onend: function() {
+  //   console.log('Finished!');
+  // }
   onplayerror: function() {
     suono3.once('unlock', function() {
       suono3.play();
@@ -776,12 +801,18 @@ map.on('load', () => {
               }
               if(turf.booleanPointInPolygon(user_turf, campo_sonoro_fronte_economia_corporativa)){
                 jQuery(".dentro_fuori").text("dentro area voce e dentro area fronte economia corporativa, " + user_lng + ", " + user_lat);
+                if(tracce_sonore.suono_1 == "off"){
+                  tracce_sonore.suono_1 = "on";
+                  suono1.play();
+                }
               }
-            }else if(turf.booleanPointInPolygon(user_turf, campo_sonoro_fronte_economia_corporativa)){
-              jQuery(".dentro_fuori").text("dentro area fronte economia corporativa, " + user_lng + ", " + user_lat);
             }else{
                 // console.log("fuori");
                 jQuery(".dentro_fuori").text("fuori, " + user_lng + ", " + user_lat);
+                voce_economia_corporativa.pause();
+                suono1.pause();
+                tracce_sonore.voce_narrante = "off";
+                tracce_sonore.suono_1 = "off";
             }
         }else{
             // Set the coordinates of the original point back to origin

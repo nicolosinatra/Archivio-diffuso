@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="div_verifica_dentro_fuori"><p class="dentro_fuori">loading</p></div>
     <div id="map"></div>
     <div class="overlay">
         <button id="play">Play</button>
@@ -17,6 +18,7 @@
     </div>
     <pre id="info"></pre>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
     mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xvc2luYXRyYSIsImEiOiJjbGs4ZTd0aWowaXNqM2ZybzEzYmplaGF3In0.zJYGpj2MF2Nw8M8XHuXc8Q';
     const map = new mapboxgl.Map({
@@ -469,6 +471,21 @@
                 user.features[0].geometry.coordinates = [mouse_lng, mouse_lat];
                 // Update the source with this new data
                 map.getSource('point').setData(user);
+
+                let user_lng = mouse_lng;
+                let user_lat = mouse_lat;
+                
+                // Verificare se e dentro quale campo sonoro si trova l'utente
+                let user_turf = turf.point([parseFloat(user_lng), parseFloat(user_lat)]);
+                // console.log("user dentro:"+ turf.booleanPointInPolygon(user_turf, campo_sonoro_fronte_economia_corporativa));
+            
+                if(turf.booleanPointInPolygon(user_turf, campo_sonoro_fronte_economia_corporativa)){
+                    // console.log("dentro");
+                    jQuery(".dentro_fuori").text("dentro area fronte economia corporativa, " + user_lng + ", " + user_lat);
+                }else{
+                    // console.log("fuori");
+                    jQuery(".dentro_fuori").text("fuori, " + user_lng + ", " + user_lat);
+                }
             }else{
                 // Set the coordinates of the original point back to origin
                 user.features[0].geometry.coordinates = origin;
@@ -508,9 +525,11 @@
         // console.log("user dentro:"+ turf.booleanPointInPolygon(user_turf, campo_sonoro_fronte_economia_corporativa));
     
         if(turf.booleanPointInPolygon(user_turf, campo_sonoro_fronte_economia_corporativa)){
-            console.log("dentro");
+            // console.log("dentro");
+            jQuery(".dentro_fuori").text("dentro area fronte economia corporativa, " + user_lng + ", " + user_lat);
         }else{
-            console.log("fuori");
+            // console.log("fuori");
+            jQuery(".dentro_fuori").text("fuori, " + user_lng + ", " + user_lat);
         }
 
         // Calculate the bearing to ensure the icon is rotated to match the route arc

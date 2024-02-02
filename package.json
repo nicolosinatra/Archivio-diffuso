@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@turf/boolean-point-in-polygon": "^6.5.0"
+  }
+}

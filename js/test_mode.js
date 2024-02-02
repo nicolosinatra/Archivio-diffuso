@@ -30,7 +30,6 @@ var voce_narrante_economia_corporativa = new Howl({
   }
 });
 
-
 var suono1 = new Howl({
   src: 'audio/suono_1.mp3',
   // autoplay: true,
@@ -794,9 +793,13 @@ map.on('load', () => {
         
             if(turf.booleanPointInPolygon(user_turf, voce_economia_corporativa)){
               // console.log("dentro");
-              jQuery(".dentro_fuori").text("dentro area voce economia corporativa, " + user_lng + ", " + user_lat);
+              jQuery(".dentro_fuori").text("dentro area voce economia corporativa, " + user_lng + ", " + user_lat + " " + tracce_sonore.voce_narrante);
               if(tracce_sonore.voce_narrante == "off"){
                 tracce_sonore.voce_narrante = "on";
+                
+                voce_narrante_economia_corporativa.on('play', function(){
+                  voce_narrante_economia_corporativa.fade(0, 1, 1000);
+                });
                 voce_narrante_economia_corporativa.play();
               }
               if(turf.booleanPointInPolygon(user_turf, campo_sonoro_fronte_economia_corporativa)){
@@ -808,11 +811,13 @@ map.on('load', () => {
               }
             }else{
                 // console.log("fuori");
-                jQuery(".dentro_fuori").text("fuori, " + user_lng + ", " + user_lat);
-                voce_economia_corporativa.pause();
-                suono1.pause();
-                tracce_sonore.voce_narrante = "off";
-                tracce_sonore.suono_1 = "off";
+                jQuery(".dentro_fuori").text("fuori, " + user_lng + ", " + user_lat + " " + tracce_sonore.voce_narrante);
+                if(tracce_sonore.voce_narrante == "on"){
+                  tracce_sonore.voce_narrante = "off";
+                  
+                  voce_narrante_economia_corporativa.fade(1, 0, 1000);
+                  setTimeout(function() {voce_narrante_economia_corporativa.pause();}, 1000);
+                }
             }
         }else{
             // Set the coordinates of the original point back to origin

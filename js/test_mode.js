@@ -8,13 +8,10 @@ const map = new mapboxgl.Map({
     zoom: 15.2, // starting zoom
 });
 
-var voce_narrante_economia_corporativa = new Audio("audio/voce_giorgio.aac");
+var voce_narrante_economia_corporativa = new Audio("audio/voce_giorgio.mp3");
 
 
-import Man from 'img/man.svg';
 
-const imageMan = new Image();
-imageMan.src = Man;
 
 // Corso XI settembre
 const origin = [12.910316279411177, 43.91162447859239];
@@ -630,6 +627,8 @@ let mouse = false;
 var mouse_pos = {};
 
 map.on('load', () => {
+    map.addImage('man', imageMan);
+
     // Add a source and layer displaying a point which will be animated in a circle.
     map.addSource('route', {
     'type': 'geojson',
@@ -652,8 +651,6 @@ map.on('load', () => {
     }
     });
 
-    map.addImage('man', imageMan);
-
     // rende visibile il punto creato definendone lo stile sulla mappa (cat)
     map.addLayer({
     'id': 'point',
@@ -665,7 +662,7 @@ map.on('load', () => {
         // the style in Mapbox Studio and click the "Images" tab.
         // To add a new image to the style at runtime see
         // https://docs.mapbox.com/mapbox-gl-js/example/add-image/
-        'icon-image': 'man',
+        'icon-image': 'cat',
         'icon-size': 0.25,
         'icon-rotate': ['get', 'bearing'],
         'icon-rotation-alignment': 'map',

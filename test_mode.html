@@ -12,7 +12,7 @@
 <body>
     <div id="map"></div>
     <div class="overlay">
-    <button id="replay">Replay</button>
+    <button id="play">Play</button>
     </div>
     
     <script>
@@ -39,18 +39,48 @@
     
     // A simple line from origin to destination.
     const percorso = {
-        'type': 'FeatureCollection',
-        'features': [
+        "type": "FeatureCollection",
+        "features": [
         {
-        'type': 'Feature',
-        'geometry': {
-        'type': 'LineString',
-        'coordinates': [origin, destination]
-    }
-    }
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                [
+                    12.910316279411177,
+                    43.91162447859239
+                ],
+                [
+                    12.91009283956268,
+                    43.91171789767614
+                ],
+                [
+                    12.910414034345024,
+                    43.9120886981332
+                ],
+                [
+                    12.910557674247258,
+                    43.91205133075002
+                ],
+                [
+                    12.910557674247258,
+                    43.912249665054134
+                ],
+                [
+                    12.910781114095812,
+                    43.91227409749493
+                ]
+                ] 
+            }
+        }
     ]
     };
     
+
+    
+
+
     // A single point that animates along the route.
     // Coordinates are initially set to origin.
     const user = {
@@ -123,7 +153,7 @@
         // To add a new image to the style at runtime see
         // https://docs.mapbox.com/mapbox-gl-js/example/add-image/
         'icon-image': 'cat',
-        'icon-size': 0.15,
+        'icon-size': 0.1,
         'icon-rotate': ['get', 'bearing'],
         'icon-rotation-alignment': 'map',
         'icon-allow-overlap': true,
@@ -132,9 +162,30 @@
     });
     
     let running = false;
+    
+    document.getElementById('play').addEventListener('click', () => {
+    if (running) {
+        void 0;
+    } else {
+        // Set the coordinates of the original point back to origin
+        user.features[0].geometry.coordinates = origin;
+        
+        // Update the source layer
+        map.getSource('point').setData(user);
+        
+        // Reset the counter
+        counter = 0;
+        
+        // Start the animation
+        animate(counter);
+    }
+    });
+    
+    });
+
     function animate() {
-        running = false;
-        document.getElementById('replay').disabled = true;
+        running = true;
+        document.getElementById('play').disabled = true;
         const start =
         percorso.features[0].geometry.coordinates[
             counter >= steps ? counter - 1 : counter
@@ -145,7 +196,7 @@
         ];
         if (!start || !end) {
             running = false;
-            document.getElementById('replay').disabled = false;
+            document.getElementById('play').disabled = false;
             return;
         }
         // Update point geometry to a new position based on counter denoting
@@ -167,28 +218,6 @@
         
         counter = counter + 1;
     }
-    
-    document.getElementById('replay').addEventListener('click', () => {
-    if (running) {
-        void 0;
-    } else {
-        // Set the coordinates of the original point back to origin
-        user.features[0].geometry.coordinates = origin;
-        
-        // Update the source layer
-        map.getSource('point').setData(user);
-        
-        // Reset the counter
-        counter = 0;
-        
-        // Restart the animation
-        animate(counter);
-    }
-    });
-    
-    // Start the animation
-    animate(counter);
-    });
     </script>
 </body>
 </html>

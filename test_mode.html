@@ -6,41 +6,40 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
-    
     <div id="map"></div>
     <div class="overlay">
     <button id="replay">Replay</button>
     </div>
     
     <script>
-        mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xvc2luYXRyYSIsImEiOiJjbGs4ZTd0aWowaXNqM2ZybzEzYmplaGF3In0.zJYGpj2MF2Nw8M8XHuXc8Q';
+    mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xvc2luYXRyYSIsImEiOiJjbGs4ZTd0aWowaXNqM2ZybzEzYmplaGF3In0.zJYGpj2MF2Nw8M8XHuXc8Q';
     const map = new mapboxgl.Map({
-    container: 'map',
-    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio,
-    style: 'mapbox://styles/mapbox/dark-v11',
-    center: [-96, 37.8],
-    zoom: 3,
-    pitch: 40
+        container: 'map',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio,
+        style: 'mapbox://styles/nicolosinatra/cls3jivia017a01r43t30fajm',
+        center: [-12.9, 43.9], // starting center in [lng, lat]
+        zoom: 15.2, // starting zoom
     });
     
-    // San Francisco
-    const origin = [-122.414, 37.776];
+    // Corso XI settembre
+    const origin = [12.910316279411177, 43.91162447859239];
     
-    // Washington DC
-    const destination = [-77.032, 38.913];
+    // Piazzale I maggio
+    const destination = [12.910781114095812, 43.91227409749493];
     
     // A simple line from origin to destination.
     const route = {
-    'type': 'FeatureCollection',
-    'features': [
-    {
-    'type': 'Feature',
-    'geometry': {
-    'type': 'LineString',
-    'coordinates': [origin, destination]
+        'type': 'FeatureCollection',
+        'features': [
+        {
+        'type': 'Feature',
+        'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination]
     }
     }
     ]
@@ -49,14 +48,14 @@
     // A single point that animates along the route.
     // Coordinates are initially set to origin.
     const point = {
-    'type': 'FeatureCollection',
-    'features': [
-    {
-    'type': 'Feature',
-    'properties': {},
-    'geometry': {
-    'type': 'Point',
-    'coordinates': origin
+        'type': 'FeatureCollection',
+        'features': [
+        {
+        'type': 'Feature',
+        'properties': {},
+        'geometry': {
+        'type': 'Point',
+        'coordinates': origin
     }
     }
     ]

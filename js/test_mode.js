@@ -11,12 +11,10 @@ const map = new mapboxgl.Map({
 var voce_narrante_economia_corporativa = new Audio("audio/voce_giorgio.aac");
 
 
+import Man from 'img/man.svg';
 
-
-map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', (error, image) => {
-    if (error) throw error;
-    if (!map.hasImage('cat')) map.addImage('cat', image, image);
-});
+const imageMan = new Image();
+imageMan.src = Man;
 
 // Corso XI settembre
 const origin = [12.910316279411177, 43.91162447859239];
@@ -653,6 +651,9 @@ map.on('load', () => {
         'line-color': '#007cbf'
     }
     });
+
+    map.addImage('man', imageMan);
+
     // rende visibile il punto creato definendone lo stile sulla mappa (cat)
     map.addLayer({
     'id': 'point',
@@ -664,8 +665,8 @@ map.on('load', () => {
         // the style in Mapbox Studio and click the "Images" tab.
         // To add a new image to the style at runtime see
         // https://docs.mapbox.com/mapbox-gl-js/example/add-image/
-        'icon-image': 'cat',
-        'icon-size': 0.1,
+        'icon-image': 'man',
+        'icon-size': 0.25,
         'icon-rotate': ['get', 'bearing'],
         'icon-rotation-alignment': 'map',
         'icon-allow-overlap': true,

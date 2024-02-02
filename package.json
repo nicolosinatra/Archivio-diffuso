@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@turf/boolean-point-in-polygon": "^6.5.0"
+    "@turf/boolean-point-in-polygon": "^6.5.0",
+    "howler": "^2.2.4"
   }
 }

@@ -8,7 +8,15 @@ const map = new mapboxgl.Map({
     zoom: 15.2, // starting zoom
 });
 
-var voce_narrante_economia_corporativa = new Audio("audio/voce_giorgio.mp3");
+var voce_narrante_economia_corporativa = new Howl({
+  src: ['audio/voce_giorgio.mp3'],
+  onplayerror: function() {
+    sound.once('unlock', function() {
+      sound.play();
+    });
+  }
+});
+
 
 
 

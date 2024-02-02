@@ -9,16 +9,19 @@ const map = new mapboxgl.Map({
 });
 
 var voce_narrante_economia_corporativa = new Howl({
-  src: ['audio/voce_giorgio.mp3'],
+  src: 'audio/voce_giorgio.mp3',
   onplayerror: function() {
-    sound.once('unlock', function() {
-      sound.play();
+    voce_narrante_economia_corporativa.once('unlock', function() {
+      voce_narrante_economia_corporativa.play();
     });
   }
 });
 
 
-
+map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', (error, image) => {
+if (error) throw error;
+if (!map.hasImage('cat')) map.addImage('cat', image);
+});
 
 
 // Corso XI settembre
@@ -734,8 +737,7 @@ map.on('load', () => {
             if(turf.booleanPointInPolygon(user_turf, campo_sonoro_fronte_economia_corporativa)){
                 // console.log("dentro");
                 jQuery(".dentro_fuori").text("dentro area fronte economia corporativa, " + user_lng + ", " + user_lat);
-                var nuovo_voce_economia_corporativa = voce_narrante_economia_corporativa.cloneNode(true); 
-                nuovo_voce_economia_corporativa.play();
+                voce_narrante_economia_corporativa.play();
             }else{
                 // console.log("fuori");
                 jQuery(".dentro_fuori").text("fuori, " + user_lng + ", " + user_lat);

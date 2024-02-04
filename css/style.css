@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Arc';
+    src: url('../fonts/ArcVF.ttf');
+    }
+
 body { margin: 0; padding: 0; }
 /* #consenso_localizzazione{
     background-color: aquamarine;
@@ -8,6 +13,12 @@ body { margin: 0; padding: 0; }
     left: 50vw;
     z-index: 5;
 } */
+
+.arc_home {
+    font-family: 'Arc';
+    font-variation-settings: 'wdth' 26, 'wght' 370;
+}
+
 .div_verifica_dentro_fuori{
     background-color: rgb(0, 0, 0);
     position: fixed;

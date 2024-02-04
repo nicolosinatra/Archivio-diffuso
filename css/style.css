@@ -8,19 +8,24 @@ body.index{
 }
 
 .row-arc{
-    height: 33vh;
-    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    padding: 20px 0;
     margin: 0;
 }
 
-.arc_home {
+.p-arc {
     font-family: 'Arc';
     font-variation-settings: 'wdth' 26, 'wght' 370, 'hght' 1, 'CNTR' 1;
-    font-size: 100%;
+    font-size: 100vh;
     padding: 0;
     margin: 0;
-    line-height: 0.8;
+    line-height: 0.75;
     color: #fff;
+}
+
+.p-arc-frst{
+    padding-top: 5px;
 }
 
 .col-m{

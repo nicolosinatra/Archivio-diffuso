@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Arc';
-    src: url('/fonts/ArcVF.ttf');
+    src: url('/fonts/ArcVF.woff2') format("woff2");
     }
 
 body.index{

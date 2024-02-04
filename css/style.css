@@ -3,20 +3,35 @@
     src: url('../fonts/ArcVF.ttf');
     }
 
-body.mappa { margin: 0; padding: 0; }
-
 body.index{
     background-color: #000000;
 }
 
+.row-arc{
+    height: 33vh;
+    padding: 0;
+    margin: 0;
+}
+
 .arc_home {
     font-family: 'Arc';
-    font-variation-settings: 'wdth' 26, 'wght' 370;
-    font-size: 40vh;
+    font-variation-settings: 'wdth' 26, 'wght' 370, 'hght' 1, 'CNTR' 1;
+    font-size: 100%;
     padding: 0;
     margin: 0;
     line-height: 0.8;
     color: #fff;
+}
+
+.col-m{
+    margin: 30px;
+}
+
+/* ----------------------------------------------- mappa ----------------------- */
+
+body.mappa { 
+    margin: 0; 
+    padding: 0; 
 }
 
 .div_verifica_dentro_fuori{

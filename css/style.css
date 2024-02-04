@@ -18,7 +18,7 @@ body.index{
 .p-arc {
     font-family: 'ArcVF';
     font-weight: 370;
-    font-stretch: 10%;
+    font-stretch: 50%;
     font-variation-settings: 'hght' 1, 'CNTR' 1;
     font-size: 41vh;
     padding: 0;

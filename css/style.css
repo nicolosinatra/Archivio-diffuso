@@ -3,20 +3,20 @@
     src: url('../fonts/ArcVF.ttf');
     }
 
-body { margin: 0; padding: 0; }
-/* #consenso_localizzazione{
-    background-color: aquamarine;
-    position: fixed;
-    padding: 10px;
-    border-radius: 10%;
-    bottom: 20vh;
-    left: 50vw;
-    z-index: 5;
-} */
+body.mappa { margin: 0; padding: 0; }
+
+body.index{
+    background-color: #000000;
+}
 
 .arc_home {
     font-family: 'Arc';
     font-variation-settings: 'wdth' 26, 'wght' 370;
+    font-size: 40vh;
+    padding: 0;
+    margin: 0;
+    line-height: 0.8;
+    color: #fff;
 }
 
 .div_verifica_dentro_fuori{

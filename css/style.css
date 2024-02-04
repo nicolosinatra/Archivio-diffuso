@@ -1,6 +1,8 @@
 @font-face {
-    font-family: 'Arc';
-    src: url('../fonts/ArcVF.woff2') format("woff2");
+    font-family: 'ArcVF';
+    src: url('../fonts/ArcVF.woff2') format("woff2-variations"),
+         url('../fonts/ArcVF.woff') format("woff-variations"),
+         url('../fonts/ArcVF.ttf') format("ttf-variations"),
     }
 
 body.index{
@@ -14,8 +16,10 @@ body.index{
 }
 
 .p-arc {
-    font-family: 'Arc';
-    font-variation-settings: 'wdth' 26, 'wght' 370, 'hght' 1, 'CNTR' 1;
+    font-family: 'ArcVF';
+    font-weight: 370;
+    font-stretch: 10%;
+    font-variation-settings: 'hght' 1, 'CNTR' 1;
     font-size: 41vh;
     padding: 0;
     margin: 0;

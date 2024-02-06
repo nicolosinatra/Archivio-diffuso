@@ -838,14 +838,3 @@ id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, op
 
 
 
-// --------------------------------------------------------------------------------------- Variable font
-
-function updateText(e) {
-  multiplierWidth = e.offsetX / window.innerWidth;
-  multiplierHeight = e.offsetY / window.innerHeight;
-  randomWeight =  multiplierWidth * (200 - 35) + 35;
-  randomWidth =  multiplierHeight * (200 - 100) + 100;
-  jQuery(".p-arc").style.fontVariationSettings = "\"wght\" " + randomWeight + ", \"wdth\" " + randomWidth;
-}
-
-window.addEventListener("mousemove", updateText)

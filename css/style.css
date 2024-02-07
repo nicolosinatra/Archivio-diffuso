@@ -14,11 +14,14 @@
 
 @font-face {
     font-family: 'HyperCubeVF';
-    src: url('../fonts/00HypercubeVariableNon-Commercial-Regular.ttf') format("ttf-variations"),
+    src: url('../fonts/HypercubeVariableNonCommercialRegular.woff2') format("woff2-variations"),
+         url('../fonts/HypercubeVariableNonCommercialRegular.woff') format("woff-variations"),
+         url('../fonts/HypercubeVariableNonCommercialRegular.ttf') format("ttf-variations"),
     }
 
 body.index{
     background-color: #000000;
+    font-family: 'HyperCubeVF';
 }
 
 .div-arc{
@@ -40,9 +43,20 @@ body.index{
     margin: 0;
 }
 
+.a-arc {
+    font-variation-settings: 'hght' 1, 'CNTR' 1;
+}
+
+.r-arc {
+    font-variation-settings: 'hght' 1, 'CNTR' 1;
+}
+
+.c-arc {
+    font-variation-settings: 'hght' 1, 'CNTR' 1;
+}
+
 .p-arc {
     font-family: 'ArcVF';
-    font-variation-settings: 'hght' 1, 'CNTR' 1;
     /* font-stretch: 20%; */
     font-weight: 370;
     /* font-size: 41vh;
@@ -65,16 +79,18 @@ body.index{
     font-family: 'HyperCubeVF';
     font-weight: 300;
     font-size: 1.2em;
+    line-height: 1.2;
     color: #fff;
     position: fixed;
-    bottom: 100px;
-    left: 80px;
+    width: 60vw;
+    top: 60px; 
+    left: 60px;
 }
 
 .inizia{
     position: fixed;
-    bottom: 60px;
-    left: 80px;
+    bottom: 40px;
+    left: 60px;
     text-decoration: inherit;
 }
 

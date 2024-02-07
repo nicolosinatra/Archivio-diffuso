@@ -9,6 +9,7 @@ var rangeMaxOriginale = 5590;
 
 var fontVariations = {
   height: 1,
+  height_a: 1,
   CNTR: 1
 };
 
@@ -35,6 +36,9 @@ $( document ).ready(function() {
   function randomValues() {
     anime({
       targets: fontVariations,
+      height_a: function() {
+        return anime.random(1, 30);
+      },
       height: function() {
         return anime.random(1, 100);
       },
@@ -45,7 +49,9 @@ $( document ).ready(function() {
       duration: 1500,
       /* direction: 'alternate', */
       update: function() {
-        $('.p-arc').css('fontVariationSettings', "'CNTR'" + fontVariations.CNTR + "," + "'hght'" + fontVariations.height );
+        $('.a-arc').css('fontVariationSettings', "'CNTR'" + fontVariations.CNTR + "," + "'hght'" + fontVariations.height_a );
+        $('.r-arc').css('fontVariationSettings', "'CNTR'" + fontVariations.CNTR + "," + "'hght'" + fontVariations.height );
+        $('.c-arc').css('fontVariationSettings', "'CNTR'" + fontVariations.CNTR + "," + "'hght'" + fontVariations.height );
       },
       complete: randomValues
     }); 

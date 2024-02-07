@@ -1,11 +1,29 @@
 // --------------------------------------------------------------------------------------- Variable font
+function convertRange( value, r1, r2 ) { 
+  return ( value - r1[ 0 ] ) * ( r2[ 1 ] - r2[ 0 ] ) / ( r1[ 1 ] - r1[ 0 ] ) + r2[ 0 ];
+}
+
 $( document ).ready(function() {
   let winWidth = window.innerWidth;
   let winHeight = window.innerHeight;
 
-  let fontSize = winHeight / 2.5;
-  console.log(fontSize);
+  let rangeMinOriginale = 225;
+  let rangeMaxOriginale = 5590;
+
+  let fontSize = ((winHeight-100) / 3) / 70 * 100;
+
+  let rDisplay_Originale = fontSize / 933.33;
+
+  let rangeMinDisplay = rangeMinOriginale * rDisplay_Originale;
+  let rangeMaxDisplay = rangeMaxOriginale * rDisplay_Originale;
+
+  let valorePercentuale = convertRange((winWidth-60), [ rangeMinDisplay, rangeMaxDisplay ], [ 1, 100 ] );
+  
+  let fontWidth = valorePercentuale;
+
+  $('.inspect').css('width', window.innerWidth - 60 + "px");
   $('.p-arc').css('font-size', fontSize);
+  $('.p-arc').css('font-stretch', fontWidth + "%");
 });
 
 
@@ -36,14 +54,23 @@ function updateTextResize(){
   let winWidth = window.innerWidth;
   let winHeight = window.innerHeight;
 
-  let fontSize = (winHeight-100) / 3 + ((winHeight-100) / 3 / 100 * 30);
-  let fontWidth = winWidth / 22;
+  let rangeMinOriginale = 225;
+  let rangeMaxOriginale = 5590;
 
-  console.log(fontSize, fontWidth);
+  let fontSize = ((winHeight-100) / 3) / 70 * 100;
+
+  let rDisplay_Originale = fontSize / 933.33;
+
+  let rangeMinDisplay = rangeMinOriginale * rDisplay_Originale;
+  let rangeMaxDisplay = rangeMaxOriginale * rDisplay_Originale;
+
+  let valorePercentuale = convertRange((winWidth-60), [ rangeMinDisplay, rangeMaxDisplay ], [ 1, 100 ] );
+  
+  let fontWidth = valorePercentuale;
+
+  $('.inspect').css('width', window.innerWidth - 60 + "px");
   $('.p-arc').css('font-size', fontSize);
   $('.p-arc').css('font-stretch', fontWidth + "%");
-
-  console.log(winHeight + ", " + winWidth);
 }
 
 window.addEventListener("mousemove", updateTextMouse)

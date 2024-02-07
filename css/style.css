@@ -87,6 +87,18 @@ body.index{
     left: 60px;
 }
 
+.abstract-home-2{
+    font-family: 'HyperCubeVF';
+    font-weight: 300;
+    font-size: 1.2em;
+    line-height: 1.2;
+    color: #fff;
+    position: fixed;
+    width: 60vw;
+    bottom: 18svh; 
+    left: 60px;
+}
+
 .inizia{
     position: fixed;
     bottom: 40px;

@@ -4,11 +4,17 @@
          url('../fonts/ArcVF.woff') format("woff-variations"),
          url('../fonts/ArcVF.ttf') format("ttf-variations"),
     }
+
 @font-face {
     font-family: 'Violet Sans';
     src: url('../fonts/VioletSans-Regular.woff2') format("woff2"),
          url('../fonts/VioletSans-Regular.woff') format("woff"),
          url('../fonts/VioletSans-Regular.ttf') format("ttf"),
+    }
+
+@font-face {
+    font-family: 'HyperCubeVF';
+    src: url('../fonts/00HypercubeVariableNon-Commercial-Regular.ttf') format("ttf-variations"),
     }
 
 body.index{
@@ -48,9 +54,28 @@ body.index{
     overflow: hidden;
 }
 
+.link-w{
+    font-family: 'Violet Sans';
+    font-size: 2.2em;
+    color: #fff;
+    text-decoration: underline;
+}
+
+.abstract-home{
+    font-family: 'HyperCubeVF';
+    font-weight: 300;
+    font-size: 1.2em;
+    color: #fff;
+    position: fixed;
+    bottom: 100px;
+    left: 80px;
+}
+
 .inizia{
     position: fixed;
-
+    bottom: 60px;
+    left: 80px;
+    text-decoration: inherit;
 }
 
 .inspect{

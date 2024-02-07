@@ -21,7 +21,7 @@ $( document ).ready(function() {
   
   let fontWidth = valorePercentuale;
 
-  $('.inspect').css('width', window.innerWidth - 60 + "px");
+  // $('.inspect').css('width', window.innerWidth - 60 + "px");
   $('.p-arc').css('font-size', fontSize);
   $('.p-arc').css('font-stretch', fontWidth + "%");
 });
@@ -36,15 +36,6 @@ function updateTextMouse(e) {
   // multiplierWidth e multiplierHeight vanno da 0 a 1 a seconda della posizione del mouse
   randomCNTR =  multiplierWidth * (100 - 1) + 1;
   randomHght =  multiplierHeight * (100 - 1) + 1;
-
-  // console.log("e.offsetX: " + e.offsetX);
-  // console.log("e.offsetY: " + e.offsetY);
-  // console.log("window.innerHeight: " + window.innerHeight);
-  // console.log("window.innerWidth: " + window.innerWidth);
-  // console.log("multiplierWidth: " +  multiplierWidth);
-  // console.log("multiplierHeight: " +  multiplierHeight);
-  // console.log("randomWeight: " +  randomWeight);
-  // console.log("randomWidth: " +  randomWidth);
 
   // myText.style.fontVariationSettings = "\"wght\" " + randomWeight + ", \"wdth\" " + randomWidth;
   $('.p-arc').css('fontVariationSettings', "'CNTR'" + randomCNTR + "," + "'hght'" + randomHght );

@@ -11,6 +11,10 @@ body.index{
 
 .div-arc{
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
     height: 100vh;
     height: 100svh;
     top: 50%;
@@ -26,13 +30,11 @@ body.index{
 
 .p-arc {
     font-family: 'ArcVF';
-    /* font-weight: 370;
-    font-stretch: 10%; */
     font-variation-settings: 'hght' 1, 'CNTR' 1;
-    font-stretch: 20%;
+    /* font-stretch: 20%; */
     font-weight: 370;
-    font-size: 41vh;
-    font-size: 41svh;
+    /* font-size: 41vh;
+    font-size: 41svh; */
     padding: 0;
     margin: 20px 0 0 0;
     line-height: 0.7;

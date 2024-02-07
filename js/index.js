@@ -3,12 +3,19 @@ function convertRange( value, r1, r2 ) {
   return ( value - r1[ 0 ] ) * ( r2[ 1 ] - r2[ 0 ] ) / ( r1[ 1 ] - r1[ 0 ] ) + r2[ 0 ];
 }
 
+
+var rangeMinOriginale = 225;
+var rangeMaxOriginale = 5590;
+
+var fontVariations = {
+  height: 1,
+  CNTR: 1
+};
+
+
 $( document ).ready(function() {
   let winWidth = window.innerWidth;
   let winHeight = window.innerHeight;
-
-  let rangeMinOriginale = 225;
-  let rangeMaxOriginale = 5590;
 
   let fontSize = ((winHeight-100) / 3) / 70 * 100;
 
@@ -24,29 +31,38 @@ $( document ).ready(function() {
   // $('.inspect').css('width', window.innerWidth - 60 + "px");
   $('.p-arc').css('font-size', fontSize);
   $('.p-arc').css('font-stretch', fontWidth + "%");
+
+  function randomValues() {
+    anime({
+      targets: fontVariations,
+      height: function() {
+        return anime.random(1, 100);
+      },
+      CNTR: function() {
+        return anime.random(1, 100);
+      },
+      easing: 'easeInOutQuad',
+      duration: 1500,
+      /* direction: 'alternate', */
+      update: function() {
+        $('.p-arc').css('fontVariationSettings', "'CNTR'" + fontVariations.CNTR + "," + "'hght'" + fontVariations.height );
+      },
+      complete: randomValues
+    }); 
+  }
+
+  randomValues();
+
+  if(winWidth > 700){
+    window.addEventListener("mousemove", updateTextMouse)
+  }else{
+    window.removeEventListener("mousemove", updateTextMouse);
+  }
 });
 
-
-function updateTextMouse(e) {
-  // window.innerWidth e window.innerHeight corrispondono a larghezza e altezza della finestra
-  // e.offsetX ed e.offsetY corrispondono 
-  multiplierWidth = e.clientX / window.innerWidth;
-  multiplierHeight = e.clientY / window.innerHeight;
-  
-  // multiplierWidth e multiplierHeight vanno da 0 a 1 a seconda della posizione del mouse
-  randomCNTR =  multiplierWidth * (100 - 1) + 1;
-  randomHght =  multiplierHeight * (100 - 1) + 1;
-
-  // myText.style.fontVariationSettings = "\"wght\" " + randomWeight + ", \"wdth\" " + randomWidth;
-  $('.p-arc').css('fontVariationSettings', "'CNTR'" + randomCNTR + "," + "'hght'" + randomHght );
-}
-
-function updateTextResize(){
+$( window ).resize(function() {
   let winWidth = window.innerWidth;
   let winHeight = window.innerHeight;
-
-  let rangeMinOriginale = 225;
-  let rangeMaxOriginale = 5590;
 
   let fontSize = ((winHeight-100) / 3) / 70 * 100;
 
@@ -62,8 +78,35 @@ function updateTextResize(){
   $('.inspect').css('width', window.innerWidth - 60 + "px");
   $('.p-arc').css('font-size', fontSize);
   $('.p-arc').css('font-stretch', fontWidth + "%");
+
+  if(winWidth > 700){
+    window.addEventListener("mousemove", updateTextMouse)
+  }else{
+    window.removeEventListener("mousemove", updateTextMouse);
+  }
+});
+
+
+function updateTextMouse(e) {
+  // window.innerWidth e window.innerHeight corrispondono a larghezza e altezza della finestra
+  // e.offsetX ed e.offsetY corrispondono 
+  // multiplierWidth = e.clientX / window.innerWidth;
+  multiplierHeight = e.clientY / window.innerHeight;
+  
+  // multiplierWidth e multiplierHeight vanno da 0 a 1 a seconda della posizione del mouse
+  // randomCNTR =  multiplierWidth * (100 - 1) + 1;
+  randomWght =  multiplierHeight * (700 - 1) + 1;
+
+  // myText.style.fontVariationSettings = "\"wght\" " + randomWeight + ", \"wdth\" " + randomWidth;
+  $('.p-arc').css('font-weight', randomWght);
 }
 
-window.addEventListener("mousemove", updateTextMouse)
+function randomizeText() {
+  // multiplierWidth e multiplierHeight vanno da 0 a 1 a seconda della posizione del mouse
+  randomCNTR =  Math.random() * (100 - 1) + 1;
+  randomHght =  Math.random() * (100 - 1) + 1;
 
-window.addEventListener("resize", updateTextResize)
+  // myText.style.fontVariationSettings = "\"wght\" " + randomWeight + ", \"wdth\" " + randomWidth;
+  $('.p-arc').css('fontVariationSettings', "'CNTR'" + randomCNTR + "," + "'hght'" + randomHght );
+}
+

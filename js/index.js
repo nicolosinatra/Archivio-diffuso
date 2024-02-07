@@ -79,27 +79,6 @@ $( window ).resize(function() {
   $('.p-arc').css('font-size', fontSize);
   $('.p-arc').css('font-stretch', fontWidth + "%");
 
-  function randomValues() {
-    anime({
-      targets: fontVariations,
-      height: function() {
-        return anime.random(1, 100);
-      },
-      CNTR: function() {
-        return anime.random(1, 100);
-      },
-      easing: 'easeInOutQuad',
-      duration: 1500,
-      /* direction: 'alternate', */
-      update: function() {
-        $('.p-arc').css('fontVariationSettings', "'CNTR'" + fontVariations.CNTR + "," + "'hght'" + fontVariations.height );
-      },
-      complete: randomValues
-    }); 
-  }
-
-  randomValues();
-
   if(winWidth > 700){
     window.addEventListener("mousemove", updateTextMouse)
   }else{
@@ -121,5 +100,3 @@ function updateTextMouse(e) {
   // myText.style.fontVariationSettings = "\"wght\" " + randomWeight + ", \"wdth\" " + randomWidth;
   $('.p-arc').css('font-weight', randomWght);
 }
-
-

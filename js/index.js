@@ -8,8 +8,9 @@ var rangeMinOriginale = 225;
 var rangeMaxOriginale = 5590;
 
 var fontVariations = {
-  height: 1,
   height_a: 1,
+  height_r: 1,
+  height_c: 1,
   CNTR: 1
 };
 
@@ -37,21 +38,24 @@ $( document ).ready(function() {
     anime({
       targets: fontVariations,
       height_a: function() {
-        return anime.random(1, 30);
+        return anime.random(1, 100);
       },
-      height: function() {
+      height_r: function() {
+        return anime.random(1, 100);
+      },
+      height_c: function() {
         return anime.random(1, 100);
       },
       CNTR: function() {
         return anime.random(1, 100);
       },
       easing: 'easeInOutQuad',
-      duration: 1500,
+      duration: 1200,
       /* direction: 'alternate', */
       update: function() {
         $('.a-arc').css('fontVariationSettings', "'CNTR'" + fontVariations.CNTR + "," + "'hght'" + fontVariations.height_a );
-        $('.r-arc').css('fontVariationSettings', "'CNTR'" + fontVariations.CNTR + "," + "'hght'" + fontVariations.height );
-        $('.c-arc').css('fontVariationSettings', "'CNTR'" + fontVariations.CNTR + "," + "'hght'" + fontVariations.height );
+        $('.r-arc').css('fontVariationSettings', "'CNTR'" + fontVariations.CNTR + "," + "'hght'" + fontVariations.height_r );
+        $('.c-arc').css('fontVariationSettings', "'CNTR'" + fontVariations.CNTR + "," + "'hght'" + fontVariations.height_c );
       },
       complete: randomValues
     }); 

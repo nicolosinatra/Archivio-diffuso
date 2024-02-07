@@ -101,9 +101,9 @@ body.index{
 
 .inizia{
     position: fixed;
-    bottom: 40px;
+    bottom: 50px;
     left: 60px;
-    text-decoration: inherit;
+    z-index: 5;
 }
 
 .inspect{

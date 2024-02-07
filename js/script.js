@@ -829,12 +829,3 @@ options = {
 
 id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options);
 
-
-
-
-
-
-
-
-
-

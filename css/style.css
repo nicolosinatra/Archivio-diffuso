@@ -4,6 +4,12 @@
          url('../fonts/ArcVF.woff') format("woff-variations"),
          url('../fonts/ArcVF.ttf') format("ttf-variations"),
     }
+@font-face {
+    font-family: 'Violet Sans';
+    src: url('../fonts/VioletSans-Regular.woff2') format("woff2"),
+         url('../fonts/VioletSans-Regular.woff') format("woff"),
+         url('../fonts/VioletSans-Regular.ttf') format("ttf"),
+    }
 
 body.index{
     background-color: #000000;
@@ -42,8 +48,9 @@ body.index{
     overflow: hidden;
 }
 
-.col-m{
-    margin: 30px;
+.inizia{
+    position: fixed;
+
 }
 
 .inspect{

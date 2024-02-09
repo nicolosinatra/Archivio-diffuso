@@ -78,13 +78,13 @@ body.index{
 .abstract-home{
     font-family: 'HyperCubeVF';
     font-weight: 300;
-    font-size: 1.2em;
+    font-size: 1.1em;
     line-height: 1.2;
     color: #fff;
     position: fixed;
-    width: 60vw;
-    top: 60px; 
-    left: 60px;
+    width: 34vw;
+    bottom: 205px; 
+    right: 30px;
 }
 
 .abstract-home-2{

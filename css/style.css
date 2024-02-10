@@ -86,6 +86,7 @@ body.index{
     width: 34vw;
     bottom: 205px; 
     right: 30px;
+    mix-blend-mode: difference;
 }
 
 .abstract-home-2{
@@ -98,6 +99,7 @@ body.index{
     width: 60vw;
     bottom: 18svh; 
     left: 60px;
+    mix-blend-mode: difference;
 }
 
 .inizia{

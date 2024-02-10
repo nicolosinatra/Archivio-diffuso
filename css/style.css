@@ -73,7 +73,6 @@ body.index{
     font-size: 2.2em;
     color: #fff;
     text-decoration: underline;
-    mix-blend-mode: difference;
 }
 
 .abstract-home{
@@ -86,6 +85,7 @@ body.index{
     width: 34vw;
     bottom: 205px; 
     right: 30px;
+    z-index: 5;
     mix-blend-mode: difference;
 }
 
@@ -99,7 +99,6 @@ body.index{
     width: 60vw;
     bottom: 18svh; 
     left: 60px;
-    mix-blend-mode: difference;
 }
 
 .inizia{
@@ -107,6 +106,7 @@ body.index{
     bottom: 50px;
     left: 60px;
     z-index: 5;
+    mix-blend-mode: difference;
 }
 
 .inspect{

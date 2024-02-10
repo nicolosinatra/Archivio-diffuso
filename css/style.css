@@ -165,13 +165,13 @@ body.index{
 .abstract-home{
     font-family: 'HyperCubeVF';
     font-weight: 300;
-    font-size: 2.2em;
-    line-height: 1.2;
+    font-size: 3.2em;
+    line-height: 1.1em;
     color: #fff;
     position: fixed;
-    width: 34vw;
+    width: 35vw;
     top: 100px; 
-    left: 90px;
+    left: 65px;
     z-index: 5;
     mix-blend-mode: difference;
 }

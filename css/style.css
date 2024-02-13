@@ -37,6 +37,7 @@ body.index{
     transform: translate(-50%, -50%);
     padding: 30px 0 30px 0;
     margin: 0;
+    z-index: 1;
 }
 
 .p-arc:first-child{
@@ -81,7 +82,7 @@ body.index{
     width: 100vw;
     height: 100vh;
     height: 100svh;
-    z-index: 10;
+    z-index: 5;
 }
 
 .grid-row-container{
@@ -117,7 +118,7 @@ body.index{
     width: 100vw;
     height: 100vh;
     height: 100svh;
-    z-index: 10;
+    z-index: 5;
 }
 
 .grid-col-container{
@@ -147,6 +148,25 @@ body.index{
     border-right: none;
 }
 
+.row-grid-content {
+    position: fixed;
+    padding: 30px 0 30px 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100svh;
+    z-index: 5;
+    mix-blend-mode: difference;
+}
+
+.grid-row-container-content{
+    padding: 0 30px;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+}
+
 .grid-row-content{
     margin: 20px 0 0 0;
     height: 8.3%;
@@ -162,6 +182,27 @@ body.index{
     border-bottom: none;
 }
 
+.grid-col-container-content{
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.grid-col-content{
+    padding: 0 0 0 20px;
+}
+
+.grid-col-content:first-child{
+    margin-left: 0;
+    border-left: none;
+}
+
+.grid-col-content:last-child{
+    margin-right: 0;
+    border-right: none;
+}
+
 .abstract-home{
     font-family: 'HyperCubeVF';
     font-weight: 300;
@@ -172,20 +213,18 @@ body.index{
     width: 65vw;
     top: 63.5px;
     left: 64px; */
-    z-index: 5;
-    mix-blend-mode: difference;
 }
 
 .abstract-home-2{
     font-family: 'HyperCubeVF';
     font-weight: 300;
-    font-size: 2em;
-    line-height: 1.2;
+    font-size: 1em;
+    line-height: 1.08em;
     color: #fff;
-    position: fixed;
+    /* position: fixed;
     width: 60vw;
     bottom: 18svh; 
-    left: 60px;
+    left: 60px; */
 }
 
 .inizia{

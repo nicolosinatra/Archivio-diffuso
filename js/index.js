@@ -44,7 +44,7 @@ $( document ).ready(function() {
         return anime.random(1, 100);
       },
       height_c: function() {
-        return anime.random(1, 100);
+        return anime.random(1, 50);
       },
       CNTR: function() {
         return anime.random(1, 100);

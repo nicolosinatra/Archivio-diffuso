@@ -150,7 +150,7 @@ body.index{
 
 .row-grid-content {
     position: fixed;
-    padding: 30px 0 30px 0;
+    padding: 30px;
     width: 100vw;
     height: 100vh;
     height: 100svh;
@@ -182,15 +182,9 @@ body.index{
     border-bottom: none;
 }
 
-.grid-col-container-content{
-    height: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-}
-
 .grid-col-content{
-    padding: 0 0 0 20px;
+    margin: 0 0 0 20px;
+    width: 16.6%;
 }
 
 .grid-col-content:first-child{

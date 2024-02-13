@@ -69,11 +69,21 @@ body.index{
     overflow: hidden;
 }
 
+.inizia{
+    position: fixed;
+    bottom: 80px;
+    right: 90px;
+    z-index: 5;
+    mix-blend-mode: difference;
+}
+
 .link-w{
     font-family: 'Violet Sans';
-    font-size: 2.2em;
+    font-size: 3em;
+    width: 52vw;
     color: #fff;
     text-decoration: underline;
+    text-decoration-color:#FFF500;
 }
 
 .row-grid {
@@ -182,6 +192,13 @@ body.index{
     border-bottom: none;
 }
 
+.grid-col-container-content{
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
 .grid-col-content{
     margin: 0 0 0 20px;
     width: 16.6%;
@@ -201,8 +218,9 @@ body.index{
     font-family: 'HyperCubeVF';
     font-weight: 300;
     font-size: 2.5em;
-    line-height: 1.08em;
+    line-height: 1.2em;
     color: #fff;
+    width: 60vw;
     /* position: fixed;
     width: 65vw;
     top: 63.5px;
@@ -212,21 +230,14 @@ body.index{
 .abstract-home-2{
     font-family: 'HyperCubeVF';
     font-weight: 300;
-    font-size: 1em;
-    line-height: 1.08em;
+    font-size: 1.1em;
+    line-height: 1.2;
     color: #fff;
+    width: 26vw;
     /* position: fixed;
     width: 60vw;
     bottom: 18svh; 
     left: 60px; */
-}
-
-.inizia{
-    position: fixed;
-    bottom: 80px;
-    right: 90px;
-    z-index: 5;
-    mix-blend-mode: difference;
 }
 
 .inspect{

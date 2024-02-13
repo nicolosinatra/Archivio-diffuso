@@ -90,16 +90,16 @@ body.index{
     justify-content: space-evenly;
     flex-direction: column;
     /* flex-wrap: wrap; */
-    border-top: #ffffff5e solid 0.5px;
-    border-bottom: #ffffff5e solid 0.5px;
+    border-top: rgba(250, 250, 250, 0.25) solid 1px;
+    border-bottom: rgba(250, 250, 250, 0.25) solid 1px;
 }
 
 .grid-row{
     margin: 20px 0 0 0;
     height: 8.3%;
     padding: 0;
-    border-top: #ffffff5e solid 0.5px;
-    border-bottom: #ffffff5e solid 0.5px;
+    border-top: rgba(250, 250, 250, 0.25) solid 1px;
+    border-bottom: rgba(250, 250, 250, 0.25) solid 1px;
 }
 
 .grid-row:first-child{
@@ -125,16 +125,16 @@ body.index{
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
-    border-right: #ffffff5e solid 0.5px;
-    border-left: #ffffff5e solid 0.5px;
+    border-right: rgba(250, 250, 250, 0.25) solid 1px;
+    border-left: rgba(250, 250, 250, 0.25) solid 1px;
 }
 
 .grid-col{
     margin: 0 0 0 20px;
     width: 16.6%;
     padding: 0;
-    border-right: #ffffff5e solid 0.5px;
-    border-left: #ffffff5e solid 0.5px;
+    border-right: rgba(250, 250, 250, 0.25) solid 1px;
+    border-left: rgba(250, 250, 250, 0.25) solid 1px;
 }
 
 .grid-col:first-child{
@@ -165,13 +165,13 @@ body.index{
 .abstract-home{
     font-family: 'HyperCubeVF';
     font-weight: 300;
-    font-size: 3.2em;
-    line-height: 1.1em;
+    font-size: 2.5em;
+    line-height: 1.08em;
     color: #fff;
-    position: fixed;
-    width: 35vw;
-    top: 100px; 
-    left: 65px;
+    /* position: fixed;
+    width: 65vw;
+    top: 63.5px;
+    left: 64px; */
     z-index: 5;
     mix-blend-mode: difference;
 }

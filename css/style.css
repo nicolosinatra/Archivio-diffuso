@@ -76,10 +76,17 @@ body.index{
 .link-w{
     font-family: 'Violet Sans';
     font-size: 3em;
+    text-align: right;
     width: 52vw;
     color: #fff;
     text-decoration: underline;
     text-decoration-color:#FFF500;
+}
+
+.menu{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
 }
 
 .row-grid {
@@ -165,7 +172,7 @@ body.index{
 }
 
 .grid-row-container-content{
-    padding: 0 30px;
+    padding: 0;
     height: 100%;
     display: flex;
     justify-content: space-evenly;

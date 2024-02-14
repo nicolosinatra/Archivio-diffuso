@@ -97,14 +97,15 @@ body.index{
 }
 
 .inizia{
-    padding: 20px 0 0 0;
+    width: 35vw;
+    z-index: 15;
 }
 
 .link-w{
     font-family: 'Violet Sans';
     font-size: 1.8em;
     line-height: 1;
-    text-align: right;
+    text-align: left;
     width: 52vw;
     color: #fff;
     text-decoration: underline;
@@ -125,6 +126,7 @@ body.index{
     height: 100vh;
     height: 100svh;
     z-index: 5;
+    pointer-events: none;
 }
 
 .grid-row-container{
@@ -161,6 +163,7 @@ body.index{
     height: 100vh;
     height: 100svh;
     z-index: 5;
+    pointer-events: none;
 }
 
 .grid-col-container{
@@ -227,7 +230,7 @@ body.index{
 .grid-col-container-content{
     height: 100%;
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     flex-direction: row;
 }
 

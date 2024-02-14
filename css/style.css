@@ -98,7 +98,6 @@ body.index{
 
 .inizia{
     width: 40vw;
-    z-index: 15;
 }
 
 .link-w{
@@ -281,7 +280,7 @@ body.mappa {
 }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 .mapboxgl-user-location-dot, .mapboxgl-user-location-dot::before{
-    background-color: #000000 !important;
+    background-color: #FFF500 !important;
 }
 .mapboxgl-user-location-show-heading .mapboxgl-user-location-heading:after, .mapboxgl-user-location-show-heading .mapboxgl-user-location-heading:before {
     border-bottom: 7.5px solid #000000 !important;

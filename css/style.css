@@ -289,7 +289,6 @@ body.mappa {
 }
 .mapboxgl-user-location-accuracy-circle {
     background-color: #8b8b8b33 !important;
-    border-radius: 100%;
     height: 1px;
     width: 1px;
 }

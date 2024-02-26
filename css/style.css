@@ -106,6 +106,7 @@ p.hyper{
 }
 
 .div-arc{
+    pointer-events: none;
     position: fixed;
     display: flex;
     align-items: center;
@@ -119,7 +120,6 @@ p.hyper{
     padding: 30px 0 30px 0;
     margin: 0;
     z-index: 2;
-    color: #f0f0f0;
 }
 
 .p-arc:first-child{
@@ -150,6 +150,8 @@ p.hyper{
 .link{
     text-decoration: none;
     width: max-content;
+    display: block;
+    z-index: 5;
 }
 
 .underline{

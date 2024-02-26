@@ -24,6 +24,11 @@ body.index{
     font-family: 'HyperCubeVF';
 }
 
+body.index-w{
+    background-color: #f0f0f0;
+    font-family: 'HyperCubeVF';
+}
+
 h2.hyper{
     font-family: 'HyperCubeVF', sans-serif;
     font-size: 32px;
@@ -44,6 +49,14 @@ p.hyper{
     letter-spacing: 1px;
 }
 
+.b{
+    color:#000;
+}
+
+.w{
+    color: #f0f0f0;
+}
+
 .content-container{
     position: fixed;
     display: flex;
@@ -57,8 +70,10 @@ p.hyper{
     transform: translate(-50%, -50%);
     padding: 30px 0 30px 0;
     margin: 0;
-    z-index: 2;
+    z-index: 1;
+}
 
+.blend-mode-difference{
     mix-blend-mode: difference;
 }
 
@@ -66,7 +81,6 @@ p.hyper{
     width: 100%;
     padding: 0;
     margin: 20px 0 0 0;
-    color: #f0f0f0;
 }
 
 .content-container div.content:first-child{
@@ -75,6 +89,7 @@ p.hyper{
 
 .row-content{
     height: 16.66667%;
+    z-index: 2;
 }
 
 .architetture{
@@ -102,7 +117,8 @@ p.hyper{
     transform: translate(-50%, -50%);
     padding: 30px 0 30px 0;
     margin: 0;
-    z-index: 1;
+    z-index: 2;
+    color: #f0f0f0;
 }
 
 .p-arc:first-child{
@@ -123,20 +139,15 @@ p.hyper{
 
 .p-arc {
     font-family: 'ArcVF';
-    /* font-stretch: 20%; */
     font-weight: 370;
-    /* font-size: 41vh;
-    font-size: 41svh; */
     padding: 0;
     margin: 20px 0 0 0;
     line-height: 0.7;
-    color: #f0f0f0;
     overflow: hidden;
 }
 
-.link-w{
+.link{
     text-decoration: underline;
-    color: #f0f0f0;
     text-decoration-color:#FFF500;
     text-underline-offset: 5px;
     text-decoration-thickness: 3px;

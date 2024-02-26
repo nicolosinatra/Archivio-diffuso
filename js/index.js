@@ -20,6 +20,8 @@ $( document ).ready(function() {
   let winHeight = window.innerHeight;
 
   let fontSize = ((winHeight-100) / 3) / 70 * 100;
+  let divContentWidth = (winWidth-60);
+  let divContentHeight = ((winHeight-100) / 3);
 
   let rDisplay_Originale = fontSize / 933.33;
 
@@ -31,8 +33,8 @@ $( document ).ready(function() {
   let fontWidth = valorePercentuale;
 
   // $('.inspect').css('width', window.innerWidth - 60 + "px");
-  $('.p-arc').css('font-size', fontSize);
-  $('.p-arc').css('font-stretch', fontWidth + "%");
+  $('.p-arc').css('font-size', fontSize).css('font-stretch', fontWidth + "%");
+  $('.content-container div.content').css('height', divContentHeight).css('width',divContentWidth);
 
   function randomValues() {
     anime({
@@ -75,6 +77,8 @@ $( window ).resize(function() {
   let winHeight = window.innerHeight;
 
   let fontSize = ((winHeight-100) / 3) / 70 * 100;
+  let divContentWidth = (winWidth-60);
+  let divContentHeight = ((winHeight-100) / 3);
 
   let rDisplay_Originale = fontSize / 933.33;
 
@@ -86,8 +90,8 @@ $( window ).resize(function() {
   let fontWidth = valorePercentuale;
 
   $('.inspect').css('width', window.innerWidth - 60 + "px");
-  $('.p-arc').css('font-size', fontSize);
-  $('.p-arc').css('font-stretch', fontWidth + "%");
+  $('.p-arc').css('font-size', fontSize).css('font-stretch', fontWidth + "%");
+  $('.content-container div.content').css('height', divContentHeight).css('width',divContentWidth);
 
   if(winWidth > 700){
     window.addEventListener("mousemove", updateTextMouse)

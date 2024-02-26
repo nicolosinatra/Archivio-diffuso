@@ -13,13 +13,13 @@
 <body>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.css" type="text/css">
-<div id="map"></div>
+<div id="map_navigazione"></div>
 
 
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xvc2luYXRyYSIsImEiOiJjbGs4ZTd0aWowaXNqM2ZybzEzYmplaGF3In0.zJYGpj2MF2Nw8M8XHuXc8Q';
-        const map = new mapboxgl.Map({
-        container: 'map', // container ID
+        const map_navigazione = new mapboxgl.Map({
+        container: 'map_navigazione', // container ID
         style: 'mapbox://styles/nicolosinatra/clmnjwye901wi01r4h6n9fekx', // style URL
         center: [-12.9, 43.9], // starting center in [lng, lat]
         zoom: 15.2 // starting zoom

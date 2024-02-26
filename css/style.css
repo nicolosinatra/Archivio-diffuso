@@ -39,6 +39,7 @@ h2.hyper{
 h4.violet{
     font-family: 'Violet Sans', sans-serif;
     font-size: 24px;
+    margin: 0;
 }
 
 p.hyper{
@@ -147,10 +148,15 @@ p.hyper{
 }
 
 .link{
-    text-decoration: underline;
-    text-decoration-color:#FFF500;
-    text-underline-offset: 5px;
-    text-decoration-thickness: 3px;
+    text-decoration: none;
+    width: max-content;
+}
+
+.underline{
+    height: 5px;
+    width: 100%;
+    background-color: #FFF500;
+    border: #000 solid 1px;
 }
 
 .menu{

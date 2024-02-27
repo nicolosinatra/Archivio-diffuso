@@ -152,6 +152,9 @@ p.hyper{
     width: max-content;
     display: block;
     z-index: 5;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .underline{

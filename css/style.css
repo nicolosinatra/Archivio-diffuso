@@ -61,6 +61,20 @@ p.hyper{
     color: #f0f0f0;
 }
 
+.underline{
+    height: 5px;
+    width: 100%;
+    background-color: #FFF500;
+    border: #000 solid 1px;
+}
+
+.menu{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 3;
+}
+
 /* ---------------------------------------- Index e Index Qr code ---------------------------------- */
 
 .content-container{
@@ -162,20 +176,19 @@ p.hyper{
     padding: 0;
 }
 
-.underline{
-    height: 5px;
+.link-b{
+    color: #000;
+    text-decoration: underline;
+    text-decoration-color: #000;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 3px;
     width: 100%;
-    background-color: #FFF500;
-    border: #000 solid 1px;
+    display: block;
+    z-index: 5;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
-
-.menu{
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 3;
-}
-
 
 .inspect{
     position: fixed;

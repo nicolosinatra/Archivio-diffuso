@@ -187,7 +187,7 @@ p.hyper{
     display: block;
     z-index: 5;
     overflow: hidden;
-    margin-top: 50px;
+    margin-top: 30px;
     padding: 0;
 }
 
@@ -273,8 +273,9 @@ p.hyper{
 }
 
 .background-scelta{
-    height: 99.9999%;
-    width: 99.9999%;
+    height: 100%;
+    width: 100%;
+    border: #000 solid 1px;
     background-color: #f0f0f0;
 }
 

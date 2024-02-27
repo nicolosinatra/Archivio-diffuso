@@ -68,7 +68,7 @@ p.hyper{
     border: #000 solid 1px;
 }
 
-.menu{
+.menu-button{
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -196,6 +196,16 @@ p.hyper{
     height: 100px;
     left: 30px;
     top: 30px;
+}
+
+.div-menu{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    height: 100svh;
+    background-color: #f0f0f0;
+    left: -100vw;
+    z-index: 5;
 }
 
 /* ---------------------------------------- Scelta esperienza ---------------------------------- */

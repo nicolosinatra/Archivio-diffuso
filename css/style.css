@@ -1,3 +1,6 @@
+
+/* ---------------------------------------- Design System ---------------------------------- */
+
 @font-face {
     font-family: 'ArcVF';
     src: url('../fonts/ArcVF.woff2') format("woff2-variations"),
@@ -57,6 +60,8 @@ p.hyper{
 .w{
     color: #f0f0f0;
 }
+
+/* ---------------------------------------- Index e Index Qr code ---------------------------------- */
 
 .content-container{
     position: fixed;
@@ -168,7 +173,7 @@ p.hyper{
     position: fixed;
     bottom: 30px;
     right: 30px;
-    z-index: 2;
+    z-index: 3;
 }
 
 
@@ -179,7 +184,87 @@ p.hyper{
     top: 30px;
 }
 
-/* ----------------------------------------------- mappa ----------------------- */
+/* ---------------------------------------- Scelta esperienza ---------------------------------- */
+
+.container-content-scelta{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction:column;
+    height: 100vh;
+    height: 100svh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    margin: 0;
+    z-index: 3;
+}
+
+
+
+.container-mura-scelta{
+    position: fixed;
+    height: 100vh;
+    height: 100svh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    z-index: 2;
+}
+
+.row-mura-scelta{
+    height: 8.333333333333%;
+    width: 100%;
+    margin: 0;
+    z-index: 2;
+    /* border-top: #3386c0 solid 1px;
+    border-bottom: #3386c0 solid 1px; */
+}
+
+.row-mura-scelta div{
+    margin: 0;
+    padding: 0;
+}
+
+.mura-scelta-o{
+    height: 20px;
+    width: 100%;
+    background-color: #000;
+}
+
+.mura-scelta-v{
+    height: 100%;
+    width: 20px;
+    background-color: #000;
+}
+
+.mura-fill{
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+}
+
+.container-background-scelta{
+    position: fixed;
+    height: 100vh;
+    height: 100svh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    z-index: 1;
+}
+
+.background-scelta{
+    height: 100%;
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+/* ----------------------------------------------- mappa ------------------------------------------- */
 
 body.mappa { 
     margin: 0; 

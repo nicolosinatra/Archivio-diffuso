@@ -114,20 +114,3 @@ function updateTextMouse(e) {
   // myText.style.fontVariationSettings = "\"wght\" " + randomWeight + ", \"wdth\" " + randomWidth;
   $('.p-arc').css('font-weight', randomWght);
 }
-
-
-$('.link').hover(
-  function(){
-    anime({
-      targets: '.underline',
-      translateX: [0, 120], 
-      easing: 'easeInOutQuad',
-    })
-  },function(){
-    anime({
-      targets: '.underline',
-      translateX: [120, 0], 
-      easing: 'easeInOutQuad',
-    })
-  }
-);

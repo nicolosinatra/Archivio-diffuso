@@ -199,13 +199,20 @@ p.hyper{
 }
 
 .div-menu{
-    position: fixed;
+    position: absolute;
     width: 100vw;
     height: 100vh;
     height: 100svh;
     background-color: #f0f0f0;
     left: -100vw;
     z-index: 5;
+}
+
+.close-button{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    z-index: 3;
 }
 
 /* ---------------------------------------- Scelta esperienza ---------------------------------- */

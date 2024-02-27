@@ -14,3 +14,19 @@ $('.link').hover(
       })
     }
   );
+
+  $('.menu-button').click(function() {
+    anime({
+      targets: '.div-menu',
+      translateX: [0, '100vw'], 
+      easing: 'easeInOutQuad',
+    })
+  });
+
+  $('.close-button').click(function() {
+    anime({
+      targets: '.div-menu',
+      translateX: ['100vw', '0'], 
+      easing: 'easeInOutQuad',
+    })
+  });

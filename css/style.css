@@ -210,19 +210,66 @@ p.hyper{
 
 .close-button{
     position: absolute;
-    bottom: 30px;
-    right: 30px;
+    top: 30px;
+    left: 30px;
+    height: 30px;
+    width: auto;
+    z-index: 5;
+}
+
+.container-content-menu{
+    position: absolute;
+    height: 100vh;
+    height: 100svh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    margin: 0;
     z-index: 3;
+}
+
+.container-mura-menu{
+    position: absolute;
+    height: 100vh;
+    height: 100svh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    z-index: 2;
+}
+
+.row-mura-menu{
+    height: 8.333333333333%;
+    width: 100%;
+    margin: 0;
+    z-index: 2;
+    /* border-top: #3386c0 solid 1px;
+    border-bottom: #3386c0 solid 1px; */
+}
+
+.row-mura-menu div{
+    margin: 0;
+    padding: 0;
+}
+
+.mura-menu-o{
+    height: 20px;
+    width: 100%;
+    background-color: #000;
+}
+
+.mura-menu-v{
+    height: 100%;
+    width: 20px;
+    background-color: #000;
 }
 
 /* ---------------------------------------- Scelta esperienza ---------------------------------- */
 
 .container-content-scelta{
     position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction:column;
     height: 100vh;
     height: 100svh;
     top: 50%;

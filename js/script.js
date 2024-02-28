@@ -50,8 +50,8 @@ $( document ).ready(function() {
       // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
       // style: 'mapbox://styles/mapbox/streets-v12', // style URL
       style: 'mapbox://styles/nicolosinatra/clmnjwye901wi01r4h6n9fekx', // style URL
-      center: [12.907701270517123, 43.900543051991235], // starting center in [lng, lat]
-      zoom: 13 // starting zoom
+      center: [12.909, 43.9065], // starting center in [lng, lat]
+      zoom: 14.4 // starting zoom
     });
 
     // quanto mostrare dei div affianco
@@ -145,6 +145,12 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro', 'visibility', 'none');
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
 
+        map_scelta_itinerario.flyTo({
+          center: [12.909, 43.9065],
+          essential: true,
+          zoom: 14.4
+        });
+
       }else if(currentSlide == 1){
 
         map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'none');
@@ -171,6 +177,12 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('icone-edifici-fuori-dal-centro', 'visibility', 'none');
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro', 'visibility', 'none');
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.flyTo({
+          center: [12.910, 43.906],
+          essential: true,
+          zoom: 14.2
+        });
 
       }else if(currentSlide == 2){
 
@@ -199,6 +211,12 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro', 'visibility', 'none');
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
 
+        map_scelta_itinerario.flyTo({
+          center: [12.909, 43.908],
+          essential: true,
+          zoom: 14.4
+        });
+
       }else if(currentSlide == 3){
 
         map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'none');
@@ -226,6 +244,12 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro', 'visibility', 'none');
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
 
+        map_scelta_itinerario.flyTo({
+          center: [12.900, 43.894],
+          essential: true,
+          zoom: 12.7
+        });
+
       }else if(currentSlide == 4){
 
         map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'none');
@@ -252,6 +276,12 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('icone-edifici-fuori-dal-centro', 'visibility', 'visible');
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro', 'visibility', 'visible');
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'visible');
+
+        map_scelta_itinerario.flyTo({
+          center: [12.882, 43.875],
+          essential: true,
+          zoom: 12.5
+        });
 
       }
     });

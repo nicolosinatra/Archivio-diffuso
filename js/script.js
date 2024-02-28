@@ -174,8 +174,12 @@ $( document ).ready(function() {
     });
 
     // quanto mostrare dei div affianco
-    var div_width_off = '80px';
+    var div_width_off = '50px';
 
+    if (window.innerWidth > 756){
+      div_width_off = '350px';
+    }
+    
     $('.slider').slick({
       centerMode: true,
       centerPadding: div_width_off,

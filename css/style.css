@@ -64,6 +64,7 @@ p.hyper-mono{
     font-size: 16px;
     line-height: normal;
     font-variation-settings: "MONO" 1, "ital" 0, "opsz" 6, "wght" 200;
+    margin: 0;
 }
 
 .b{
@@ -366,6 +367,7 @@ p.hyper-mono{
 
 #map-scelta-itinerario { position: absolute; top: 0; bottom: 0; width: 100%; }
 
+/* contenitore dello slider complessivo */
 .slider-container{
     position: fixed;
     width: 100vw;
@@ -374,9 +376,10 @@ p.hyper-mono{
     z-index: 5;
 }
 
+/* card dello slider generica */
 .slick-slide{
     margin:10px;
-    height: 150px;
+    height: 170px;
     text-align:center;
     border-radius:20px;
 
@@ -386,19 +389,20 @@ p.hyper-mono{
     flex-direction: column;
 }
 
+/* card dello slider attiva */
 .slick-active{
-    height:150px;
+    height:170px;
 }
 
 .slick-slide .content-slider{
-    height: 100px;
+    height: 150px;
     width: 100%;
     background-color:#000;
     border-radius: 10px;
 }
 
 .slick-active .content-slider{
-    height: 150px;
+    height: 180px;
     width: 100%;
     background-color:#000;
 }
@@ -417,9 +421,9 @@ p.hyper-mono{
     opacity: 0;
     position: fixed;
     left: 0px;
-    bottom: 60px;
-    height: 130px;
-    width: 60px;
+    bottom: 100px;
+    height: 150px;
+    width: 40px;
 }
 
 .slick-next{
@@ -427,21 +431,14 @@ p.hyper-mono{
     opacity: 0;
     position: fixed;
     right: 0px;
-    bottom: 60px;
-    height: 130px;
-    width: 60px;
+    bottom: 100px;
+    height: 150px;
+    width: 40px;
 }
 
-.content-slider {
-    font-size: 18px;
-    text-align:center;
-    color: white;
-}
-
-#edifici-primo-900{
-    width: 200px;
+.card-slider-itinerari{
+    width: 180px;
     height: 110px;
-    margin-left: 20px;
 }
 
 .titoli-itinerari{
@@ -449,11 +446,24 @@ p.hyper-mono{
 }
 
 .clock{
+    margin-top: -5px;
+    margin-left: -10px;
     width: 20px;
     height: 20px;
 }
 
+.path{
+    margin-top: -5px;
+    margin-left: -10px;
+    width: 20px;
+    height: 20px;
+}
 
+.arrow-card{
+    margin-top: -5px;
+    width: 15px;
+    height: 15px;
+}
 
 
 /* ----------------------------------------------- mappa ------------------------------------------- */

@@ -288,6 +288,11 @@ p.hyper-mono{
     background-color: #000;
 }
 
+/* ------------------------------- Break Points ------------------------------- */
+@media (min-width: 768px) { 
+    
+}
+
 /* ---------------------------------------- Scelta esperienza ---------------------------------- */
 
 .container-content-scelta{
@@ -363,6 +368,12 @@ p.hyper-mono{
     background-color: #f0f0f0;
 }
 
+/* ------------------------------- Break Points ------------------------------- */
+@media (min-width: 768px) { 
+    
+}
+
+
 /* ----------------------------------------------- Scelta itinerario ------------------------------------------- */
 
 #map-scelta-itinerario { position: absolute; top: 0; bottom: 0; width: 100%; }
@@ -399,12 +410,14 @@ p.hyper-mono{
     width: 100%;
     background-color:#000;
     border-radius: 10px;
+    box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.2);
 }
 
 .slick-active .content-slider{
     height: 180px;
     width: 100%;
     background-color:#000;
+    box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.2);
 }
 
 .slick-track{
@@ -465,6 +478,12 @@ p.hyper-mono{
     height: 15px;
 }
 
+
+/* ------------------------------- Break Points ------------------------------- */
+
+@media (min-width: 768px) { 
+    
+}
 
 /* ----------------------------------------------- mappa ------------------------------------------- */
 

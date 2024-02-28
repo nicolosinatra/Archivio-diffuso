@@ -57,10 +57,13 @@ $( document ).ready(function() {
     // quanto mostrare dei div affianco
     var div_width_off = '50px';
 
+    // --------------------------------------------- breakpoints
     if (window.innerWidth > 756){
       div_width_off = '350px';
     }
-    
+    // --------------------------------------------- breakpoints
+
+
     $('.slider').slick({
       centerMode: true,
       centerPadding: div_width_off,
@@ -109,12 +112,22 @@ $( document ).ready(function() {
     //UPDATED 
     $('.slider').on('afterChange', function(event, slick, currentSlide){  
       console.log(currentSlide);
+      // 0 --> edifici primo novecento
+      // 1 --> edifici secondo novecento
+      // 2 --> architetture manifesto
+      // 3 --> edifici aymonino
+      // 4 --> edifici fuori dal centro
+
       if(currentSlide == 2){
-        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'none');
-        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('architetture-manifesto', 'visibility', 'visible');
+        // map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'visible');
+        // map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'visible');
       }else{
-        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'visible');
-        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('edifici-primo-novecento', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('architetture-manifesto', 'visibility', 'none');
+        // map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'none');
+        // map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'none');
       }
     });
 

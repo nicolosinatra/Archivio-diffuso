@@ -147,6 +147,7 @@ $( document ).ready(function() {
 
         map_scelta_itinerario.flyTo({
           center: [12.909, 43.9065],
+          duration: 1000,
           essential: true,
           zoom: 14.4
         });
@@ -180,6 +181,7 @@ $( document ).ready(function() {
 
         map_scelta_itinerario.flyTo({
           center: [12.910, 43.906],
+          duration: 1000,
           essential: true,
           zoom: 14.2
         });
@@ -213,6 +215,7 @@ $( document ).ready(function() {
 
         map_scelta_itinerario.flyTo({
           center: [12.909, 43.908],
+          duration: 1000,
           essential: true,
           zoom: 14.4
         });
@@ -246,6 +249,7 @@ $( document ).ready(function() {
 
         map_scelta_itinerario.flyTo({
           center: [12.900, 43.894],
+          duration: 1000,
           essential: true,
           zoom: 12.7
         });
@@ -279,6 +283,7 @@ $( document ).ready(function() {
 
         map_scelta_itinerario.flyTo({
           center: [12.882, 43.875],
+          duration: 1000,
           essential: true,
           zoom: 12.5
         });

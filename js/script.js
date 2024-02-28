@@ -50,7 +50,7 @@ $( document ).ready(function() {
       // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
       // style: 'mapbox://styles/mapbox/streets-v12', // style URL
       style: 'mapbox://styles/nicolosinatra/clmnjwye901wi01r4h6n9fekx', // style URL
-      center: [12.909, 43.9065], // starting center in [lng, lat]
+      center: [12.909, 43.9068], // starting center in [lng, lat]
       zoom: 14.4 // starting zoom
     });
 
@@ -146,7 +146,7 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
 
         map_scelta_itinerario.flyTo({
-          center: [12.909, 43.9065],
+          center: [12.909, 43.9068],
           duration: 1000,
           essential: true,
           zoom: 14.4
@@ -183,7 +183,7 @@ $( document ).ready(function() {
           center: [12.910, 43.906],
           duration: 1000,
           essential: true,
-          zoom: 14.2
+          zoom: 13.8
         });
 
       }else if(currentSlide == 2){
@@ -214,10 +214,10 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
 
         map_scelta_itinerario.flyTo({
-          center: [12.909, 43.908],
+          center: [12.909, 43.909],
           duration: 1000,
           essential: true,
-          zoom: 14.4
+          zoom: 14.3
         });
 
       }else if(currentSlide == 3){
@@ -248,7 +248,7 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
 
         map_scelta_itinerario.flyTo({
-          center: [12.900, 43.894],
+          center: [12.902, 43.895],
           duration: 1000,
           essential: true,
           zoom: 12.7
@@ -282,10 +282,10 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'visible');
 
         map_scelta_itinerario.flyTo({
-          center: [12.882, 43.875],
+          center: [12.882, 43.877],
           duration: 1000,
           essential: true,
-          zoom: 12.5
+          zoom: 12.35
         });
 
       }

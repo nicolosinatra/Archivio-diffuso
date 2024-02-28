@@ -5,35 +5,46 @@
     font-family: 'ArcVF';
     src: url('../fonts/ArcVF.woff2') format("woff2-variations"),
          url('../fonts/ArcVF.woff') format("woff-variations"),
-         url('../fonts/ArcVF.ttf') format("ttf-variations"),
+         url('../fonts/ArcVF.ttf') format("ttf-variations")
     }
 
 @font-face {
     font-family: 'Violet Sans';
     src: url('../fonts/VioletSans-Regular.woff2') format("woff2"),
          url('../fonts/VioletSans-Regular.woff') format("woff"),
-         url('../fonts/VioletSans-Regular.ttf') format("ttf"),
+         url('../fonts/VioletSans-Regular.ttf') format("ttf")
     }
 
 @font-face {
-    font-family: 'HyperCubeVF';
-    src: url('../fonts/HypercubeVariableNonCommercialRegular.woff2') format("woff2-variations"),
-         url('../fonts/HypercubeVariableNonCommercialRegular.woff') format("woff-variations"),
-         url('../fonts/HypercubeVariableNonCommercialRegular.ttf') format("ttf-variations"),
+    font-family: 'HyperCube';
+    src: url('../fonts/HypercubeVariableNonCommercialRegular.woff2'), format("woff2"),
+         url('../fonts/HypercubeVariableNonCommercialRegular.woff') format("woff"),
+         url('../fonts/HypercubeVariableNonCommercialRegular.ttf') format("ttf");
+    font-weight: normal;
+    font-style: normal;
+    }
+    
+@font-face {
+    font-family: 'HyperCube';
+    src: url('../fonts/00HypercubeMonoNon-Commercial-Light.woff2'), format("woff2"),
+         url('../fonts/00HypercubeMonoNon-Commercial-Light.woff') format("woff"),
+         url('../fonts/00HypercubeMonoNon-Commercial-Light.ttf') format("ttf");
+    font-weight: lighter;
+    font-style: mono;
     }
 
 body.index{
     background-color: #000000;
-    font-family: 'HyperCubeVF';
+    font-family: 'HyperCube';
 }
 
 body.index-w{
     background-color: #f0f0f0;
-    font-family: 'HyperCubeVF';
+    font-family: 'HyperCube';
 }
 
 h2.hyper{
-    font-family: 'HyperCubeVF', sans-serif;
+    font-family: 'HyperCube', sans-serif;
     font-size: 32px;
     font-weight: 300;
     letter-spacing: 1px;
@@ -52,7 +63,7 @@ h6.violet{
 }
 
 p.hyper{
-    font-family: 'HyperCubeVF', sans-serif;
+    font-family: 'HyperCube', sans-serif;
     font-size: 16px;
     line-height: normal;
     font-weight: 300;

@@ -119,13 +119,27 @@ $( document ).ready(function() {
       // 4 --> edifici fuori dal centro
 
       if(currentSlide == 2){
-        map_scelta_itinerario.setLayoutProperty('edifici-primo-novecento', 'visibility', 'none');
-        map_scelta_itinerario.setLayoutProperty('architetture-manifesto', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-architetture-manifesto', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('icone-architetture-manifesto', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'visible');
         // map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'visible');
         // map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'visible');
       }else{
-        map_scelta_itinerario.setLayoutProperty('edifici-primo-novecento', 'visibility', 'visible');
-        map_scelta_itinerario.setLayoutProperty('architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-primo-novecento', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento-bg', 'visibility', 'visible');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'none');
         // map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'none');
         // map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'none');
       }

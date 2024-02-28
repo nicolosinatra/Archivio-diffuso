@@ -378,6 +378,13 @@ p.hyper-mono{
 
 #map-scelta-itinerario { position: absolute; top: 0; bottom: 0; width: 100%; }
 
+.logo{
+    position: fixed;
+    top:30px;
+    left: 30px;
+    z-index: 5;
+}
+
 /* contenitore dello slider complessivo */
 .slider-container{
     position: fixed;

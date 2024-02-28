@@ -347,6 +347,70 @@ p.hyper{
     background-color: #f0f0f0;
 }
 
+/* ----------------------------------------------- Scelta itinerario ------------------------------------------- */
+
+#map-scelta-itinerario { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+.slider-container{
+    position: fixed;
+    width: 100vw;
+    left: 0;
+    bottom: 50px;
+    z-index: 5;
+  }
+  
+  .slick-slide{
+    background-color:#000;
+    margin:10px;
+    height: 130px;
+    text-align:center;
+    border-radius:20px;
+  }
+  .slick-active{
+    height:150px;
+  }
+  .slick-track{
+    display: flex !important;
+    align-items: center;
+  }
+  .slick-track div{
+    transition: all 1s;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .slick-prev{
+    cursor: pointer;
+    opacity: 0;
+    position: fixed;
+    left: 0px;
+    bottom: 125px;
+    height: 130px;
+    width: 60px;
+  }
+  
+  .slick-next{
+    cursor: pointer;
+    opacity: 0;
+    position: fixed;
+    right: 0px;
+    bottom: 125px;
+    height: 130px;
+    width: 60px;
+  }
+  
+  .content {
+    font-size: 18px;
+    padding: 200px 20px;
+    text-align:center;
+    color: white;
+  }
+
+
+
+
 /* ----------------------------------------------- mappa ------------------------------------------- */
 
 body.mappa { 

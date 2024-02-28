@@ -224,6 +224,13 @@ $( document ).ready(function() {
     //UPDATED 
     $('.slider').on('afterChange', function(event, slick, currentSlide){  
       console.log(currentSlide);
+      if(currentSlide == 2){
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'none');
+      }else{
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'visible');
+      }
     });
 
   }

@@ -362,7 +362,7 @@ p.hyper{
   .slick-slide{
     background-color:#000;
     margin:10px;
-    height: 130px;
+    height: 150px;
     text-align:center;
     border-radius:20px;
   }
@@ -401,7 +401,7 @@ p.hyper{
     width: 60px;
   }
   
-  .content {
+  .content-slider {
     font-size: 18px;
     padding: 200px 20px;
     text-align:center;

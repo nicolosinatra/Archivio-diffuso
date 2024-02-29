@@ -41,7 +41,6 @@
     var MapboxDirections = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
         profile: 'mapbox/walking',
-        controls: false,
         language: 'it-IT',
         unit: 'metric',
         // profile: 'mapbox/cycling'
@@ -51,17 +50,30 @@
         MapboxDirections, 'top-left'
     );
     
+    // definire stile del navigatore
     map_navigazione.on('load',  function() {
         map_navigazione.setLayoutProperty('nomi-economia-corporativa', 'visibility', 'visible');
         map_navigazione.setLayoutProperty('icone-economia-corporativa', 'visibility', 'visible');
+        map_navigazione.moveLayer('icone-economia-corporativa');
+        map_navigazione.moveLayer('nomi-economia-corporativa');
+
+        map_navigazione.setPaintProperty('directions-route-line-alt', 'line-color', '#fff500');
 
         map_navigazione.setPaintProperty('directions-route-line-casing', 'line-color', '#000');
         map_navigazione.setPaintProperty('directions-route-line-casing', 'line-width', 6);
+        
         map_navigazione.setPaintProperty('directions-route-line', 'line-color', '#fff500');
         map_navigazione.setPaintProperty('directions-route-line', 'line-width', 4);
+
+
         map_navigazione.setLayoutProperty('directions-hover-point-casing', 'visibility', 'none');
         map_navigazione.setLayoutProperty('directions-hover-point', 'visibility', 'none');
-        
+        map_navigazione.setLayoutProperty('directions-waypoint-point-casing', 'visibility', 'none');
+        map_navigazione.setLayoutProperty('directions-waypoint-point', 'visibility', 'none');
+        map_navigazione.setLayoutProperty('directions-origin-point', 'visibility', 'none');
+        map_navigazione.setLayoutProperty('directions-origin-label', 'visibility', 'none');
+        map_navigazione.setLayoutProperty('directions-destination-point', 'visibility', 'none');
+        map_navigazione.setLayoutProperty('directions-destination-label', 'visibility', 'none');
     })
 
     const geolocate = new mapboxgl.GeolocateControl({

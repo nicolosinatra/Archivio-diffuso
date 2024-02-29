@@ -414,6 +414,7 @@ p.hyper-mono{
 /* card dello slider attiva */
 .slick-active{
     height:170px;
+    cursor: pointer;
 }
 
 .slick-slide .content-slider{
@@ -492,8 +493,10 @@ p.hyper-mono{
 .inizia-button{
     position: fixed;
     z-index: 5;
-    bottom: 50vw;
-    right: 2vw;
+    bottom: 50vh;
+    bottom: 50svh;
+    right: 10vw;
+    color: #000;
 }
 
 

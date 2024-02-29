@@ -292,8 +292,12 @@ $( document ).ready(function() {
       }
     });
 
+    $('.slick-active').click(function() {
+      // mostrare div con capitoli itinerario
+    });
+
   }
-  
+
   /* ------------------------------------------------------------------------------------------ esperienza sul luogo -------------------------------------- */  
   else if(fileName[0] == 'mappa.html'){
 

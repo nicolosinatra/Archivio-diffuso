@@ -510,6 +510,16 @@ p.hyper-mono{
 
 #map_navigazione{ position: absolute; top: 0; bottom: 0; width: 100%; }
 
+.mapboxgl-ctrl-top-right {
+    right: 30px;
+    top: 20px;
+}
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+    float: right;
+    margin: 10px 0 0 0;
+}
+
 .mapbox-directions-component-keyline {
     box-shadow: 0 !important;
     border-radius: 0 !important;

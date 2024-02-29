@@ -538,11 +538,12 @@ p.hyper-mono{
 }
 
 .profile-indicazioni{
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #3386c0;
-    padding: 0 20px;
+    margin: 0 20px;
     box-sizing: border-box;
 }
 

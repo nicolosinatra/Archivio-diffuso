@@ -15,21 +15,19 @@
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.css" type="text/css">
 
 
-
-
-
 <div id="map_navigazione"></div>
 <div class="controls-profile-switcher">
-    <div class="profile-indicazioni">
-        <div class="icone-indicazioni walking"></div>
+    <div class="profile-indicazioni walking">
+        <div class="icone-indicazioni "></div>
         <p class="hyper txt-indicazioni">walking</p>
     </div>
-    <div class="profile-indicazioni">
-        <div class="icone-indicazioni cycling"></div>
+    
+    <div class="profile-indicazioni cycling">
+        <div class="icone-indicazioni "></div>
         <p class="hyper txt-indicazioni">cycling</p>
     </div>
-    <div class="profile-indicazioni">
-        <div class="icone-indicazioni scooter"></div>
+    <div class="profile-indicazioni scooter">
+        <div class="icone-indicazioni "></div>
         <p class="hyper txt-indicazioni">scooter</p>
     </div>
 </div>
@@ -185,7 +183,9 @@
     // Add zoom and rotation controls to the map.
     map_navigazione.addControl(NavigationControl);
 
-    var MapboxDirections = new MapboxDirections({
+    var directions_state = 'walking';
+
+    const directions_walking = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
         profile: 'mapbox/walking',
         controls: {
@@ -198,7 +198,20 @@
         // profile: 'mapbox/cycling'
         });
 
-    map_navigazione.addControl(MapboxDirections);
+    const directions_cycling = new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        profile: 'mapbox/walking',
+        controls: {
+          profileSwitcher: false,
+          inputs: false,
+          instructions: false,
+        },
+        language: 'it-IT',
+        unit: 'metric',
+        // profile: 'mapbox/cycling'
+    });
+
+    map_navigazione.addControl(directions_walking);
     
     // definire stile del navigatore
     map_navigazione.on('load',  function() {
@@ -260,8 +273,14 @@
         console.log(`Longitude: ${user_lng}`);
         console.log(`More or less ${user_crd.accuracy} meters.`);
     
-        MapboxDirections.setOrigin([user_lng, user_lat]);
-        MapboxDirections.setDestination([destinazione.longitude, destinazione.latitude]);
+        if (directions_state == 'walking'){
+            directions_walking.setOrigin([user_lng, user_lat]);
+            directions_walking.setDestination([destinazione.longitude, destinazione.latitude]);
+        }else if(directions_state == 'cycling'){
+            directions_cycling.setOrigin([user_lng, user_lat]);
+            directions_cycling.setDestination([destinazione.longitude, destinazione.latitude]);
+        }
+        
 
     
         // verificare se sono arrivato a destinazione
@@ -284,10 +303,15 @@
     id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
 
     $('.cycling').click(function(){
-        MapboxDirections.options.profile = 'mapbox/cycling';
-        map_navigazione.addControl(MapboxDirections);
+        
+        map_navigazione.removeControl(directions_walking);
+        directions_state = 'cycling';
+        
+        map_navigazione.addControl(directions_cycling);
+
     });
-  
+
+    
 
 </script>
  

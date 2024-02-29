@@ -457,7 +457,7 @@ p.hyper-mono{
 }
 
 .card-slider-itinerari{
-    width: 180px;
+    width: 80%;
     height: 110px;
 }
 
@@ -467,14 +467,14 @@ p.hyper-mono{
 
 .clock{
     margin-top: -5px;
-    margin-left: -10px;
+    display: flex;
     width: 20px;
     height: 20px;
 }
 
 .path{
     margin-top: -5px;
-    margin-left: -10px;
+    display: flex;
     width: 20px;
     height: 20px;
 }

@@ -13,29 +13,47 @@
 <body>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.css" type="text/css">
+
 <div id="map_navigazione"></div>
 
 
 <script>
-	mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xvc2luYXRyYSIsImEiOiJjbGs4ZTd0aWowaXNqM2ZybzEzYmplaGF3In0.zJYGpj2MF2Nw8M8XHuXc8Q';
-        const map_navigazione = new mapboxgl.Map({
+    mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xvc2luYXRyYSIsImEiOiJjbGs4ZTd0aWowaXNqM2ZybzEzYmplaGF3In0.zJYGpj2MF2Nw8M8XHuXc8Q';
+    let map_navigazione = new mapboxgl.Map({
         container: 'map_navigazione', // container ID
         style: 'mapbox://styles/nicolosinatra/clmnjwye901wi01r4h6n9fekx', // style URL
-        center: [-12.9, 43.9], // starting center in [lng, lat]
-        zoom: 15.2 // starting zoom
+        center: [12.909, 43.909],
+        zoom: 14.3
     });
-    
+
     var MapboxDirections = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
+        profile: 'mapbox/walking',
+        controls: false,
+        language: 'it-IT',
         unit: 'metric',
         // profile: 'mapbox/cycling'
         });
 
-    map.addControl(
-        MapboxDirections,
-        'top-left'
+    map_navigazione.addControl(
+        MapboxDirections, 'top-left'
     );
-        console.log(MapboxDirections);
+    
+    map_navigazione.on('load',  function() {
+        map_navigazione.setLayoutProperty('nomi-economia-corporativa', 'visibility', 'visible');
+        map_navigazione.setLayoutProperty('icone-economia-corporativa', 'visibility', 'visible');
+
+
+        map_navigazione.setPaintProperty('directions-route-line-casing', 'line-color', '#000');
+        map_navigazione.setPaintProperty('directions-route-line-casing', 'line-width', '6');
+        map_navigazione.setPaintProperty('directions-route-line', 'line-color', '#fff500');
+
+        // MapboxDirections.setOrigin([12, 23]);
+        //MapboxDirections.setDestinaion([12.909, 43.909]);
+    })
+    
+    // directions.setOrigin([12, 23]); // can be address in form setOrigin("12, Elm Street, NY")
+    // directions.setDestinaion([11, 22]);
 
 </script>
  

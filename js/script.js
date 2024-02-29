@@ -54,6 +54,14 @@ $( document ).ready(function() {
       zoom: 14.4 // starting zoom
     });
 
+    map_navigazione.on('load',  function() {
+      map_navigazione.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'visible');
+      map_navigazione.setLayoutProperty('icone-edifici-primo-novecento', 'visibility', 'visible');
+      map_navigazione.setLayoutProperty('path-edifici-primo-novecento', 'visibility', 'visible');
+      map_navigazione.setLayoutProperty('path-edifici-primo-novecento-bg', 'visibility', 'visible');
+  })
+
+
     // quanto mostrare dei div affianco
     var div_width_off = '50px';
 
@@ -112,12 +120,9 @@ $( document ).ready(function() {
     //UPDATED 
     $('.slider').on('afterChange', function(event, slick, currentSlide){  
       console.log(currentSlide);
+      
+      
       // 0 --> edifici primo novecento
-      // 1 --> edifici secondo novecento
-      // 2 --> architetture manifesto
-      // 3 --> edifici aymonino
-      // 4 --> edifici fuori dal centro
-
       if(currentSlide == 0){
 
         map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'visible');
@@ -152,6 +157,7 @@ $( document ).ready(function() {
           zoom: 14.4
         });
 
+      // 1 --> edifici secondo novecento
       }else if(currentSlide == 1){
 
         map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'none');
@@ -185,7 +191,8 @@ $( document ).ready(function() {
           essential: true,
           zoom: 13.8
         });
-
+      
+      // 2 --> architetture manifesto
       }else if(currentSlide == 2){
 
         map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'none');
@@ -219,7 +226,8 @@ $( document ).ready(function() {
           essential: true,
           zoom: 14.3
         });
-
+      
+      // 3 --> edifici aymonino
       }else if(currentSlide == 3){
 
         map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'none');
@@ -254,6 +262,7 @@ $( document ).ready(function() {
           zoom: 12.7
         });
 
+      // 4 --> edifici fuori dal centro
       }else if(currentSlide == 4){
 
         map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'none');
@@ -288,11 +297,20 @@ $( document ).ready(function() {
           zoom: 12.35
         });
 
+        
+
       }
     });
 
   }
-  /* ------------------------------------------------------------------------------------------ esperienza sul luogo ------------------------------------- */  
+  /* ------------------------------------------------------------------------------------------ indicazioni ---------------------------------------------- */   
+  else if(fileName[0] == 'indicazioni.html'){
+    
+  
+    
+
+  }
+  /* ------------------------------------------------------------------------------------------ esperienza sul luogo -------------------------------------- */  
   else if(fileName[0] == 'mappa.html'){
 
     var map = new mapboxgl.Map({

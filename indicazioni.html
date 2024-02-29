@@ -18,6 +18,18 @@
 
 
 <script>
+
+    var user_lat;
+    var user_lng;
+
+    let id_posizione_aggiornata;
+    var destinazione = { 
+        latitude: 43.91187814893709,
+        longitude: 12.91044693538976
+    }
+
+    let options;
+
     mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xvc2luYXRyYSIsImEiOiJjbGs4ZTd0aWowaXNqM2ZybzEzYmplaGF3In0.zJYGpj2MF2Nw8M8XHuXc8Q';
     let map_navigazione = new mapboxgl.Map({
         container: 'map_navigazione', // container ID
@@ -43,17 +55,65 @@
         map_navigazione.setLayoutProperty('nomi-economia-corporativa', 'visibility', 'visible');
         map_navigazione.setLayoutProperty('icone-economia-corporativa', 'visibility', 'visible');
 
-
         map_navigazione.setPaintProperty('directions-route-line-casing', 'line-color', '#000');
-        map_navigazione.setPaintProperty('directions-route-line-casing', 'line-width', '6');
+        map_navigazione.setPaintProperty('directions-route-line-casing', 'line-width', 6);
         map_navigazione.setPaintProperty('directions-route-line', 'line-color', '#fff500');
-
-        // MapboxDirections.setOrigin([12, 23]);
-        //MapboxDirections.setDestinaion([12.909, 43.909]);
+        map_navigazione.setPaintProperty('directions-route-line', 'line-width', 4);
+        map_navigazione.setLayoutProperty('directions-hover-point-casing', 'visibility', 'none');
+        map_navigazione.setLayoutProperty('directions-hover-point', 'visibility', 'none');
+        
     })
+
+    const geolocate = new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        // When active the map will receive updates to the device's location as it changes.
+        trackUserLocation: true,
+        // Draw an arrow next to the location dot to indicate which direction the device is heading.
+        showUserHeading: true
+    });
+    // Add the control to the map.
+    map_navigazione.addControl(geolocate);
+    map_navigazione.on('load', () => {
+        geolocate.trigger();      
+    });
     
-    // directions.setOrigin([12, 23]); // can be address in form setOrigin("12, Elm Street, NY")
-    // directions.setDestinaion([11, 22]);
+    
+    function success(pos) {
+        const user_crd = pos.coords;
+        user_lng = user_crd.longitude;
+        user_lat = user_crd.latitude;
+    
+        map_navigazione.setCenter([user_lng, user_lat]);
+        console.log("Your current position is:");
+        console.log("Latitude : " + user_lat);
+        console.log(`Longitude: ${user_lng}`);
+        console.log(`More or less ${user_crd.accuracy} meters.`);
+    
+        MapboxDirections.setOrigin([user_lng, user_lat]);
+        MapboxDirections.setDestination([destinazione.longitude, destinazione.latitude]);
+
+    
+        // verificare se sono arrivato a destinazione
+        if (destinazione.latitude === user_crd.latitude && destinazione.longitude === user_crd.longitude) {
+            console.log("Congratulations, you reached the target");
+            navigator.geolocation.clearWatch(id);
+        }
+    }
+    
+    function error(err) {
+        console.error(`ERROR(${err.code}): ${err.message}`);
+    }
+    
+    options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+    };
+    
+    id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
+  
 
 </script>
  

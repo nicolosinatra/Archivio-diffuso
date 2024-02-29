@@ -54,14 +54,6 @@ $( document ).ready(function() {
       zoom: 14.4 // starting zoom
     });
 
-    map_navigazione.on('load',  function() {
-      map_navigazione.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'visible');
-      map_navigazione.setLayoutProperty('icone-edifici-primo-novecento', 'visibility', 'visible');
-      map_navigazione.setLayoutProperty('path-edifici-primo-novecento', 'visibility', 'visible');
-      map_navigazione.setLayoutProperty('path-edifici-primo-novecento-bg', 'visibility', 'visible');
-  })
-
-
     // quanto mostrare dei div affianco
     var div_width_off = '50px';
 
@@ -296,8 +288,6 @@ $( document ).ready(function() {
           essential: true,
           zoom: 12.35
         });
-
-        
 
       }
     });

@@ -15,6 +15,20 @@
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.css" type="text/css">
 
 <div id="map_navigazione"></div>
+<div class="controls-profile-switcher">
+    <div class="profile-indicazioni">
+        <div class="icone-indicazioni walking"></div>
+        <p class="hyper txt-indicazioni">ciao</p>
+    </div>
+    <div class="profile-indicazioni">
+        <div class="icone-indicazioni cycling"></div>
+        <p class="hyper txt-indicazioni">ciao</p>
+    </div>
+    <div class="profile-indicazioni">
+        <div class="icone-indicazioni scooter"></div>
+        <p class="hyper txt-indicazioni">ciao</p>
+    </div>
+</div>
 
 
 <script>
@@ -41,6 +55,11 @@
     var MapboxDirections = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
         profile: 'mapbox/walking',
+        controls: {
+          profileSwitcher: false,
+          inputs: false,
+          instructions: false,
+        },
         language: 'it-IT',
         unit: 'metric',
         // profile: 'mapbox/cycling'
@@ -90,7 +109,13 @@
     map_navigazione.on('load', () => {
         geolocate.trigger();      
     });
+
+
+    // hacky workaround for the fact that mapbox doesn't let you disable camera auto-tracking
+    // geolocate._updateCamera = () => {}
+    // map_navigazione.addControl(geolocate)
     
+
     
     function success(pos) {
         const user_crd = pos.coords;

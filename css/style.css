@@ -510,26 +510,40 @@ p.hyper-mono{
 
 #map_navigazione{ position: absolute; top: 0; bottom: 0; width: 100%; }
 
-.mapbox-form-label .directions-icon {
-    background-position: center;
-    background-size: contain;
-    width: 40px;
-    height: 40px;
-}
-
-.mapbox-directions-origin .mapbox-form-label {
-    background-color: #FFF500 !important;
-    border-radius: 0 !important;
-}
-
 .mapbox-directions-component-keyline {
     box-shadow: 0 !important;
     border-radius: 0 !important;
     border: #000 solid 1px;
 }
 
-.directions-icon-depart {
-    background-image: url(/img/A_destinazione.png) !important;
+.controls-profile-switcher{
+    position: fixed;
+    display: flex;
+    left: 50%;
+    bottom: 100px;
+    transform: translate(-50%);
+    z-index: 5;
+    background: #000;
+    padding: 10px;
+}
+
+.profile-indicazioni{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3386c0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.icone-indicazioni{
+    width: 25px;
+    height: 25px;
+    background-color: #FFF500;
+}
+
+.txt-indicazioni{
+    padding: 0 10px;
 }
 
 /* ------------------------------- Break Points ------------------------------- */

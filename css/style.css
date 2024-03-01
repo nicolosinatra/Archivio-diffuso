@@ -510,6 +510,10 @@ p.hyper-mono{
 
 #map_navigazione{ position: absolute; top: 0; bottom: 0; width: 100%; }
 
+.mapboxgl-ctrl-geolocate{
+    display: none !important;
+}
+
 .mapboxgl-ctrl-top-right {
     right: 30px;
     top: 20px;

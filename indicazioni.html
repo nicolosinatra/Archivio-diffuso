@@ -172,7 +172,7 @@
         container: 'map_navigazione', // container ID
         style: 'mapbox://styles/nicolosinatra/clmnjwye901wi01r4h6n9fekx', // style URL
         center: [12.909, 43.909],
-        zoom: 14.3
+        zoom: 15.3
     });
 
     var NavigationControl = new mapboxgl.NavigationControl({
@@ -182,8 +182,6 @@
 
     // Add zoom and rotation controls to the map.
     map_navigazione.addControl(NavigationControl);
-
-    var directions_state = 'walking';
 
     const directions = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
@@ -200,6 +198,7 @@
         });
 
     map_navigazione.addControl(directions);
+
 
     const geolocate = new mapboxgl.GeolocateControl({
         positionOptions: {
@@ -238,12 +237,11 @@
         map_navigazione.setLayoutProperty('directions-destination-point', 'visibility', 'none');
         map_navigazione.setLayoutProperty('directions-destination-label', 'visibility', 'none');
 
-        geolocate.trigger();     
+        geolocate.trigger();
 
-        directions.setOrigin([user_lng, user_lat]);
-        directions.setDestination([destinazione.longitude, destinazione.latitude]);        
+        directions.setDestination([destinazione.longitude, destinazione.latitude]); 
+               
     })
-
 
     // hacky workaround for the fact that mapbox doesn't let you disable camera auto-tracking
     // geolocate._updateCamera = () => {}
@@ -261,14 +259,8 @@
         console.log("Latitude : " + user_lat);
         console.log(`Longitude: ${user_lng}`);
         console.log(`More or less ${user_crd.accuracy} meters.`);
-    
-        // if (directions_state == 'walking'){
-        //     directions_walking.setOrigin([user_lng, user_lat]);
-        //     directions_walking.setDestination([destinazione.longitude, destinazione.latitude]);
-        // }else if(directions_state == 'cycling'){
-        //     directions_cycling.setOrigin([user_lng, user_lat]);
-        //     directions_cycling.setDestination([destinazione.longitude, destinazione.latitude]);
-        // }
+
+        directions.setOrigin([user_lng, user_lat]);
         
 
     // usare turf
@@ -288,21 +280,11 @@
         timeout: 5000,
         maximumAge: 0,
     };
-
-    function set_Origin_Destination (){
-        directions_walking.setOrigin([user_lng, user_lat]);
-        directions_walking.setDestination([destinazione.longitude, destinazione.latitude]);
-    }
     
     id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
 
     $('.cycling').click(function(){
-        
-        map_navigazione.removeControl(directions_walking);
-        directions_state = 'cycling';
-        
-        map_navigazione.addControl(directions_cycling);
-
+        directions.actions.setProfile('mapbox/cycling');
     });
 
     

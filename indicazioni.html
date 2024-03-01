@@ -251,6 +251,9 @@
         map_navigazione.setLayoutProperty('directions-destination-label', 'visibility', 'none');
 
         geolocate.trigger();     
+
+        directions_walking.setOrigin([user_lng, user_lat]);
+        directions_walking.setDestination([destinazione.longitude, destinazione.latitude]);        
     })
 
 
@@ -271,13 +274,13 @@
         console.log(`Longitude: ${user_lng}`);
         console.log(`More or less ${user_crd.accuracy} meters.`);
     
-        if (directions_state == 'walking'){
-            directions_walking.setOrigin([user_lng, user_lat]);
-            directions_walking.setDestination([destinazione.longitude, destinazione.latitude]);
-        }else if(directions_state == 'cycling'){
-            directions_cycling.setOrigin([user_lng, user_lat]);
-            directions_cycling.setDestination([destinazione.longitude, destinazione.latitude]);
-        }
+        // if (directions_state == 'walking'){
+        //     directions_walking.setOrigin([user_lng, user_lat]);
+        //     directions_walking.setDestination([destinazione.longitude, destinazione.latitude]);
+        // }else if(directions_state == 'cycling'){
+        //     directions_cycling.setOrigin([user_lng, user_lat]);
+        //     directions_cycling.setDestination([destinazione.longitude, destinazione.latitude]);
+        // }
         
 
     

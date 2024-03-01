@@ -18,16 +18,22 @@
 <div id="map_navigazione"></div>
 <div class="controls-profile-switcher">
     <div class="profile-indicazioni walking">
-        <div class="icone-indicazioni "></div>
+        <div class="icone-indicazioni walking-icon">
+            <img class="walk-man" src="img/walk-man.svg" alt="walk-man" />
+        </div>
         <p class="hyper txt-indicazioni duration-walking">-</p>
     </div>
     
     <div class="profile-indicazioni cycling">
-        <div class="icone-indicazioni "></div>
+        <div class="icone-indicazioni cycling-icon">
+            <img class="cycling-man" src="img/cycle-man.svg" alt="cycle-man" />
+        </div>
         <p class="hyper txt-indicazioni duration-cycling">-</p>
     </div>
     <div class="profile-indicazioni scooter">
-        <div class="icone-indicazioni "></div>
+        <div class="icone-indicazioni scooter-icon">
+            <img class="scooter" src="img/scooter.svg" alt="scooter" />
+        </div>
         <p class="hyper txt-indicazioni duration-scooter">-</p>
     </div>
 </div>
@@ -285,30 +291,35 @@
     // whenever the map is drawn to the screen.
     map_navigazione.on('idle', () => {
         var data_directions = directions._store.getState();
-        let tempo_a_piedi = Math.round(data_directions.directions[0].duration/60);
-        let tempo_in_bici = tempo_a_piedi/4;
-        let tempo_in_monopattino = tempo_in_bici + 2;
+        let tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
+        let tempo_in_bici = Math.round(tempo_a_piedi-3);
+        let tempo_in_monopattino = tempo_a_piedi-2;
 
         $('.duration-walking').text(tempo_a_piedi + 'min');
         $('.duration-cycling').text(tempo_in_bici + 'min');
-        $('.duration-scooter').text(tempo_in_bici + 'min');
+        $('.duration-scooter').text(tempo_in_monopattino + 'min');
     });
 
     $('.cycling').click(function(){
         directions.actions.setProfile('mapbox/cycling');
+        $('.walking').removeClass('active');
+        $('.scooter').removeClass('active');
+        $('.cycling').addClass('active');
+    });
 
+    $('.walking').click(function(){
+        directions.actions.setProfile('mapbox/walking');
+        $('.cycling').removeClass('active');
+        $('.scooter').removeClass('active');
+        $('.walking').addClass('active');
+    });
+
+    $('.scooter').click(function(){
+        directions.actions.setProfile('mapbox/cycling');
         
-        map_navigazione.on('cycling', function(){
-
-        })
-    });
-
-    $('.walking').click(function(){
-        directions.actions.setProfile('mapbox/walking');
-    });
-
-    $('.walking').click(function(){
-        directions.actions.setProfile('mapbox/walking');
+        $('.walking').removeClass('active');
+        $('.cycling').removeClass('active');
+        $('.scooter').addClass('active');
     });
 
     

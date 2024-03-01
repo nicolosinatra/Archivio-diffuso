@@ -538,7 +538,12 @@ p.hyper-mono{
     transform: translate(-50%);
     z-index: 5;
     background: #000;
-    padding: 10px;
+    color: #f0f0f0;
+    min-width: 315px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
 }
 
 .profile-indicazioni{
@@ -546,15 +551,20 @@ p.hyper-mono{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #3386c0;
-    margin: 0 20px;
+    margin: 0 10px;
     box-sizing: border-box;
 }
 
 .icone-indicazioni{
-    width: 25px;
-    height: 25px;
-    background-color: #FFF500;
+    display: flex;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.icone-indicazioni img{
+    height: 100%;
+    width: auto;
 }
 
 .txt-indicazioni{

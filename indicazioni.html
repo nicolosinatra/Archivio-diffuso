@@ -212,7 +212,19 @@
     });
 
     map_navigazione.addControl(directions_walking);
-    
+
+    const geolocate = new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        // When active the map will receive updates to the device's location as it changes.
+        trackUserLocation: true,
+        // Draw an arrow next to the location dot to indicate which direction the device is heading.
+        showUserHeading: true
+    });
+    // Add the control to the map.
+    map_navigazione.addControl(geolocate);
+
     // definire stile del navigatore
     map_navigazione.on('load',  function() {
         map_navigazione.setLayoutProperty('nomi-economia-corporativa', 'visibility', 'visible');
@@ -238,25 +250,8 @@
         map_navigazione.setLayoutProperty('directions-destination-point', 'visibility', 'none');
         map_navigazione.setLayoutProperty('directions-destination-label', 'visibility', 'none');
 
-        directions_walking.setOrigin([user_lng, user_lat]);
-        directions_walking.setDestination([destinazione.longitude, destinazione.latitude]);
+        geolocate.trigger();     
     })
-
-    const geolocate = new mapboxgl.GeolocateControl({
-        positionOptions: {
-            enableHighAccuracy: true
-        },
-        // When active the map will receive updates to the device's location as it changes.
-        trackUserLocation: true,
-        // Draw an arrow next to the location dot to indicate which direction the device is heading.
-        showUserHeading: true
-    });
-    // Add the control to the map.
-    map_navigazione.addControl(geolocate);
-
-    map_navigazione.on('load', () => {
-        geolocate.trigger();      
-    });
 
 
     // hacky workaround for the fact that mapbox doesn't let you disable camera auto-tracking
@@ -276,13 +271,13 @@
         console.log(`Longitude: ${user_lng}`);
         console.log(`More or less ${user_crd.accuracy} meters.`);
     
-        // if (directions_state == 'walking'){
-        //     directions_walking.setOrigin([user_lng, user_lat]);
-        //     directions_walking.setDestination([destinazione.longitude, destinazione.latitude]);
-        // }else if(directions_state == 'cycling'){
-        //     directions_cycling.setOrigin([user_lng, user_lat]);
-        //     directions_cycling.setDestination([destinazione.longitude, destinazione.latitude]);
-        // }
+        if (directions_state == 'walking'){
+            directions_walking.setOrigin([user_lng, user_lat]);
+            directions_walking.setDestination([destinazione.longitude, destinazione.latitude]);
+        }else if(directions_state == 'cycling'){
+            directions_cycling.setOrigin([user_lng, user_lat]);
+            directions_cycling.setDestination([destinazione.longitude, destinazione.latitude]);
+        }
         
 
     
@@ -302,6 +297,11 @@
         timeout: 5000,
         maximumAge: 0,
     };
+
+    function set_Origin_Destination (){
+        directions_walking.setOrigin([user_lng, user_lat]);
+        directions_walking.setDestination([destinazione.longitude, destinazione.latitude]);
+    }
     
     id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
 

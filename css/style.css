@@ -583,7 +583,6 @@ p.hyper-mono{
 .selector-container{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     left: 0;
     padding: 0 10px;
     box-sizing: border-box;
@@ -594,8 +593,11 @@ p.hyper-mono{
 }
 
 .selector{
+    position: relative;
     background-color: #FFF500;
     width: 30%;
+    left: 0;
+    transform: translate(0);
     height: 35px;
     border-radius: 5px;
 }

@@ -7,13 +7,11 @@
     
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+    <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.css" type="text/css">
-
 
 <div id="map_navigazione"></div>
 <div class="controls-profile-switcher">
@@ -164,7 +162,8 @@
 
 
 
-
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.js"></script>
+<script src="anime-master/lib/anime.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
 
@@ -304,18 +303,37 @@
         $('.duration-scooter').text(tempo_in_monopattino + 'min');
     });
 
-    $('.cycling').click(function(){
-        directions.actions.setProfile('mapbox/cycling');
-        $('.walking').removeClass('active');
-        $('.scooter').removeClass('active');
-        $('.cycling').addClass('active');
-    });
 
     $('.walking').click(function(){
         directions.actions.setProfile('mapbox/walking');
         $('.cycling').removeClass('active');
         $('.scooter').removeClass('active');
         $('.walking').addClass('active');
+
+        anime({
+            targets: '.selector',
+            left: '0%',
+            translateX: '0',
+            duration: 400,
+            easing: 'easeInOutQuad'
+        });
+        // $('.selector-container').css('justify-content', 'flex-start');
+    });
+
+    $('.cycling').click(function(){
+        directions.actions.setProfile('mapbox/cycling');
+        $('.walking').removeClass('active');
+        $('.scooter').removeClass('active');
+        $('.cycling').addClass('active');
+
+        anime({
+            targets: '.selector',
+            left: '50%',
+            translateX: '-50%',
+            duration: 400,
+            easing: 'easeInOutQuad'
+        });
+        //$('.selector-container').css('justify-content', 'center');
     });
 
     $('.scooter').click(function(){
@@ -324,6 +342,15 @@
         $('.walking').removeClass('active');
         $('.cycling').removeClass('active');
         $('.scooter').addClass('active');
+
+        anime({
+            targets: '.selector',
+            left: '100%',
+            translateX: '-100%',
+            duration: 400,
+            easing: 'easeInOutQuad'
+        });
+        //$('.selector-container').css('justify-content', 'flex-end');
     });
 
     

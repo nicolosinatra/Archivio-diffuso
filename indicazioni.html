@@ -13,706 +13,704 @@
 
 <body>
 
-<div id="map_navigazione"></div>
-<div class="controls-profile-switcher">
-    <div class="profile-indicazioni walking active">
-        <div class="icone-indicazioni walking-icon">
-            <img class="walk-man" src="img/walk-man-active.svg" alt="walk-man" />
+    <div id="map_navigazione"></div>
+    <div class="controls-profile-switcher">
+        <div class="profile-indicazioni walking active">
+            <div class="icone-indicazioni walking-icon">
+                <img class="walk-man" src="img/walk-man-active.svg" alt="walk-man" />
+            </div>
+            <p class="hyper txt-indicazioni duration-walking">- min</p>
         </div>
-        <p class="hyper txt-indicazioni duration-walking">- min</p>
-    </div>
-    
-    <div class="profile-indicazioni cycling">
-        <div class="icone-indicazioni cycling-icon">
-            <img class="cycling-man" src="img/cycle-man.svg" alt="cycle-man" />
+        
+        <div class="profile-indicazioni cycling">
+            <div class="icone-indicazioni cycling-icon">
+                <img class="cycling-man" src="img/cycle-man.svg" alt="cycle-man" />
+            </div>
+            <p class="hyper txt-indicazioni duration-cycling">- min</p>
         </div>
-        <p class="hyper txt-indicazioni duration-cycling">- min</p>
-    </div>
-    <div class="profile-indicazioni scooter">
-        <div class="icone-indicazioni scooter-icon">
-            <img class="scooter" src="img/scooter.svg" alt="scooter" />
+        <div class="profile-indicazioni scooter">
+            <div class="icone-indicazioni scooter-icon">
+                <img class="scooter" src="img/scooter.svg" alt="scooter" />
+            </div>
+            <p class="hyper txt-indicazioni duration-scooter">- min</p>
         </div>
-        <p class="hyper txt-indicazioni duration-scooter">- min</p>
+        <div class="selector-container">
+            <div class="selector"></div>
+        </div>
     </div>
-    <div class="selector-container">
-        <div class="selector"></div>
+
+    <div class="div_verifica_dentro_fuori" style="top:20% !important"><p class="dentro_fuori">loading</p></div>
+
+    <div class="destinazione_raggiunta">
+
     </div>
-</div>
 
-<div class="destinazione_raggiunta">
+    <a href="#"> <svg class="menu-button" xmlns="http://www.w3.org/2000/svg" width="42" height="30" viewBox="0 0 42 27" fill="none">
+        <rect x="1" y="1" width="40" height="4px" fill="#FFF500" stroke="black"/>
+        <rect x="1" y="12" width="40" height="4px" fill="#FFF500" stroke="black"/>
+        <rect x="1" y="23" width="40" height="4px" fill="#FFF500" stroke="black"/>
+    </svg></a>
 
-</div>
-
-<a href="#"> <svg class="menu-button" xmlns="http://www.w3.org/2000/svg" width="42" height="30" viewBox="0 0 42 27" fill="none">
-    <rect x="1" y="1" width="40" height="4px" fill="#FFF500" stroke="black"/>
-    <rect x="1" y="12" width="40" height="4px" fill="#FFF500" stroke="black"/>
-    <rect x="1" y="23" width="40" height="4px" fill="#FFF500" stroke="black"/>
-</svg></a>
-
-<a href="index.html"><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="102" height="28" viewBox="0 0 102 28" fill="none">
-    <path d="M70.0344 0H72.8344V28H70.0344V0ZM71.4344 23.64H92.6744V28H71.4344V23.64ZM71.4344 0H99.7544V4.36H71.4344V0ZM98.3544 0H101.154V11.6H98.3544V0Z" fill="black"/>
-    <path d="M35.3391 0H38.1391V28H35.3391V0ZM50.4191 18.48H53.2191V28H50.4191V18.48ZM36.7391 16.28H66.4591V20.64H36.7391V16.28ZM36.7391 0H65.0591V4.36H36.7391V0ZM63.6591 0H66.4591V18.48H63.6591V0Z" fill="black"/>
-    <path d="M28.92 0H31.72V28H28.92V0ZM0.800003 0H3.6V28H0.800003V0ZM2.2 9H30.32V13.36H2.2V9ZM2.2 0H30.32V4.36H2.2V0Z" fill="black"/>
-    </svg>
-</a>
-
-
-<!------------------------------------------------------------------------------------------ menu ---------------------------------------->
-
-<div class="div-menu">
-    <a href="#">
-        <svg class="close-button" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-            <path d="M24 25L24 20.3329L4.20775 13.3589L4.20775 11.6406L24 4.66783L24 0L-4.60484e-07 8.4498L-1.16877e-06 16.5517L24 25Z" fill="black"/>
+    <a href="index.html"><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="102" height="28" viewBox="0 0 102 28" fill="none">
+        <path d="M70.0344 0H72.8344V28H70.0344V0ZM71.4344 23.64H92.6744V28H71.4344V23.64ZM71.4344 0H99.7544V4.36H71.4344V0ZM98.3544 0H101.154V11.6H98.3544V0Z" fill="black"/>
+        <path d="M35.3391 0H38.1391V28H35.3391V0ZM50.4191 18.48H53.2191V28H50.4191V18.48ZM36.7391 16.28H66.4591V20.64H36.7391V16.28ZM36.7391 0H65.0591V4.36H36.7391V0ZM63.6591 0H66.4591V18.48H63.6591V0Z" fill="black"/>
+        <path d="M28.92 0H31.72V28H28.92V0ZM0.800003 0H3.6V28H0.800003V0ZM2.2 9H30.32V13.36H2.2V9ZM2.2 0H30.32V4.36H2.2V0Z" fill="black"/>
         </svg>
     </a>
 
-    <div class="container-fluid container-content-menu">
-        <div class="row row-mura-menu"></div>
-        <div class="row row-mura-menu"></div>
-        <div class="row row-mura-menu"></div>
-        <div class="row row-mura-menu d-flex justify-content-center">
-            <a class="link-b text-center m-0" href="#">
-                <h4 class="violet">LOGIN<td><nobr> &nbsp;></nobr></td></h4>
-            </a>
+
+    <!------------------------------------------------------------------------------------------ menu ---------------------------------------->
+
+    <div class="div-menu">
+        <a href="#">
+            <svg class="close-button" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                <path d="M24 25L24 20.3329L4.20775 13.3589L4.20775 11.6406L24 4.66783L24 0L-4.60484e-07 8.4498L-1.16877e-06 16.5517L24 25Z" fill="black"/>
+            </svg>
+        </a>
+
+        <div class="container-fluid container-content-menu">
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu d-flex justify-content-center">
+                <a class="link-b text-center m-0" href="#">
+                    <h4 class="violet">LOGIN<td><nobr> &nbsp;></nobr></td></h4>
+                </a>
+            </div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu d-flex justify-content-center">
+                <a class="link-b text-center m-0" href="#">
+                    <h4 class="violet">ABOUT<td><nobr> &nbsp;></nobr></td></h4>
+                </a>
+            </div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
         </div>
-        <div class="row row-mura-menu"></div>
-        <div class="row row-mura-menu"></div>
-        <div class="row row-mura-menu"></div>
-        <div class="row row-mura-menu d-flex justify-content-center">
-            <a class="link-b text-center m-0" href="#">
-                <h4 class="violet">ABOUT<td><nobr> &nbsp;></nobr></td></h4>
-            </a>
+
+        <div class="container-fluid container-mura-menu">
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu">
+                <div class="col-11 d-flex align-items-end">
+                    <div class="mura-menu-o"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-10"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-10"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-10"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+                <div class="col-9">
+                    <div class="mura-menu-o"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
         </div>
-        <div class="row row-mura-menu"></div>
-        <div class="row row-mura-menu"></div>
-        <div class="row row-mura-menu"></div>
-        <div class="row row-mura-menu"></div>
     </div>
 
-    <div class="container-fluid container-mura-menu">
-        <div class="row row-mura-menu"></div>
-        <div class="row row-mura-menu">
-            <div class="col-11 d-flex align-items-end">
-                <div class="mura-menu-o"></div>
-            </div>
-        </div>
-        <div class="row row-mura-menu">
-            <div class="col-10"></div>
-            <div class="col-1 d-flex justify-content-end">
-                <div class="mura-menu-v"></div>
-            </div>
-        </div>
-        <div class="row row-mura-menu">
-            <div class="col-10"></div>
-            <div class="col-1 d-flex justify-content-end">
-                <div class="mura-menu-v"></div>
-            </div>
-        </div>
-        <div class="row row-mura-menu">
-            <div class="col-10"></div>
-            <div class="col-1 d-flex justify-content-end">
-                <div class="mura-menu-v"></div>
-            </div>
-        </div>
-        <div class="row row-mura-menu">
-            <div class="col-1"></div>
-            <div class="col-1 d-flex justify-content-end">
-                <div class="mura-menu-v"></div>
-            </div>
-            <div class="col-9">
-                <div class="mura-menu-o"></div>
-            </div>
-        </div>
-        <div class="row row-mura-menu">
-            <div class="col-1"></div>
-            <div class="col-1 d-flex justify-content-end">
-                <div class="mura-menu-v"></div>
-            </div>
-        </div>
-        <div class="row row-mura-menu">
-            <div class="col-1"></div>
-            <div class="col-1 d-flex justify-content-end">
-                <div class="mura-menu-v"></div>
-            </div>
-        </div>
-        <div class="row row-mura-menu">
-            <div class="col-1"></div>
-            <div class="col-1 d-flex justify-content-end">
-                <div class="mura-menu-v"></div>
-            </div>
-        </div>
-        <div class="row row-mura-menu">
-            <div class="col-1"></div>
-            <div class="col-1 d-flex justify-content-end">
-                <div class="mura-menu-v"></div>
-            </div>
-        </div>
-        <div class="row row-mura-menu">
-            <div class="col-1"></div>
-            <div class="col-1 d-flex justify-content-end">
-                <div class="mura-menu-v"></div>
-            </div>
-        </div>
-        <div class="row row-mura-menu">
-            <div class="col-1"></div>
-            <div class="col-1 d-flex justify-content-end">
-                <div class="mura-menu-v"></div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
 
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.js"></script>
+    <script src="anime-master/lib/anime.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
 
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.js"></script>
-<script src="anime-master/lib/anime.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script>
+        var user_lat;
+        var user_lng;
 
-    var user_lat;
-    var user_lng;
+        let id_posizione_aggiornata;
+        var destinazione = { latitude: 43.91187814893709, longitude: 12.91044693538976 }
 
-    let id_posizione_aggiornata;
-    var destinazione = { latitude: 43.91187814893709, longitude: 12.91044693538976 }
+        let options;
 
-    let options;
+        const area_destinazione = turf.polygon([[
+                [
+                12.910327638741819,
+                43.91198433533337
+                ],
+                [
+                12.910302189125149,
+                43.91198343463602
+                ],
+                [
+                12.91027698460449,
+                43.91198074121824
+                ],
+                [
+                12.910252267915363,
+                43.91197628101937
+                ],
+                [
+                12.910228277095026,
+                43.91197009699397
+                ],
+                [
+                12.91020524318997,
+                43.911962248698075
+                ],
+                [
+                12.910183388030758,
+                43.911952811715736
+                ],
+                [
+                12.910162922095605,
+                43.91194187693096
+                ],
+                [
+                12.910144042483324,
+                43.91192954965252
+                ],
+                [
+                12.910126931015126,
+                43.91191594859965
+                ],
+                [
+                12.910111752483578,
+                43.911901204758756
+                ],
+                [
+                12.91009865306557,
+                43.9118854601219
+                ],
+                [
+                12.910087758914571,
+                43.911868866319246
+                ],
+                [
+                12.910079174945748,
+                43.91185158315885
+                ],
+                [
+                12.910072983825634,
+                43.911833777087494
+                ],
+                [
+                12.910069245176064,
+                43.9118156195878
+                ],
+                [
+                12.910067995000082,
+                43.911797285526625
+                ],
+                [
+                12.910069245335269,
+                43.911778951471106
+                ],
+                [
+                12.910072984137917,
+                43.91176079398813
+                ],
+                [
+                12.910079175399115,
+                43.91174298794393
+                ],
+                [
+                12.910087759491597,
+                43.911725704820086
+                ],
+                [
+                12.91009865374408,
+                43.91170911106198
+                ],
+                [
+                12.910111753237501,
+                43.911693366475944
+                ],
+                [
+                12.910126931815483,
+                43.91167862269019
+                ],
+                [
+                12.910144043299363,
+                43.911665021694674
+                ],
+                [
+                12.910162922895966,
+                43.911652694473574
+                ],
+                [
+                12.910183388784679,
+                43.91164175974393
+                ],
+                [
+                12.91020524386848,
+                43.91163232281242
+                ],
+                [
+                12.910228277672052,
+                43.911624474561066
+                ],
+                [
+                12.910252268368732,
+                43.91161829057221
+                ],
+                [
+                12.910276984916775,
+                43.91161383040051
+                ],
+                [
+                12.91030218928435,
+                43.911611136999454
+                ],
+                [
+                12.910327638741819,
+                43.91161023630775
+                ],
+                [
+                12.910353088199289,
+                43.911611136999454
+                ],
+                [
+                12.910378292566863,
+                43.91161383040051
+                ],
+                [
+                12.910403009114908,
+                43.91161829057221
+                ],
+                [
+                12.910426999811587,
+                43.911624474561066
+                ],
+                [
+                12.91045003361516,
+                43.91163232281242
+                ],
+                [
+                12.91047188869896,
+                43.91164175974393
+                ],
+                [
+                12.910492354587674,
+                43.911652694473574
+                ],
+                [
+                12.910511234184277,
+                43.911665021694674
+                ],
+                [
+                12.910528345668155,
+                43.91167862269019
+                ],
+                [
+                12.910543524246139,
+                43.911693366475944
+                ],
+                [
+                12.910556623739557,
+                43.91170911106198
+                ],
+                [
+                12.910567517992042,
+                43.911725704820086
+                ],
+                [
+                12.910576102084525,
+                43.91174298794393
+                ],
+                [
+                12.910582293345723,
+                43.91176079398813
+                ],
+                [
+                12.910586032148371,
+                43.911778951471106
+                ],
+                [
+                12.910587282483556,
+                43.911797285526625
+                ],
+                [
+                12.910586032307574,
+                43.9118156195878
+                ],
+                [
+                12.910582293658006,
+                43.911833777087494
+                ],
+                [
+                12.910576102537892,
+                43.91185158315885
+                ],
+                [
+                12.910567518569069,
+                43.911868866319246
+                ],
+                [
+                12.910556624418069,
+                43.9118854601219
+                ],
+                [
+                12.91054352500006,
+                43.911901204758756
+                ],
+                [
+                12.910528346468512,
+                43.91191594859965
+                ],
+                [
+                12.910511235000314,
+                43.91192954965252
+                ],
+                [
+                12.910492355388035,
+                43.91194187693096
+                ],
+                [
+                12.910471889452882,
+                43.911952811715736
+                ],
+                [
+                12.910450034293667,
+                43.911962248698075
+                ],
+                [
+                12.910427000388616,
+                43.91197009699397
+                ],
+                [
+                12.910403009568276,
+                43.91197628101937
+                ],
+                [
+                12.910378292879148,
+                43.91198074121824
+                ],
+                [
+                12.91035308835849,
+                43.91198343463602
+                ],
+                [
+                12.910327638741819,
+                43.91198433533337
+                ]
+        ]]);
 
-    const area_destinazione = turf.polygon([[
-            [
-              12.910327638741819,
-              43.91198433533337
-            ],
-            [
-              12.910302189125149,
-              43.91198343463602
-            ],
-            [
-              12.91027698460449,
-              43.91198074121824
-            ],
-            [
-              12.910252267915363,
-              43.91197628101937
-            ],
-            [
-              12.910228277095026,
-              43.91197009699397
-            ],
-            [
-              12.91020524318997,
-              43.911962248698075
-            ],
-            [
-              12.910183388030758,
-              43.911952811715736
-            ],
-            [
-              12.910162922095605,
-              43.91194187693096
-            ],
-            [
-              12.910144042483324,
-              43.91192954965252
-            ],
-            [
-              12.910126931015126,
-              43.91191594859965
-            ],
-            [
-              12.910111752483578,
-              43.911901204758756
-            ],
-            [
-              12.91009865306557,
-              43.9118854601219
-            ],
-            [
-              12.910087758914571,
-              43.911868866319246
-            ],
-            [
-              12.910079174945748,
-              43.91185158315885
-            ],
-            [
-              12.910072983825634,
-              43.911833777087494
-            ],
-            [
-              12.910069245176064,
-              43.9118156195878
-            ],
-            [
-              12.910067995000082,
-              43.911797285526625
-            ],
-            [
-              12.910069245335269,
-              43.911778951471106
-            ],
-            [
-              12.910072984137917,
-              43.91176079398813
-            ],
-            [
-              12.910079175399115,
-              43.91174298794393
-            ],
-            [
-              12.910087759491597,
-              43.911725704820086
-            ],
-            [
-              12.91009865374408,
-              43.91170911106198
-            ],
-            [
-              12.910111753237501,
-              43.911693366475944
-            ],
-            [
-              12.910126931815483,
-              43.91167862269019
-            ],
-            [
-              12.910144043299363,
-              43.911665021694674
-            ],
-            [
-              12.910162922895966,
-              43.911652694473574
-            ],
-            [
-              12.910183388784679,
-              43.91164175974393
-            ],
-            [
-              12.91020524386848,
-              43.91163232281242
-            ],
-            [
-              12.910228277672052,
-              43.911624474561066
-            ],
-            [
-              12.910252268368732,
-              43.91161829057221
-            ],
-            [
-              12.910276984916775,
-              43.91161383040051
-            ],
-            [
-              12.91030218928435,
-              43.911611136999454
-            ],
-            [
-              12.910327638741819,
-              43.91161023630775
-            ],
-            [
-              12.910353088199289,
-              43.911611136999454
-            ],
-            [
-              12.910378292566863,
-              43.91161383040051
-            ],
-            [
-              12.910403009114908,
-              43.91161829057221
-            ],
-            [
-              12.910426999811587,
-              43.911624474561066
-            ],
-            [
-              12.91045003361516,
-              43.91163232281242
-            ],
-            [
-              12.91047188869896,
-              43.91164175974393
-            ],
-            [
-              12.910492354587674,
-              43.911652694473574
-            ],
-            [
-              12.910511234184277,
-              43.911665021694674
-            ],
-            [
-              12.910528345668155,
-              43.91167862269019
-            ],
-            [
-              12.910543524246139,
-              43.911693366475944
-            ],
-            [
-              12.910556623739557,
-              43.91170911106198
-            ],
-            [
-              12.910567517992042,
-              43.911725704820086
-            ],
-            [
-              12.910576102084525,
-              43.91174298794393
-            ],
-            [
-              12.910582293345723,
-              43.91176079398813
-            ],
-            [
-              12.910586032148371,
-              43.911778951471106
-            ],
-            [
-              12.910587282483556,
-              43.911797285526625
-            ],
-            [
-              12.910586032307574,
-              43.9118156195878
-            ],
-            [
-              12.910582293658006,
-              43.911833777087494
-            ],
-            [
-              12.910576102537892,
-              43.91185158315885
-            ],
-            [
-              12.910567518569069,
-              43.911868866319246
-            ],
-            [
-              12.910556624418069,
-              43.9118854601219
-            ],
-            [
-              12.91054352500006,
-              43.911901204758756
-            ],
-            [
-              12.910528346468512,
-              43.91191594859965
-            ],
-            [
-              12.910511235000314,
-              43.91192954965252
-            ],
-            [
-              12.910492355388035,
-              43.91194187693096
-            ],
-            [
-              12.910471889452882,
-              43.911952811715736
-            ],
-            [
-              12.910450034293667,
-              43.911962248698075
-            ],
-            [
-              12.910427000388616,
-              43.91197009699397
-            ],
-            [
-              12.910403009568276,
-              43.91197628101937
-            ],
-            [
-              12.910378292879148,
-              43.91198074121824
-            ],
-            [
-              12.91035308835849,
-              43.91198343463602
-            ],
-            [
-              12.910327638741819,
-              43.91198433533337
-            ]
-      ]]);
-
-    mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xvc2luYXRyYSIsImEiOiJjbGs4ZTd0aWowaXNqM2ZybzEzYmplaGF3In0.zJYGpj2MF2Nw8M8XHuXc8Q';
-    let map_navigazione = new mapboxgl.Map({
-        container: 'map_navigazione', // container ID
-        style: 'mapbox://styles/nicolosinatra/clmnjwye901wi01r4h6n9fekx', // style URL
-        center: [12.909, 43.909],
-        zoom: 15.3
-    });
-
-    var NavigationControl = new mapboxgl.NavigationControl({
-        showCompass: true,
-        showZoom: false
-    })
-
-    // Add zoom and rotation controls to the map.
-    map_navigazione.addControl(NavigationControl);
-
-    const directions = new MapboxDirections({
-        accessToken: mapboxgl.accessToken,
-        profile: 'mapbox/walking',
-        controls: {
-          profileSwitcher: false,
-          inputs: false,
-          instructions: false,
-        },
-        language: 'it-IT',
-        interactive: false,
-        unit: 'metric',
-        // profile: 'mapbox/cycling'
+        mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xvc2luYXRyYSIsImEiOiJjbGs4ZTd0aWowaXNqM2ZybzEzYmplaGF3In0.zJYGpj2MF2Nw8M8XHuXc8Q';
+        let map_navigazione = new mapboxgl.Map({
+            container: 'map_navigazione', // container ID
+            style: 'mapbox://styles/nicolosinatra/clmnjwye901wi01r4h6n9fekx', // style URL
+            center: [12.909, 43.909],
+            zoom: 15.3
         });
 
-    map_navigazione.addControl(directions);
+        var NavigationControl = new mapboxgl.NavigationControl({
+            showCompass: true,
+            showZoom: false
+        })
+
+        // Add zoom and rotation controls to the map.
+        map_navigazione.addControl(NavigationControl);
+
+        const directions = new MapboxDirections({
+            accessToken: mapboxgl.accessToken,
+            profile: 'mapbox/walking',
+            controls: {
+            profileSwitcher: false,
+            inputs: false,
+            instructions: false,
+            },
+            language: 'it-IT',
+            interactive: false,
+            unit: 'metric',
+            // profile: 'mapbox/cycling'
+            });
+
+        map_navigazione.addControl(directions);
 
 
-    const geolocate = new mapboxgl.GeolocateControl({
-        positionOptions: {
-            enableHighAccuracy: true
-        },
-        // When active the map will receive updates to the device's location as it changes.
-        trackUserLocation: true,
-        // Draw an arrow next to the location dot to indicate which direction the device is heading.
-        showUserHeading: true
-    });
-    // Add the control to the map.
-    map_navigazione.addControl(geolocate);
+        const geolocate = new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            // When active the map will receive updates to the device's location as it changes.
+            trackUserLocation: true,
+            // Draw an arrow next to the location dot to indicate which direction the device is heading.
+            showUserHeading: true
+        });
+        // Add the control to the map.
+        map_navigazione.addControl(geolocate);
 
-    // definire stile del navigatore
-    map_navigazione.on('load',  function() {
-        map_navigazione.setLayoutProperty('nomi-economia-corporativa', 'visibility', 'visible');
-        map_navigazione.setLayoutProperty('icone-economia-corporativa', 'visibility', 'visible');
-        map_navigazione.moveLayer('icone-economia-corporativa');
-        map_navigazione.moveLayer('nomi-economia-corporativa');
+        // definire stile del navigatore
+        map_navigazione.on('load',  function() {
+            map_navigazione.setLayoutProperty('nomi-economia-corporativa', 'visibility', 'visible');
+            map_navigazione.setLayoutProperty('icone-economia-corporativa', 'visibility', 'visible');
+            map_navigazione.moveLayer('icone-economia-corporativa');
+            map_navigazione.moveLayer('nomi-economia-corporativa');
 
-        map_navigazione.setPaintProperty('directions-route-line-alt', 'line-color', '#fff500');
+            map_navigazione.setPaintProperty('directions-route-line-alt', 'line-color', '#fff500');
 
-        map_navigazione.setPaintProperty('directions-route-line-casing', 'line-color', '#000');
-        map_navigazione.setPaintProperty('directions-route-line-casing', 'line-width', 6);
+            map_navigazione.setPaintProperty('directions-route-line-casing', 'line-color', '#000');
+            map_navigazione.setPaintProperty('directions-route-line-casing', 'line-width', 6);
+            
+            map_navigazione.setPaintProperty('directions-route-line', 'line-color', '#fff500');
+            map_navigazione.setPaintProperty('directions-route-line', 'line-width', 4);
+
+
+            map_navigazione.setLayoutProperty('directions-hover-point-casing', 'visibility', 'none');
+            map_navigazione.setLayoutProperty('directions-hover-point', 'visibility', 'none');
+            map_navigazione.setLayoutProperty('directions-waypoint-point-casing', 'visibility', 'none');
+            map_navigazione.setLayoutProperty('directions-waypoint-point', 'visibility', 'none');
+            map_navigazione.setLayoutProperty('directions-origin-point', 'visibility', 'none');
+            map_navigazione.setLayoutProperty('directions-origin-label', 'visibility', 'none');
+            map_navigazione.setLayoutProperty('directions-destination-point', 'visibility', 'none');
+            map_navigazione.setLayoutProperty('directions-destination-label', 'visibility', 'none');
+
+            geolocate.trigger();
+
+            directions.setDestination([destinazione.longitude, destinazione.latitude]); 
+
+            id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
+        })
+
+        // hacky workaround for the fact that mapbox doesn't let you disable camera auto-tracking
+        // geolocate._updateCamera = () => {}
+        // map_navigazione.addControl(geolocate)
         
-        map_navigazione.setPaintProperty('directions-route-line', 'line-color', '#fff500');
-        map_navigazione.setPaintProperty('directions-route-line', 'line-width', 4);
-
-
-        map_navigazione.setLayoutProperty('directions-hover-point-casing', 'visibility', 'none');
-        map_navigazione.setLayoutProperty('directions-hover-point', 'visibility', 'none');
-        map_navigazione.setLayoutProperty('directions-waypoint-point-casing', 'visibility', 'none');
-        map_navigazione.setLayoutProperty('directions-waypoint-point', 'visibility', 'none');
-        map_navigazione.setLayoutProperty('directions-origin-point', 'visibility', 'none');
-        map_navigazione.setLayoutProperty('directions-origin-label', 'visibility', 'none');
-        map_navigazione.setLayoutProperty('directions-destination-point', 'visibility', 'none');
-        map_navigazione.setLayoutProperty('directions-destination-label', 'visibility', 'none');
-
-        geolocate.trigger();
-
-        directions.setDestination([destinazione.longitude, destinazione.latitude]); 
-
-        id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
-    })
-
-    // hacky workaround for the fact that mapbox doesn't let you disable camera auto-tracking
-    // geolocate._updateCamera = () => {}
-    // map_navigazione.addControl(geolocate)
-    
-    function success(pos) {
-        const user_crd = pos.coords;
-        user_lng = user_crd.longitude;
-        user_lat = user_crd.latitude;
-    
-        // map_navigazione.setCenter([user_lng, user_lat]);
-
-        console.log("Your current position is:");
-        console.log("Latitude : " + user_lat);
-        console.log(`Longitude: ${user_lng}`);
-        console.log(`More or less ${user_crd.accuracy} meters.`);
-
-        directions.setOrigin([user_lng, user_lat]);
-
+        function success(pos) {
+            const user_crd = pos.coords;
+            user_lng = user_crd.longitude;
+            user_lat = user_crd.latitude;
         
+            // map_navigazione.setCenter([user_lng, user_lat]);
 
-        if (check){
+            console.log("Your current position is:");
+            console.log("Latitude : " + user_lat);
+            console.log(`Longitude: ${user_lng}`);
+            console.log(`More or less ${user_crd.accuracy} meters.`);
+
+            directions.setOrigin([user_lng, user_lat]);
+
+            
+
+            if (check){
+                data_directions = directions._store.getState();
+                tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
+                
+                var tempo_in_bici = Math.round(tempo_a_piedi-3);
+                let tempo_in_monopattino = tempo_a_piedi-2;
+
+                $('.duration-walking').text(tempo_a_piedi + 'min');
+                $('.duration-cycling').text(tempo_in_bici + 'min');
+                $('.duration-scooter').text(tempo_in_monopattino + 'min');
+
+                if(isNaN(tempo_a_piedi)){
+                    check = false;
+                }else{
+                    check = true;
+                }
+            }
+
+            // usare turf per verificare se sono arrivato a destinazione
+
+            var user = turf.point([parseFloat(user_lng), parseFloat(user_lat)]);
+            console.log("user dentro:"+ turf.booleanPointInPolygon(user, area_destinazione));
+        
+            if(turf.booleanPointInPolygon(user, area_destinazione)){
+                jQuery(".dentro_fuori").text("arrivato, " + user_lng + ", "+ user_lat);
+            }else{
+                jQuery(".dentro_fuori").text("fuori, " + user_lng + ", "+ user_lat);
+            }
+        }
+        
+        function error(err) {
+            console.error(`ERROR(${err.code}): ${err.message}`);
+        }
+        
+        options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0,
+        };
+
+        var check = false;
+        var tempo_a_piedi;
+        var data_directions;
+        // Set an event listener that fires
+        // when the map is drawn to the screen.
+        map_navigazione.on('idle', () => {
+
             data_directions = directions._store.getState();
             tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
-            
-            var tempo_in_bici = Math.round(tempo_a_piedi-3);
-            let tempo_in_monopattino = tempo_a_piedi-2;
 
-            $('.duration-walking').text(tempo_a_piedi + 'min');
-            $('.duration-cycling').text(tempo_in_bici + 'min');
-            $('.duration-scooter').text(tempo_in_monopattino + 'min');
+            if (tempo_a_piedi != undefined && check == false){
+                var tempo_in_bici = Math.round(tempo_a_piedi-3);
+                let tempo_in_monopattino = tempo_a_piedi-2;
 
-            if(isNaN(tempo_a_piedi)){
-                check = false;
-            }else{
-                check = true;
+                $('.duration-walking').text(tempo_a_piedi + 'min');
+                $('.duration-cycling').text(tempo_in_bici + 'min');
+                $('.duration-scooter').text(tempo_in_monopattino + 'min');
+
+                if(isNaN(tempo_a_piedi)){
+                    check = false;
+                }else{
+                    check = true;
+                }
             }
-        }
-
-        // usare turf per verificare se sono arrivato a destinazione
-
-        var user = turf.point([parseFloat(user_lng), parseFloat(user_lat)]);
-        console.log("user dentro:"+ turf.booleanPointInPolygon(user, area_destinazione));
-    
-        if(turf.booleanPointInPolygon(user, area_destinazione)){
-
-            jQuery(".dentro_fuori").text("dentro area casa, " + user_lng + ", "+ user_lat);
-        }
-
-        if (destinazione.latitude === user_crd.latitude && destinazione.longitude === user_crd.longitude) {
-            console.log("Congratulations, you reached the target");
-            navigator.geolocation.clearWatch(id);
-        }
-    }
-    
-    function error(err) {
-        console.error(`ERROR(${err.code}): ${err.message}`);
-    }
-    
-    options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0,
-    };
-
-    var check = false;
-    var tempo_a_piedi;
-    var data_directions;
-    // Set an event listener that fires
-    // when the map is drawn to the screen.
-    map_navigazione.on('idle', () => {
-
-        data_directions = directions._store.getState();
-        tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
-
-        if (tempo_a_piedi != undefined && check == false){
-            var tempo_in_bici = Math.round(tempo_a_piedi-3);
-            let tempo_in_monopattino = tempo_a_piedi-2;
-
-            $('.duration-walking').text(tempo_a_piedi + 'min');
-            $('.duration-cycling').text(tempo_in_bici + 'min');
-            $('.duration-scooter').text(tempo_in_monopattino + 'min');
-
-            if(isNaN(tempo_a_piedi)){
-                check = false;
-            }else{
-                check = true;
-            }
-        }
-    });
-
-    
-    $('.walking').click(function(){
-        directions.actions.setProfile('mapbox/walking');
-        $('.cycling').removeClass('active');
-        $('.scooter').removeClass('active');
-        
-        $('.icone-indicazioni img').remove();
-        $("<img>").attr("src", "img/cycle-man.svg")
-            .addClass("cycle-man")
-            .appendTo(".cycling-icon");
-        $("<img>").attr("src", "img/scooter.svg")
-            .addClass("scooter")
-            .appendTo(".scooter-icon");
-
-
-        anime({
-            targets: '.selector',
-            left: '0%',
-            translateX: '0',
-            duration: 200,
-            easing: 'easeInOutQuad'
         });
-
-        setTimeout(function(){
-            $("<img>").attr("src", "img/walk-man-active.svg")
-            .addClass("walk-man")
-            .addClass("active")
-            .appendTo(".walking-icon");
-            
-            $('.walking').addClass('active');
-        }, 200);
 
         
-        // $('.selector-container').css('justify-content', 'flex-start');
-    });
+        $('.walking').click(function(){
+            directions.actions.setProfile('mapbox/walking');
+            $('.cycling').removeClass('active');
+            $('.scooter').removeClass('active');
+            
+            $('.icone-indicazioni img').remove();
+            $("<img>").attr("src", "img/cycle-man.svg")
+                .addClass("cycle-man")
+                .appendTo(".cycling-icon");
+            $("<img>").attr("src", "img/scooter.svg")
+                .addClass("scooter")
+                .appendTo(".scooter-icon");
 
-    $('.cycling').click(function(){
-        directions.actions.setProfile('mapbox/cycling');
-        $('.walking').removeClass('active');
-        $('.scooter').removeClass('active');
 
-        $('.icone-indicazioni img').remove();
-        $("<img>").attr("src", "img/walk-man.svg")
-            .addClass("walk-man")
-            .appendTo(".walking-icon");
-        $("<img>").attr("src", "img/scooter.svg")
-            .addClass("scooter")
-            .appendTo(".scooter-icon");
+            anime({
+                targets: '.selector',
+                left: '0%',
+                translateX: '0',
+                duration: 200,
+                easing: 'easeInOutQuad'
+            });
 
-        anime({
-            targets: '.selector',
-            left: '50%',
-            translateX: '-50%',
-            duration: 200,
-            easing: 'easeInOutQuad'
+            setTimeout(function(){
+                $("<img>").attr("src", "img/walk-man-active.svg")
+                .addClass("walk-man")
+                .addClass("active")
+                .appendTo(".walking-icon");
+                
+                $('.walking').addClass('active');
+            }, 200);
+
+            
+            // $('.selector-container').css('justify-content', 'flex-start');
         });
 
-        setTimeout(function(){
-            $("<img>").attr("src", "img/cycle-man-active.svg")
-            .addClass("cycle-man")
-            .addClass("active")
-            .appendTo(".cycling-icon");
-            
-            $('.cycling').addClass('active');
-        }, 200);
-        //$('.selector-container').css('justify-content', 'center');
-    });
+        $('.cycling').click(function(){
+            directions.actions.setProfile('mapbox/cycling');
+            $('.walking').removeClass('active');
+            $('.scooter').removeClass('active');
 
-    $('.scooter').click(function(){
-        directions.actions.setProfile('mapbox/cycling');
-        $('.walking').removeClass('active');
-        $('.cycling').removeClass('active');
+            $('.icone-indicazioni img').remove();
+            $("<img>").attr("src", "img/walk-man.svg")
+                .addClass("walk-man")
+                .appendTo(".walking-icon");
+            $("<img>").attr("src", "img/scooter.svg")
+                .addClass("scooter")
+                .appendTo(".scooter-icon");
 
-        $('.icone-indicazioni img').remove();
-        $("<img>").attr("src", "img/walk-man.svg")
-            .addClass("walk-man")
-            .appendTo(".walking-icon");
-        $("<img>").attr("src", "img/cycle-man.svg")
-            .addClass("cycle-man")
-            .appendTo(".cycling-icon");
+            anime({
+                targets: '.selector',
+                left: '50%',
+                translateX: '-50%',
+                duration: 200,
+                easing: 'easeInOutQuad'
+            });
 
-        anime({
-            targets: '.selector',
-            left: '100%',
-            translateX: '-100%',
-            duration: 200,
-            easing: 'easeInOutQuad'
+            setTimeout(function(){
+                $("<img>").attr("src", "img/cycle-man-active.svg")
+                .addClass("cycle-man")
+                .addClass("active")
+                .appendTo(".cycling-icon");
+                
+                $('.cycling').addClass('active');
+            }, 200);
+            //$('.selector-container').css('justify-content', 'center');
         });
 
-        setTimeout(function(){
-            $("<img>").attr("src", "img/scooter-active.svg")
-            .addClass("scooter")
-            .addClass("active")
-            .appendTo(".scooter-icon");
-            
-            $('.scooter').addClass('active');
-        }, 200);
-        //$('.selector-container').css('justify-content', 'flex-end');
-    });
+        $('.scooter').click(function(){
+            directions.actions.setProfile('mapbox/cycling');
+            $('.walking').removeClass('active');
+            $('.cycling').removeClass('active');
 
-    
-    
+            $('.icone-indicazioni img').remove();
+            $("<img>").attr("src", "img/walk-man.svg")
+                .addClass("walk-man")
+                .appendTo(".walking-icon");
+            $("<img>").attr("src", "img/cycle-man.svg")
+                .addClass("cycle-man")
+                .appendTo(".cycling-icon");
 
-</script>
- 
+            anime({
+                targets: '.selector',
+                left: '100%',
+                translateX: '-100%',
+                duration: 200,
+                easing: 'easeInOutQuad'
+            });
+
+            setTimeout(function(){
+                $("<img>").attr("src", "img/scooter-active.svg")
+                .addClass("scooter")
+                .addClass("active")
+                .appendTo(".scooter-icon");
+                
+                $('.scooter').addClass('active');
+            }, 200);
+            //$('.selector-container').css('justify-content', 'flex-end');
+        });
+
+        
+        
+
+    </script>
+    
 </body>
 </html>

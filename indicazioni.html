@@ -19,20 +19,20 @@
         <div class="icone-indicazioni walking-icon">
             <img class="walk-man" src="img/walk-man-active.svg" alt="walk-man" />
         </div>
-        <p class="hyper txt-indicazioni duration-walking">-</p>
+        <p class="hyper txt-indicazioni duration-walking">- min</p>
     </div>
     
     <div class="profile-indicazioni cycling">
         <div class="icone-indicazioni cycling-icon">
             <img class="cycling-man" src="img/cycle-man.svg" alt="cycle-man" />
         </div>
-        <p class="hyper txt-indicazioni duration-cycling">-</p>
+        <p class="hyper txt-indicazioni duration-cycling">- min</p>
     </div>
     <div class="profile-indicazioni scooter">
         <div class="icone-indicazioni scooter-icon">
             <img class="scooter" src="img/scooter.svg" alt="scooter" />
         </div>
-        <p class="hyper txt-indicazioni duration-scooter">-</p>
+        <p class="hyper txt-indicazioni duration-scooter">- min</p>
     </div>
     <div class="selector-container">
         <div class="selector"></div>
@@ -270,8 +270,7 @@
 
         directions.setOrigin([user_lng, user_lat]);
 
-    // usare turf
-        // verificare se sono arrivato a destinazione
+    // usare turf per verificare se sono arrivato a destinazione
         if (destinazione.latitude === user_crd.latitude && destinazione.longitude === user_crd.longitude) {
             console.log("Congratulations, you reached the target");
             navigator.geolocation.clearWatch(id);
@@ -297,10 +296,6 @@
         let tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
         let tempo_in_bici = Math.round(tempo_a_piedi-3);
         let tempo_in_monopattino = tempo_a_piedi-2;
-
-        $('.duration-walking').text(tempo_a_piedi + 'min');
-        $('.duration-cycling').text(tempo_in_bici + 'min');
-        $('.duration-scooter').text(tempo_in_monopattino + 'min');
     });
 
 
@@ -308,15 +303,34 @@
         directions.actions.setProfile('mapbox/walking');
         $('.cycling').removeClass('active');
         $('.scooter').removeClass('active');
-        $('.walking').addClass('active');
+        
+        $('.icone-indicazioni img').remove();
+        $("<img>").attr("src", "img/cycle-man.svg")
+            .addClass("cycle-man")
+            .appendTo(".cycling-icon");
+        $("<img>").attr("src", "img/scooter.svg")
+            .addClass("scooter")
+            .appendTo(".scooter-icon");
+
 
         anime({
             targets: '.selector',
             left: '0%',
             translateX: '0',
-            duration: 400,
+            duration: 200,
             easing: 'easeInOutQuad'
         });
+
+        setTimeout(function(){
+            $("<img>").attr("src", "img/walk-man-active.svg")
+            .addClass("walk-man")
+            .addClass("active")
+            .appendTo(".walking-icon");
+            
+            $('.walking').addClass('active');
+        }, 200);
+
+        
         // $('.selector-container').css('justify-content', 'flex-start');
     });
 
@@ -324,32 +338,63 @@
         directions.actions.setProfile('mapbox/cycling');
         $('.walking').removeClass('active');
         $('.scooter').removeClass('active');
-        $('.cycling').addClass('active');
+
+        $('.icone-indicazioni img').remove();
+        $("<img>").attr("src", "img/walk-man.svg")
+            .addClass("walk-man")
+            .appendTo(".walking-icon");
+        $("<img>").attr("src", "img/scooter.svg")
+            .addClass("scooter")
+            .appendTo(".scooter-icon");
 
         anime({
             targets: '.selector',
             left: '50%',
             translateX: '-50%',
-            duration: 400,
+            duration: 200,
             easing: 'easeInOutQuad'
         });
+
+        setTimeout(function(){
+            $("<img>").attr("src", "img/cycle-man-active.svg")
+            .addClass("cycle-man")
+            .addClass("active")
+            .appendTo(".cycling-icon");
+            
+            $('.cycling').addClass('active');
+        }, 200);
         //$('.selector-container').css('justify-content', 'center');
     });
 
     $('.scooter').click(function(){
         directions.actions.setProfile('mapbox/cycling');
-        
         $('.walking').removeClass('active');
         $('.cycling').removeClass('active');
-        $('.scooter').addClass('active');
+
+        $('.icone-indicazioni img').remove();
+        $("<img>").attr("src", "img/walk-man.svg")
+            .addClass("walk-man")
+            .appendTo(".walking-icon");
+        $("<img>").attr("src", "img/cycle-man.svg")
+            .addClass("cycle-man")
+            .appendTo(".cycling-icon");
 
         anime({
             targets: '.selector',
             left: '100%',
             translateX: '-100%',
-            duration: 400,
+            duration: 200,
             easing: 'easeInOutQuad'
         });
+
+        setTimeout(function(){
+            $("<img>").attr("src", "img/scooter-active.svg")
+            .addClass("scooter")
+            .addClass("active")
+            .appendTo(".scooter-icon");
+            
+            $('.scooter').addClass('active');
+        }, 200);
         //$('.selector-container').css('justify-content', 'flex-end');
     });
 

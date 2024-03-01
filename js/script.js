@@ -54,6 +54,11 @@ $( document ).ready(function() {
       zoom: 14.4 // starting zoom
     });
 
+    map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'visible');
+    map_scelta_itinerario.setLayoutProperty('icone-edifici-primo-novecento', 'visibility', 'visible');
+    map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento', 'visibility', 'visible');
+    map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento-bg', 'visibility', 'visible');
+
     // quanto mostrare dei div affianco
     var div_width_off = '50px';
 

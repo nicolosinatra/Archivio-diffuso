@@ -577,7 +577,7 @@ p.hyper-mono{
 }
 
 .txt-indicazioni{
-    padding: 3px 10px 0;
+    padding: 3px 0 0 10px;
 }
 
 .selector-container{
@@ -595,7 +595,7 @@ p.hyper-mono{
 .selector{
     position: relative;
     background-color: #FFF500;
-    width: 30%;
+    width: 32%;
     left: 0;
     transform: translate(0);
     height: 35px;

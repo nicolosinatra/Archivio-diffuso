@@ -577,6 +577,7 @@ p.hyper-mono{
 }
 
 .txt-indicazioni{
+    min-width: 38px;
     padding: 3px 0 0 10px;
 }
 

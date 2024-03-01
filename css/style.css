@@ -46,12 +46,23 @@ h2.hyper{
 h4.violet{
     font-family: 'Violet Sans', sans-serif;
     font-size: 24px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h5.violet{
+    font-family: 'Violet Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 120%;
+    text-transform: uppercase;
     margin: 0;
 }
 
 h6.violet{
     font-family: 'Violet Sans', sans-serif;
     font-size: 16px;
+    text-transform: uppercase;
     margin: 0;
 }
 
@@ -80,7 +91,7 @@ p.hyper-mono{
 }
 
 .not-visible{
-    display: none;
+    display: none !important;
 }
 
 .underline{
@@ -601,6 +612,37 @@ p.hyper-mono{
     transform: translate(0);
     height: 35px;
     border-radius: 5px;
+}
+
+.destinazione_raggiunta{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.2);
+    height: 45px;
+    padding: 40px;
+    z-index: 5;
+}
+
+.pin-map-container{
+    width: 30px;
+    height: 95%;
+    padding-bottom: 3px;
+}
+
+.pin-map{
+    height: 100%;
+    width: auto;
+}
+
+.txt-sei-arrivato{
+    margin-left: 20px !important;
+    width: 160px;
 }
 
 /* ------------------------------- Break Points ------------------------------- */

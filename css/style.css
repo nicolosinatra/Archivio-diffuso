@@ -539,7 +539,7 @@ p.hyper-mono{
     z-index: 5;
     background: #000;
     color: #f0f0f0;
-    min-width: 315px;
+   
     box-sizing: border-box;
     padding: 0 10px;
     box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.2);

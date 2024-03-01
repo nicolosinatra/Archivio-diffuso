@@ -40,7 +40,7 @@
 </div>
 
 <div class="destinazione_raggiunta">
-    
+
 </div>
 
 <a href="#"> <svg class="menu-button" xmlns="http://www.w3.org/2000/svg" width="42" height="30" viewBox="0 0 42 27" fill="none">
@@ -537,7 +537,27 @@
 
         directions.setOrigin([user_lng, user_lat]);
 
-    // usare turf per verificare se sono arrivato a destinazione
+        
+
+        if (check){
+            data_directions = directions._store.getState();
+            tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
+            
+            var tempo_in_bici = Math.round(tempo_a_piedi-3);
+            let tempo_in_monopattino = tempo_a_piedi-2;
+
+            $('.duration-walking').text(tempo_a_piedi + 'min');
+            $('.duration-cycling').text(tempo_in_bici + 'min');
+            $('.duration-scooter').text(tempo_in_monopattino + 'min');
+
+            if(isNaN(tempo_a_piedi)){
+                check = false;
+            }else{
+                check = true;
+            }
+        }
+
+        // usare turf per verificare se sono arrivato a destinazione
 
         var user = turf.point([parseFloat(user_lng), parseFloat(user_lat)]);
         console.log("user dentro:"+ turf.booleanPointInPolygon(user, area_destinazione));
@@ -564,12 +584,13 @@
     };
 
     var check = false;
-    var tempo_a_piedi
+    var tempo_a_piedi;
+    var data_directions;
     // Set an event listener that fires
     // when the map is drawn to the screen.
     map_navigazione.on('idle', () => {
-        
-        var data_directions = directions._store.getState();
+
+        data_directions = directions._store.getState();
         tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
 
         if (tempo_a_piedi != undefined && check == false){

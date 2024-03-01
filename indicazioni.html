@@ -286,19 +286,36 @@
         timeout: 5000,
         maximumAge: 0,
     };
-    
-    
 
+    var check = false;
+    var tempo_a_piedi
     // Set an event listener that fires
-    // whenever the map is drawn to the screen.
+    // when the map is drawn to the screen.
     map_navigazione.on('idle', () => {
+        console.log('ce la famo?');   
+        
         var data_directions = directions._store.getState();
-        let tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
-        let tempo_in_bici = Math.round(tempo_a_piedi-3);
-        let tempo_in_monopattino = tempo_a_piedi-2;
+        tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
+
+        if (tempo_a_piedi != undefined && check == false){
+            console.log('ce la faremo? check: ', check );
+            var tempo_in_bici = Math.round(tempo_a_piedi-3);
+            let tempo_in_monopattino = tempo_a_piedi-2;
+
+            $('.duration-walking').text(tempo_a_piedi + 'min');
+            $('.duration-cycling').text(tempo_in_bici + 'min');
+            $('.duration-scooter').text(tempo_in_monopattino + 'min');
+
+            if(isNaN(tempo_a_piedi)){
+                check = false;
+            }else{
+                check = true;
+            }
+        }
+        
     });
 
-
+    
     $('.walking').click(function(){
         directions.actions.setProfile('mapbox/walking');
         $('.cycling').removeClass('active');

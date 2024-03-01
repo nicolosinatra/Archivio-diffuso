@@ -19,16 +19,16 @@
 <div class="controls-profile-switcher">
     <div class="profile-indicazioni walking">
         <div class="icone-indicazioni "></div>
-        <p class="hyper txt-indicazioni">walking</p>
+        <p class="hyper txt-indicazioni duration-walking">-</p>
     </div>
     
     <div class="profile-indicazioni cycling">
         <div class="icone-indicazioni "></div>
-        <p class="hyper txt-indicazioni">cycling</p>
+        <p class="hyper txt-indicazioni duration-cycling">-</p>
     </div>
     <div class="profile-indicazioni scooter">
         <div class="icone-indicazioni "></div>
-        <p class="hyper txt-indicazioni">scooter</p>
+        <p class="hyper txt-indicazioni duration-scooter">-</p>
     </div>
 </div>
 
@@ -240,14 +240,13 @@
         geolocate.trigger();
 
         directions.setDestination([destinazione.longitude, destinazione.latitude]); 
-               
+
+        id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
     })
 
     // hacky workaround for the fact that mapbox doesn't let you disable camera auto-tracking
     // geolocate._updateCamera = () => {}
     // map_navigazione.addControl(geolocate)
-    
-
     
     function success(pos) {
         const user_crd = pos.coords;
@@ -261,7 +260,6 @@
         console.log(`More or less ${user_crd.accuracy} meters.`);
 
         directions.setOrigin([user_lng, user_lat]);
-        
 
     // usare turf
         // verificare se sono arrivato a destinazione
@@ -281,12 +279,39 @@
         maximumAge: 0,
     };
     
-    id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
+    
+
+    // Set an event listener that fires
+    // whenever the map is drawn to the screen.
+    map_navigazione.on('idle', () => {
+        var data_directions = directions._store.getState();
+        let tempo_a_piedi = Math.round(data_directions.directions[0].duration/60);
+        let tempo_in_bici = tempo_a_piedi/4;
+        let tempo_in_monopattino = tempo_in_bici + 2;
+
+        $('.duration-walking').text(tempo_a_piedi + 'min');
+        $('.duration-cycling').text(tempo_in_bici + 'min');
+        $('.duration-scooter').text(tempo_in_bici + 'min');
+    });
 
     $('.cycling').click(function(){
         directions.actions.setProfile('mapbox/cycling');
+
+        
+        map_navigazione.on('cycling', function(){
+
+        })
     });
 
+    $('.walking').click(function(){
+        directions.actions.setProfile('mapbox/walking');
+    });
+
+    $('.walking').click(function(){
+        directions.actions.setProfile('mapbox/walking');
+    });
+
+    
     
 
 </script>

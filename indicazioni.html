@@ -185,7 +185,7 @@
 
     var directions_state = 'walking';
 
-    const directions_walking = new MapboxDirections({
+    const directions = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
         profile: 'mapbox/walking',
         controls: {
@@ -194,24 +194,12 @@
           instructions: false,
         },
         language: 'it-IT',
+        interactive: false,
         unit: 'metric',
         // profile: 'mapbox/cycling'
         });
 
-    const directions_cycling = new MapboxDirections({
-        accessToken: mapboxgl.accessToken,
-        profile: 'mapbox/walking',
-        controls: {
-          profileSwitcher: false,
-          inputs: false,
-          instructions: false,
-        },
-        language: 'it-IT',
-        unit: 'metric',
-        // profile: 'mapbox/cycling'
-    });
-
-    map_navigazione.addControl(directions_walking);
+    map_navigazione.addControl(directions);
 
     const geolocate = new mapboxgl.GeolocateControl({
         positionOptions: {
@@ -252,8 +240,8 @@
 
         geolocate.trigger();     
 
-        directions_walking.setOrigin([user_lng, user_lat]);
-        directions_walking.setDestination([destinazione.longitude, destinazione.latitude]);        
+        directions.setOrigin([user_lng, user_lat]);
+        directions.setDestination([destinazione.longitude, destinazione.latitude]);        
     })
 
 
@@ -283,7 +271,7 @@
         // }
         
 
-    
+    // usare turf
         // verificare se sono arrivato a destinazione
         if (destinazione.latitude === user_crd.latitude && destinazione.longitude === user_crd.longitude) {
             console.log("Congratulations, you reached the target");

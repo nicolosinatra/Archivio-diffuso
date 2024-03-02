@@ -14,6 +14,7 @@
 <body>
 
     <div id="map_navigazione"></div>
+
     <div class="controls-profile-switcher">
         <div class="profile-indicazioni walking active">
             <div class="icone-indicazioni walking-icon">
@@ -39,10 +40,21 @@
         </div>
     </div>
 
-    <div class="div_verifica_dentro_fuori" style="top:20% !important"><p class="dentro_fuori">loading</p></div>
+    <!-- test mode -------------------------------------------------->
+    <div class="overlay">
+        <button id="mouse">Mouse</button>
+    </div>
 
-    <div class="destinazione_raggiunta">
-        <div class="close"></div>
+    <div class="div_verifica_dentro_fuori" style="top:20% !important"><p class="dentro_fuori">loading</p></div>
+    <!-- test mode -------------------------------------------------->
+
+
+    <div class="destinazione_raggiunta not-visible">
+        <div class="close-button-arrivato">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewBox="0 0 21 19" fill="none">
+                <path d="M11.3986 9.5L20 17.973L18.973 19L10.5 10.3986L2.02703 19L1 17.973L9.60135 9.5L1 1.02703L2.02703 0L10.5 8.60135L18.973 0L20 1.02703L11.3986 9.5Z" fill="black"/>
+            </svg>
+        </div>
         <div class="pin-map-container">
             <svg class="pin-map" xmlns="http://www.w3.org/2000/svg" width="16" height="23" viewBox="0 0 16 23" fill="none">
                 <mask id="path-1-outside-1_239_1480" maskUnits="userSpaceOnUse" x="0.5" y="0.5" width="15" height="22" fill="black">
@@ -456,6 +468,30 @@
                 ]
         ]]);
 
+
+        // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode
+
+        const origin = [12.910316279411177, 43.91162447859239];
+
+        var user_test = {
+            'type': 'FeatureCollection',
+            'features': [
+                {
+                    'type': 'Feature',
+                    'properties': {},
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': origin
+                    }
+                }
+            ]
+        };
+
+        // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode
+
+        let mouse = false;
+        var mouse_pos = {};
+
         mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xvc2luYXRyYSIsImEiOiJjbGs4ZTd0aWowaXNqM2ZybzEzYmplaGF3In0.zJYGpj2MF2Nw8M8XHuXc8Q';
         let map_navigazione = new mapboxgl.Map({
             container: 'map_navigazione', // container ID
@@ -476,9 +512,9 @@
             accessToken: mapboxgl.accessToken,
             profile: 'mapbox/walking',
             controls: {
-            profileSwitcher: false,
-            inputs: false,
-            instructions: false,
+                profileSwitcher: false,
+                inputs: false,
+                instructions: false,
             },
             language: 'it-IT',
             interactive: false,
@@ -530,7 +566,86 @@
 
             directions.setDestination([destinazione.longitude, destinazione.latitude]); 
 
-            id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
+            // id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
+
+
+            // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode
+
+            map_navigazione.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', (error, image) => {
+                if (error) throw error;
+                if (!map.hasImage('cat')) map.addImage('cat', image);
+            });
+
+            map_navigazione.addSource('point', {
+                'type': 'geojson',
+                'data': user_test
+            });
+
+            // rende visibile il punto creato definendone lo stile sulla mappa (cat)
+            map_navigazione.addLayer({
+            'id': 'point',
+            'source': 'point',
+            'type': 'symbol',
+            'layout': {
+                // This icon is a part of the Mapbox Streets style.
+                // To view all images available in a Mapbox style, open
+                // the style in Mapbox Studio and click the "Images" tab.
+                // To add a new image to the style at runtime see
+                // https://docs.mapbox.com/mapbox-gl-js/example/add-image/
+                'icon-image': 'cat',
+                'icon-size': 0.1,
+                'icon-rotate': ['get', 'bearing'],
+                'icon-rotation-alignment': 'map',
+                'icon-allow-overlap': true,
+                'icon-ignore-placement': true
+            }
+            });
+
+            document.getElementById('mouse').addEventListener('click', () => {
+                if (mouse){
+                    mouse = false;
+                } else {
+                    mouse = true;
+                }
+            });
+
+
+            map_navigazione.on('mousemove', (e) => {
+                const json = JSON.stringify(e.lngLat.wrap());
+                const json_obj = JSON.parse(json);
+                mouse_pos = json_obj;
+                let mouse_lat = mouse_pos.lat;
+                let mouse_lng = mouse_pos.lng;
+                // `e.point` is the x, y coordinates of the `mousemove` event
+                // relative to the top-left corner of the map.
+                // document.getElementById('info').innerHTML = JSON.stringify(e.lngLat.wrap()) + JSON.stringify(e.point);
+
+                if (mouse){
+                    user_test.features[0].geometry.coordinates = [mouse_lng, mouse_lat];
+                    // Update the source with this new data
+                    map_navigazione.getSource('point').setData(user_test);
+
+                    let user_lng = mouse_lng;
+                    let user_lat = mouse_lat;
+                    
+                    // Verificare se e dentro quale campo sonoro si trova l'utente
+                    let user_turf = turf.point([parseFloat(user_lng), parseFloat(user_lat)]);
+                    // console.log("user dentro:"+ turf.booleanPointInPolygon(user_turf, campo_sonoro_fronte_economia_corporativa));
+                
+                    if(turf.booleanPointInPolygon(user_turf, area_destinazione)){
+                        console.log('sei_arrivato');
+                        $('.destinazione_raggiunta').removeClass('not-visible');
+                    }else{
+                       
+                    }
+                }else{
+                    id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
+                }
+            });
+
+           // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode
+
+
         })
 
         // hacky workaround for the fact that mapbox doesn't let you disable camera auto-tracking
@@ -563,12 +678,6 @@
                 $('.duration-walking').text(tempo_a_piedi + 'min');
                 $('.duration-cycling').text(tempo_in_bici + 'min');
                 $('.duration-scooter').text(tempo_in_monopattino + 'min');
-
-                if(isNaN(tempo_a_piedi)){
-                    check = false;
-                }else{
-                    check = true;
-                }
             }
 
             // usare turf per verificare se sono arrivato a destinazione
@@ -578,6 +687,7 @@
         
             if(turf.booleanPointInPolygon(user, area_destinazione)){
                 jQuery(".dentro_fuori").text("arrivato, " + user_lng + ", "+ user_lat);
+                $('.destinazione_raggiunta').removeClass('not-visible');
             }else{
                 jQuery(".dentro_fuori").text("fuori, " + user_lng + ", "+ user_lat);
             }
@@ -719,9 +829,28 @@
             //$('.selector-container').css('justify-content', 'flex-end');
         });
 
-        
-        
+        $('.close-button-arrivato').click(function(){
+            $('.destinazione_raggiunta').fadeOut(500);
+            $('.controls-profile-switcher').fadeOut(500);
 
+            map_navigazione.setPaintProperty('directions-route-line-alt', 'line-opacity-transition', { duration: 300 });
+            map_navigazione.setPaintProperty('directions-route-line-casing', 'line-opacity-transition', { duration: 100 });
+            map_navigazione.setPaintProperty('directions-route-line', 'line-opacity-transition', { duration: 300 });
+
+            map_navigazione.setPaintProperty('directions-route-line-alt', 'line-opacity', 0);
+            map_navigazione.setPaintProperty('directions-route-line-casing', 'line-opacity', 0);
+            map_navigazione.setPaintProperty('directions-route-line', 'line-opacity', 0);
+
+            setTimeout(500, function(){
+                $('.destinazione_raggiunta').addClass('not-visible');
+                $('.controls-profile-switcher').addClass('not-visible');
+            }); 
+            
+            
+            
+        });
+
+       
     </script>
     
 </body>

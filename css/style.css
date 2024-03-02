@@ -625,7 +625,7 @@ p.hyper-mono{
     border-radius: 10px;
     box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.2);
     height: 45px;
-    padding: 40px;
+    padding: 50px 70px 50px 35px;
     z-index: 5;
 }
 
@@ -643,6 +643,13 @@ p.hyper-mono{
 .txt-sei-arrivato{
     margin-left: 20px !important;
     width: 160px;
+}
+
+.close-button-arrivato{
+    position: absolute;
+    cursor: pointer;
+    top: 20px;
+    right: 20px;
 }
 
 /* ------------------------------- Break Points ------------------------------- */

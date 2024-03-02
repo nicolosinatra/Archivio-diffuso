@@ -41,11 +41,13 @@
     </div>
 
     <!-- test mode -------------------------------------------------->
-    <div class="overlay">
+
+    <!-- <div class="overlay">
         <button id="mouse">Mouse</button>
-    </div>
+    </div> -->
 
     <div class="div_verifica_dentro_fuori" style="top:20% !important"><p class="dentro_fuori">loading</p></div>
+    
     <!-- test mode -------------------------------------------------->
 
 
@@ -566,10 +568,12 @@
 
             directions.setDestination([destinazione.longitude, destinazione.latitude]); 
 
-            // id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
+            id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
 
 
             // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode
+
+            /*  <------ togli questo per attivare
 
             map_navigazione.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', (error, image) => {
                 if (error) throw error;
@@ -642,6 +646,8 @@
                     id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
                 }
             });
+
+            togli questo per attivare  ------ */
 
            // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode
 

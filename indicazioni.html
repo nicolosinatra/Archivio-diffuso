@@ -42,7 +42,7 @@
 
     <!-- test mode -------------------------------------------------->
     <div class="overlay">
-        <button id="mouse">Mouse</button>
+        <button id="mouse"><p class="hyper-bold" style="margin: 0;">Test Mode</p></button>
     </div>
 
     <div class="div_verifica_dentro_fuori" style="top:20% !important"><p class="dentro_fuori">loading</p></div>
@@ -566,7 +566,7 @@
 
             directions.setDestination([destinazione.longitude, destinazione.latitude]); 
 
-            // id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
+            id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
 
 
             // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode
@@ -606,8 +606,10 @@
             document.getElementById('mouse').addEventListener('click', () => {
                 if (mouse){
                     mouse = false;
+                    $('#mouse').removeClass('active');
                 } else {
                     mouse = true;
+                    $('#mouse').addClass('active');
                 }
             });
 
@@ -640,8 +642,6 @@
                     }else{
                        
                     }
-                }else{
-                    id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
                 }
             });
 

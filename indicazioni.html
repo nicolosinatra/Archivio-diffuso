@@ -672,7 +672,7 @@
 
             
 
-            if (check && directions.options.profile == 'mapbox/walking'){
+            if (check && stato_indicazioni === 'walking'){
                 data_directions = directions._store.getState();
                 tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
                 
@@ -733,8 +733,10 @@
             }
         });
 
+        var stato_indicazioni = 'walking';
         
         $('.walking').click(function(){
+            stato_indicazioni = 'walking';
             directions.actions.setProfile('mapbox/walking');
             $('.cycling').removeClass('active');
             $('.scooter').removeClass('active');
@@ -770,6 +772,7 @@
         });
 
         $('.cycling').click(function(){
+            stato_indicazioni = 'cycling';
             directions.actions.setProfile('mapbox/cycling');
             $('.walking').removeClass('active');
             $('.scooter').removeClass('active');
@@ -802,6 +805,7 @@
         });
 
         $('.scooter').click(function(){
+            stato_indicazioni = 'scooter';
             directions.actions.setProfile('mapbox/cycling');
             $('.walking').removeClass('active');
             $('.cycling').removeClass('active');

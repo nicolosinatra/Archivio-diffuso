@@ -677,7 +677,7 @@
                 data_directions = directions._store.getState();
                 tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
                 
-                var tempo_in_bici = Math.round(tempo_a_piedi*103);
+                var tempo_in_bici = Math.round(tempo_a_piedi/3);
                 let tempo_in_monopattino = Math.round(tempo_a_piedi/4);
 
                 $('.duration-walking').text(tempo_a_piedi + 'min');
@@ -721,7 +721,7 @@
             tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
 
             if (tempo_a_piedi != undefined && check == false){
-                var tempo_in_bici = Math.round(tempo_a_piedi*103);
+                var tempo_in_bici = Math.round(tempo_a_piedi/3);
                 let tempo_in_monopattino = Math.round(tempo_a_piedi/4);
 
                 $('.duration-walking').text(tempo_a_piedi + 'min');

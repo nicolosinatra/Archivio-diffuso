@@ -539,7 +539,7 @@ p.hyper-mono{
 
 .mapboxgl-ctrl-top-right {
     right: 30px;
-    top: 20px;
+    top: 60px;
 }
 
 .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
@@ -557,7 +557,7 @@ p.hyper-mono{
     position: fixed;
     display: flex;
     left: 50%;
-    bottom: 100px;
+    bottom: 30px;
     transform: translate(-50%);
     z-index: 5;
     background: #000;

@@ -656,6 +656,7 @@
         // geolocate._updateCamera = () => {}
         // map_navigazione.addControl(geolocate)
         
+
         function success(pos) {
             const user_crd = pos.coords;
             user_lng = user_crd.longitude;
@@ -676,12 +677,14 @@
                 data_directions = directions._store.getState();
                 tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
                 
-                var tempo_in_bici = Math.round(tempo_a_piedi-3);
-                let tempo_in_monopattino = tempo_a_piedi-2;
+                var tempo_in_bici = Math.round(tempo_a_piedi*103);
+                let tempo_in_monopattino = Math.round(tempo_a_piedi/4);
 
                 $('.duration-walking').text(tempo_a_piedi + 'min');
                 $('.duration-cycling').text(tempo_in_bici + 'min');
                 $('.duration-scooter').text(tempo_in_monopattino + 'min');
+
+                adatta_larrghezza('profile-indicazioni.active');
             }
 
             // usare turf per verificare se sono arrivato a destinazione
@@ -718,12 +721,14 @@
             tempo_a_piedi = Math.round(data_directions.directions[0].duration / 60);
 
             if (tempo_a_piedi != undefined && check == false){
-                var tempo_in_bici = Math.round(tempo_a_piedi-3);
-                let tempo_in_monopattino = tempo_a_piedi-2;
+                var tempo_in_bici = Math.round(tempo_a_piedi*103);
+                let tempo_in_monopattino = Math.round(tempo_a_piedi/4);
 
                 $('.duration-walking').text(tempo_a_piedi + 'min');
                 $('.duration-cycling').text(tempo_in_bici + 'min');
                 $('.duration-scooter').text(tempo_in_monopattino + 'min');
+
+                adatta_larrghezza('profile-indicazioni.active');
 
                 if(isNaN(tempo_a_piedi)){
                     check = false;
@@ -769,6 +774,8 @@
 
             
             // $('.selector-container').css('justify-content', 'flex-start');
+
+            adatta_larrghezza('profile-indicazioni.walking');
         });
 
         $('.cycling').click(function(){
@@ -802,6 +809,8 @@
                 $('.cycling').addClass('active');
             }, 200);
             //$('.selector-container').css('justify-content', 'center');
+
+            adatta_larrghezza('profile-indicazioni.cycling');
         });
 
         $('.scooter').click(function(){
@@ -835,6 +844,8 @@
                 $('.scooter').addClass('active');
             }, 200);
             //$('.selector-container').css('justify-content', 'flex-end');
+
+            adatta_larrghezza('profile-indicazioni.scooter');
         });
 
         $('.close-button-arrivato').click(function(){
@@ -857,6 +868,13 @@
             
             
         });
+
+        var larghezza_contenitore;
+
+        function adatta_larrghezza(contenitore){
+            larghezza_contenitore = $("." + contenitore).outerWidth();
+	        $('.selector').css('width', larghezza_contenitore + 20); // 20 --> margini dx e sx del div attivo
+        }
 
        
     </script>

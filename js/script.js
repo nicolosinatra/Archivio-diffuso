@@ -50,8 +50,8 @@ $( document ).ready(function() {
       // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
       // style: 'mapbox://styles/mapbox/streets-v12', // style URL
       style: 'mapbox://styles/nicolosinatra/clmnjwye901wi01r4h6n9fekx', // style URL
-      center: [12.909, 43.9068], // starting center in [lng, lat]
-      zoom: 14.4 // starting zoom
+      center: [12.909,  43.9075], // starting center in [lng, lat]
+      zoom: 14.2 // starting zoom
     });
 
     map_scelta_itinerario.on('load', function(){
@@ -151,10 +151,10 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
 
         map_scelta_itinerario.flyTo({
-          center: [12.909, 43.9068],
+          center: [12.909,  43.9075], 
           duration: 1000,
           essential: true,
-          zoom: 14.4
+          zoom: 14.2
         });
 
       // 1 --> edifici secondo novecento
@@ -186,7 +186,7 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
 
         map_scelta_itinerario.flyTo({
-          center: [12.910, 43.906],
+          center: [12.909, 43.907],
           duration: 1000,
           essential: true,
           zoom: 13.8
@@ -221,10 +221,10 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
 
         map_scelta_itinerario.flyTo({
-          center: [12.909, 43.909],
+          center: [12.909, 43.9095],
           duration: 1000,
           essential: true,
-          zoom: 14.3
+          zoom: 14.1
         });
       
       // 3 --> edifici aymonino
@@ -256,7 +256,7 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
 
         map_scelta_itinerario.flyTo({
-          center: [12.902, 43.895],
+          center: [12.902, 43.898],
           duration: 1000,
           essential: true,
           zoom: 12.7
@@ -291,10 +291,10 @@ $( document ).ready(function() {
         map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'visible');
 
         map_scelta_itinerario.flyTo({
-          center: [12.882, 43.877],
+          center: [12.882, 43.882],
           duration: 1000,
           essential: true,
-          zoom: 12.35
+          zoom: 12.3
         });
 
       }

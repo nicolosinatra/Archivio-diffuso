@@ -111,7 +111,7 @@ p.hyper-mono{
 
 .menu-button{
     position: fixed;
-    bottom: 30px;
+    top: 30px;
     right: 30px;
     z-index: 3;
 }
@@ -417,7 +417,7 @@ p.hyper-mono{
     position: fixed;
     width: 100vw;
     left: 0;
-    bottom: 80px;
+    bottom: 30px;
     z-index: 5;
 }
 

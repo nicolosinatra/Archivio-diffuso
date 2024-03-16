@@ -39,7 +39,7 @@ body.index-w{
 h2.hyper{
     font-family: 'HyperCubeVF', sans-serif;
     font-size: 32px;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 1px;
 }
 
@@ -48,6 +48,7 @@ h4.firs{
     font-size: 24px;
     font-weight: 400;
     text-transform: uppercase;
+    font-feature-settings: 'ss09' on;
     margin: 0;
 }
 
@@ -57,6 +58,7 @@ h5.firs{
     font-weight: 400;
     line-height: 120%;
     text-transform: uppercase;
+    font-feature-settings: 'ss09' on;
     margin: 0;
 }
 
@@ -64,6 +66,8 @@ h6.firs{
     font-family: 'FirsNeueVF', sans-serif;
     font-size: 16px;
     text-transform: uppercase;
+    font-feature-settings: 'ss09' on;
+    font-weight: 400;
     margin: 0;
 }
 

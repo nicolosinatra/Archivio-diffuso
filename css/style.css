@@ -9,10 +9,10 @@
     }
 
 @font-face {
-    font-family: 'Violet Sans';
-    src: url('../fonts/VioletSans-Regular.woff2') format("woff2"),
-         url('../fonts/VioletSans-Regular.woff') format("woff"),
-         url('../fonts/VioletSans-Regular.ttf') format("ttf"),
+    font-family: 'FirsNeueVF';
+    src: url('../fonts/TTFirsNeueVariable.woff2') format("woff2"),
+         url('../fonts/TTFirsNeueVariable.woff') format("woff"),
+         url('../fonts/TTFirsNeueVariable.ttf') format("ttf"),
     }
 
 @font-face {
@@ -43,15 +43,16 @@ h2.hyper{
     letter-spacing: 1px;
 }
 
-h4.violet{
-    font-family: 'Violet Sans', sans-serif;
+h4.firs{
+    font-family: 'FirsNeueVF', sans-serif;
     font-size: 24px;
+    font-weight: 400;
     text-transform: uppercase;
     margin: 0;
 }
 
-h5.violet{
-    font-family: 'Violet Sans', sans-serif;
+h5.firs{
+    font-family: 'FirsNeueVF', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 120%;
@@ -59,8 +60,8 @@ h5.violet{
     margin: 0;
 }
 
-h6.violet{
-    font-family: 'Violet Sans', sans-serif;
+h6.firs{
+    font-family: 'FirsNeueVF', sans-serif;
     font-size: 16px;
     text-transform: uppercase;
     margin: 0;

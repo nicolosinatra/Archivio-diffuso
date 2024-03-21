@@ -670,7 +670,7 @@
             console.log(`Longitude: ${user_lng}`);
             console.log(`More or less ${user_crd.accuracy} meters.`);
 
-            if ((user_lng != NaN) && (user_lat != NaN) && check_direction == false){
+            if ((user_lng != NaN) && (user_lat != NaN) && check_direction === false){
                 directions.setOrigin([user_lng, user_lat]);
                 check_direction = true;
             }

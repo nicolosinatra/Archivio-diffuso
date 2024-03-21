@@ -656,7 +656,7 @@
         // hacky workaround for the fact that mapbox doesn't let you disable camera auto-tracking
         // geolocate._updateCamera = () => {}
         // map_navigazione.addControl(geolocate)
-        
+        var check_direction = false;
 
         function success(pos) {
             const user_crd = pos.coords;
@@ -670,8 +670,11 @@
             console.log(`Longitude: ${user_lng}`);
             console.log(`More or less ${user_crd.accuracy} meters.`);
 
+            if ((user_lng != NaN) && (user_lat != NaN) && check_direction == false){
+                directions.setOrigin([user_lng, user_lat]);
+                check_direction = true;
+            }
             
-            directions.setOrigin([user_lng, user_lat]);
 
             
 

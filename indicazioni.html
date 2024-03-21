@@ -663,13 +663,15 @@
             user_lng = user_crd.longitude;
             user_lat = user_crd.latitude;
         
-            map_navigazione.setCenter([user_lng, user_lat]);
+            // solo la prima volta o quando utente clicca bussola
+            //map_navigazione.setCenter([user_lng, user_lat]);
 
             console.log("Your current position is:");
             console.log("Latitude : " + user_lat);
             console.log(`Longitude: ${user_lng}`);
             console.log(`More or less ${user_crd.accuracy} meters.`);
 
+            // solo la prima volta o quando utente clicca bussola
             if ((user_lng != NaN) && (user_lat != NaN) && check_direction === false){
                 directions.setOrigin([user_lng, user_lat]);
                 check_direction = true;

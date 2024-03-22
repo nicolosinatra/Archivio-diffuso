@@ -630,9 +630,12 @@ p.hyper-mono{
     bottom: 20px;
 }
 
-.container-contenuti-tappa-manifesto{
+.container-contenuti-tappa-primo-novecento, .container-contenuti-tappa-secondo-novecento, 
+.container-contenuti-tappa-manifesto, .container-contenuti-tappa-aymonino, .container-contenuti-tappa-fuori-centro {
     opacity: 0;
 }
+
+
 
 
 /* ------------------------------- Break Points ------------------------------- */

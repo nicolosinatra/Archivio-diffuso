@@ -109,15 +109,12 @@ $( document ).ready(function() {
 
     //set active class to first thumbnail slides
     $('.slick-slide').eq(0).addClass('slick-active');
-    $('.content-slider.0').addClass('active');
 
     // On before slide change match active thumbnail to current slide
     $('.slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
       var mySlideNumber = nextSlide;
       $('.slick-slide').removeClass('slick-active');
       $('.slick-slide').eq(mySlideNumber).addClass('slick-active');
-      $('.content-slider').removeClass('active');
-      $('.content-slider.' + nextSlide).addClass('active');
     });
 
     var slide = 0;
@@ -311,37 +308,41 @@ $( document ).ready(function() {
 
     var winHeight = window.innerHeight;
 
-    $('.content-slider.active').click(function() {
+    $('.content-slider').click(function() {
+      console.log(slide);
       // mostrare div con capitoli itinerario
-      $('.container-tappe').css('opacity', '1');
       if (slide == 0){
+        $('.container-tappe.primo-novecento').css('opacity', '1');
         setTimeout(() => {
-          anime({targets: '.container-contenuti-tappa-manifesto', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+          anime({targets: '.container-contenuti-tappa-primo-novecento', opacity: 1, easing: 'easeInOutQuad', duration: 300});
         }, 100);
         anime({
-          targets: '.container-tappe.manifesto',
+          targets: '.container-tappe.primo-novecento',
           width: 265,
           height: winHeight/100*83, 
           bottom: 30,
           easing: 'easeInOutQuad',
           duration: 300
-        });  
-        $('.container-tappe.manifesto').addClass('active');
+        }); 
+        $('.container-tappe.primo-novecento').addClass('active');
       }
       else if (slide == 1){
+        $('.container-tappe.secondo-novecento').css('opacity', '1');
         setTimeout(() => {
-          anime({targets: '.container-contenuti-tappa-manifesto', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+          anime({targets: '.container-contenuti-tappa-secondo-novecento', opacity: 1, easing: 'easeInOutQuad', duration: 300});
         }, 100);
         anime({
-          targets: '.container-tappe.manifesto',
+          targets: '.container-tappe.secondo-novecento',
           width: 265,
           height: winHeight/100*83, 
           bottom: 30,
           easing: 'easeInOutQuad',
           duration: 300
         }); 
+        $('.container-tappe.secondo-novecento').addClass('active');
       }
       else if (slide == 2){
+        $('.container-tappe.manifesto').css('opacity', '1');
         setTimeout(() => {
           anime({targets: '.container-contenuti-tappa-manifesto', opacity: 1, easing: 'easeInOutQuad', duration: 300});
         }, 100);
@@ -353,36 +354,43 @@ $( document ).ready(function() {
           easing: 'easeInOutQuad',
           duration: 300
         }); 
+        $('.container-tappe.manifesto').addClass('active');
       }
       else if (slide == 3){
+        $('.container-tappe.aymonino').css('opacity', '1');
         setTimeout(() => {
-          anime({targets: '.container-contenuti-tappa-manifesto', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+          anime({targets: '.container-contenuti-tappa-aymonino', opacity: 1, easing: 'easeInOutQuad', duration: 300});
         }, 100);
         anime({
-          targets: '.container-tappe.manifesto',
+          targets: '.container-tappe.aymonino',
           width: 265,
           height: winHeight/100*83, 
           bottom: 30,
           easing: 'easeInOutQuad',
           duration: 300
         }); 
+        $('.container-tappe.aymonino').addClass('active');
       }
       else if (slide == 4){
+        $('.container-tappe.fuori-centro').css('opacity', '1');
         setTimeout(() => {
-          anime({targets: '.container-contenuti-tappa-manifesto', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+          anime({targets: '.container-contenuti-tappa-fuori-centro', opacity: 1, easing: 'easeInOutQuad', duration: 300});
         }, 100);
         anime({
-          targets: '.container-tappe.manifesto',
+          targets: '.container-tappe.fuori-centro',
           width: 265,
           height: winHeight/100*83, 
           bottom: 30,
           easing: 'easeInOutQuad',
           duration: 300
         }); 
+        $('.container-tappe.fuori-centro').addClass('active');
       }
       $('.container-tappe').css('pointer-events', 'all');
           
     });
+
+
     
     $('.close-button-tappe').click(function() {
       $('.container-tappe').css('pointer-events', 'none');
@@ -392,14 +400,56 @@ $( document ).ready(function() {
       setTimeout(() => {
         anime({targets: '.container-contenuti-tappa', opacity: 0, easing: 'easeInOutQuad', duration: 200});
       }, 10);
-      anime({
-        targets: '.container-tappe.manifesto',
-        width: 255,
-        height: '170px', 
-        bottom: 40,
-        easing: 'easeInOutQuad',
-        duration: 300
-      }) 
+      if(slide == 0){
+        anime({
+          targets: '.container-tappe.primo-novecento',
+          width: 255,
+          height: '170px', 
+          bottom: 40,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }) 
+      }
+      else if(slide == 1){
+        anime({
+          targets: '.container-tappe.secondo-novecento',
+          width: 255,
+          height: '170px', 
+          bottom: 40,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }) 
+      }
+      else if(slide == 2){
+        anime({
+          targets: '.container-tappe.manifesto',
+          width: 255,
+          height: '170px', 
+          bottom: 40,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }) 
+      }
+      else if(slide == 3){
+        anime({
+          targets: '.container-tappe.aymonino',
+          width: 255,
+          height: '170px', 
+          bottom: 40,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }) 
+      }
+      else if(slide == 4){
+        anime({
+          targets: '.container-tappe.fuori-centro',
+          width: 255,
+          height: '170px', 
+          bottom: 40,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }) 
+      }      
     });
   }
 

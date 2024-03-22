@@ -109,18 +109,24 @@ $( document ).ready(function() {
 
     //set active class to first thumbnail slides
     $('.slick-slide').eq(0).addClass('slick-active');
+    $('.content-slider.0').addClass('active');
 
     // On before slide change match active thumbnail to current slide
     $('.slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
       var mySlideNumber = nextSlide;
       $('.slick-slide').removeClass('slick-active');
       $('.slick-slide').eq(mySlideNumber).addClass('slick-active');
+      $('.content-slider').removeClass('active');
+      $('.content-slider.' + nextSlide).addClass('active');
     });
+
+    var slide = 0;
 
     //UPDATED 
     $('.slider').on('afterChange', function(event, slick, currentSlide){  
       console.log(currentSlide);
-      
+      slide = currentSlide;
+
       
       // 0 --> edifici primo novecento
       if(currentSlide == 0){
@@ -298,12 +304,103 @@ $( document ).ready(function() {
         });
 
       }
+   
+
+      
     });
 
-    $('.slick-active').click(function() {
+    var winHeight = window.innerHeight;
+
+    $('.content-slider.active').click(function() {
       // mostrare div con capitoli itinerario
+      $('.container-tappe').css('opacity', '1');
+      if (slide == 0){
+        setTimeout(() => {
+          anime({targets: '.container-contenuti-tappa-manifesto', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+        }, 100);
+        anime({
+          targets: '.container-tappe.manifesto',
+          width: 265,
+          height: winHeight/100*83, 
+          bottom: 30,
+          easing: 'easeInOutQuad',
+          duration: 300
+        });  
+        $('.container-tappe.manifesto').addClass('active');
+      }
+      else if (slide == 1){
+        setTimeout(() => {
+          anime({targets: '.container-contenuti-tappa-manifesto', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+        }, 100);
+        anime({
+          targets: '.container-tappe.manifesto',
+          width: 265,
+          height: winHeight/100*83, 
+          bottom: 30,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }); 
+      }
+      else if (slide == 2){
+        setTimeout(() => {
+          anime({targets: '.container-contenuti-tappa-manifesto', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+        }, 100);
+        anime({
+          targets: '.container-tappe.manifesto',
+          width: 265,
+          height: winHeight/100*83, 
+          bottom: 30,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }); 
+      }
+      else if (slide == 3){
+        setTimeout(() => {
+          anime({targets: '.container-contenuti-tappa-manifesto', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+        }, 100);
+        anime({
+          targets: '.container-tappe.manifesto',
+          width: 265,
+          height: winHeight/100*83, 
+          bottom: 30,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }); 
+      }
+      else if (slide == 4){
+        setTimeout(() => {
+          anime({targets: '.container-contenuti-tappa-manifesto', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+        }, 100);
+        anime({
+          targets: '.container-tappe.manifesto',
+          width: 265,
+          height: winHeight/100*83, 
+          bottom: 30,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }); 
+      }
+      $('.container-tappe').css('pointer-events', 'all');
+          
     });
-
+    
+    $('.close-button-tappe').click(function() {
+      $('.container-tappe').css('pointer-events', 'none');
+      setTimeout(() => {
+        anime({targets: '.container-tappe', opacity: 0, easing: 'easeInOutQuad', duration: 300});
+      }, 200);
+      setTimeout(() => {
+        anime({targets: '.container-contenuti-tappa', opacity: 0, easing: 'easeInOutQuad', duration: 200});
+      }, 10);
+      anime({
+        targets: '.container-tappe.manifesto',
+        width: 255,
+        height: '170px', 
+        bottom: 40,
+        easing: 'easeInOutQuad',
+        duration: 300
+      }) 
+    });
   }
 
   /* ------------------------------------------------------------------------------------------ esperienza sul luogo -------------------------------------- */  

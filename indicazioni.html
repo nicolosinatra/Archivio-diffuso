@@ -3075,7 +3075,7 @@
                 adatta_larghezza('profile-indicazioni.active');
             }
 
-            // usare turf per verificare se sono ARRIVATO A DESTINAZIONE
+            // ------------------------------------------------------- usare turf per verificare se sono ARRIVATO A DESTINAZIONE
 
             var user = turf.point([parseFloat(user_lng), parseFloat(user_lat)]);
             console.log("user dentro:"+ turf.booleanPointInPolygon(user, area_destinazione));
@@ -3083,8 +3083,22 @@
             if(turf.booleanPointInPolygon(user, area_destinazione)){
                 jQuery(".dentro_fuori").text("arrivato, " + user_lng + ", "+ user_lat);
                 $('.destinazione_raggiunta').removeClass('not-visible');
-                check_destinazione = true;
             }
+
+            // -------------------------------------------------------- usare turf per attivare contenuti esperienza  ESPERIENZA
+
+            if (check_destinazione){
+                if(turf.booleanPointInPolygon(user, voce_narrante_1)){
+                    jQuery(".dentro_fuori").text("voce narrante 1");
+                }else if(turf.booleanPointInPolygon(user, voce_narrante_2)){
+                    jQuery(".dentro_fuori").text("voce narrante 2");
+                }else if(turf.booleanPointInPolygon(user, campo_visivo_facciata)){
+                    jQuery(".dentro_fuori").text("campo visivo facciata");
+                }else if(turf.booleanPointInPolygon(user, campo_visivo_facciata)){
+                    jQuery(".dentro_fuori").text("campo visivo facciata");
+                }
+            }
+           
         }
         
         function error(err) {
@@ -3235,9 +3249,10 @@
         });
 
 
-        // DA QUI INIZIA L'ESPERIENZA ---------------------------------------------------------------------------------------------------------
+        // INIZIA L'ESPERIENZA ---------------------------------------------------------------------------------------------------------
 
         $('.close-button-arrivato').click(function(){
+            check_destinazione = true;
             $('.destinazione_raggiunta').fadeOut(500);
             $('.controls-profile-switcher').fadeOut(500);
 
@@ -3254,8 +3269,8 @@
                 $('.controls-profile-switcher').addClass('not-visible');
             }); 
             
-            map.setPaintProperty('campi_interazione', 'fill-opacity-transition', { duration: 300 });
-            map.setPaintProperty('campi_interazione', 'fill-opacity', 1);
+            map_navigazione.setPaintProperty('campi_interazione', 'fill-opacity-transition', { duration: 300 });
+            map_navigazione.setPaintProperty('campi_interazione', 'fill-opacity', 1);
         });
 
 

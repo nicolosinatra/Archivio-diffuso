@@ -589,7 +589,8 @@ p.hyper-mono{
 
 .linea-tappe{
     position: absolute;
-    height: 36svh;
+    margin-top: 1.15svh;
+    height: 33.8svh;
     border-right: #f0f0f0 solid 2px;
 }
 
@@ -600,7 +601,8 @@ p.hyper-mono{
 .quadrati-tappe{
     position: absolute;
     display: flex;
-    height: 36svh;
+    margin-top: 1.15svh;
+    height: 33.8svh;
     flex-direction: column;
     justify-content: space-between;
     z-index: 3;
@@ -617,7 +619,7 @@ p.hyper-mono{
 }
 
 .nomi-tappe{
-    height: 38svh;
+    height: 36svh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -630,14 +632,10 @@ p.hyper-mono{
 .nomi-tappe h6{
     font-size: 12px;
     font-weight: 400;
-}
-
-.nomi-tappe h6:first-child{
-    margin-top: -12px;
-}
-
-.nomi-tappe-container.aymonino .nomi-tappe h6:first-child{
-    margin-top: -5px;
+    height: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .inizia-button{

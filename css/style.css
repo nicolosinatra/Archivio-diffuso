@@ -594,7 +594,7 @@ p.hyper-mono{
     border-right: #f0f0f0 solid 2px;
 }
 
-.nomi-tappe-container.aymonino .linea-tappe{
+.nomi-tappe-container.aymonino .linea-tappe, .nomi-tappe-container.fuori-centro .linea-tappe{
     height: 30.4svh;
 }
 
@@ -608,7 +608,7 @@ p.hyper-mono{
     z-index: 3;
 }
 
-.nomi-tappe-container.aymonino .quadrati-tappe{
+.nomi-tappe-container.aymonino .quadrati-tappe, .nomi-tappe-container.fuori-centro .quadrati-tappe{
     height: 30.4svh;
 }
 
@@ -625,7 +625,7 @@ p.hyper-mono{
     justify-content: space-between;
 }
 
-.nomi-tappe-container.aymonino .nomi-tappe{
+.nomi-tappe-container.aymonino .nomi-tappe, .nomi-tappe-container.fuori-centro .nomi-tappe{
     height: 32.4svh;
 }
 

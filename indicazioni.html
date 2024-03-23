@@ -3022,19 +3022,31 @@
                         && ((turf.booleanPointInPolygon(user_turf, campo_visivo_laterale)) == false) && ((turf.booleanPointInPolygon(user_turf, campo_visivo_retro)) == false)){
                             jQuery(".dentro_fuori").text("voce narrante 1");
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) && (turf.booleanPointInPolygon(user_turf, campo_visivo_facciata))){
-                            jQuery(".dentro_fuori").text("campo visivo facciata e voce narrante 1");
+                            jQuery(".dentro_fuori").text("voce narrante 1 e campo visivo facciata");
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) && (turf.booleanPointInPolygon(user_turf, campo_visivo_laterale))){
-                            jQuery(".dentro_fuori").text("campo visivo laterale e voce narrante 1");
+                            jQuery(".dentro_fuori").text("voce narrante 1 e campo visivo laterale");
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) && (turf.booleanPointInPolygon(user_turf, campo_visivo_retro))){
-                            jQuery(".dentro_fuori").text("campo visivo retro e voce narrante 1");
+                            jQuery(".dentro_fuori").text("voce narrante 1 e campo visivo retro");
                         }else if(((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) == false) && (turf.booleanPointInPolygon(user_turf, campo_visivo_retro))){
-                            jQuery(".dentro_fuori").text("campo visivo retro e voce narrante 1");
+                            jQuery(".dentro_fuori").text("campo visivo retro");
                         }else if(turf.booleanPointInPolygon(user_turf, campo_visivo_demolizione)){
                             jQuery(".dentro_fuori").text("campo visivo demolizione");
-                        }else if(turf.booleanPointInPolygon(user_turf, voce_narrante_2)){
+                        }else if(turf.booleanPointInPolygon(user_turf, voce_narrante_2) && ((turf.booleanPointInPolygon(user_turf, campo_sonoro_demolizione)) == false) 
+                        && ((turf.booleanPointInPolygon(user_turf, campo_visivo_sara_levi)) == false) && ((turf.booleanPointInPolygon(user_turf, campo_sonoro_sara_levi)) == false)){
                             jQuery(".dentro_fuori").text("voce narrante 2");
+                        }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_2)) && (turf.booleanPointInPolygon(user_turf, campo_sonoro_demolizione))){
+                            jQuery(".dentro_fuori").text("voce narrante 2 e campo sonoro demolizione");
+                        }else if(((turf.booleanPointInPolygon(user_turf, voce_narrante_2)) == false) && (turf.booleanPointInPolygon(user_turf, campo_sonoro_demolizione))){
+                            jQuery(".dentro_fuori").text("campo sonoro demolizione");
+                        }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_2)) && (turf.booleanPointInPolygon(user_turf, campo_sonoro_sara_levi)) 
+                        && ((turf.booleanPointInPolygon(user_turf, campo_visivo_sara_levi)) == false)){
+                            jQuery(".dentro_fuori").text("voce narrante 2 e campo sonoro sara levi");
+                        }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_2)) && (turf.booleanPointInPolygon(user_turf, campo_sonoro_sara_levi)) 
+                        && (turf.booleanPointInPolygon(user_turf, campo_visivo_sara_levi))){
+                            jQuery(".dentro_fuori").text("voce narrante 2, campo visivo sara levi e campo sonoro sara levi");
+                        }else{
+                            jQuery(".dentro_fuori").text("fuori");
                         }
-
                     }
                 }
             });

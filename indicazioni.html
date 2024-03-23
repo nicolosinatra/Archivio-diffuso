@@ -195,6 +195,7 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.js"></script>
     <script src="anime-master/lib/anime.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
 
         var user_lat;
@@ -2837,6 +2838,89 @@
             ]
         ]]);
         
+
+        var tracce_sonore = {
+            "voce_narrante_1" : "off", 
+            "voce_narrante_2" : "off", 
+            "campo_sonoro_sara_levi" : "off",
+            "campo_sonoro_demolizione" : "off"
+        };
+
+        var voce_narrante_1_howl = new Howl({
+            src: 'audio/voce_narrante_1.aac',
+            // autoplay: true,
+            loop: true,
+            volume: 1,
+            // onend: function() {
+            //   console.log('Finished!');
+            // }
+            onplayerror: function() {
+                voce_narrante_1_howl.once('unlock', function() {
+                voce_narrante_1_howl.play();
+                });
+            }
+        });
+
+        var voce_narrante_2_howl = new Howl({
+            src: 'audio/voce_narrante_2.aac',
+            // autoplay: true,
+            loop: true,
+            volume: 1,
+            // onend: function() {
+            //   console.log('Finished!');
+            // }
+            onplayerror: function() {
+                voce_narrante_2_howl.once('unlock', function() {
+                voce_narrante_2_howl.play();
+                });
+            }
+        });
+
+        var suono1 = new Howl({
+            src: 'audio/suono_1.mp3',
+            // autoplay: true,
+            loop: true,
+            volume: 1,
+            // onend: function() {
+            //   console.log('Finished!');
+            // }
+            onplayerror: function() {
+                suono1.once('unlock', function() {
+                suono1.play();
+                });
+            }
+        });
+
+        var suono2 = new Howl({
+            src: 'audio/suono_2.mp3',
+            // autoplay: true,
+            loop: true,
+            volume: 1,
+            // onend: function() {
+            //   console.log('Finished!');
+            // }
+            onplayerror: function() {
+                suono2.once('unlock', function() {
+                suono2.play();
+                });
+            }
+        });
+
+        var suono3 = new Howl({
+            src: 'audio/suono_3.mp3',
+            // autoplay: true,
+            loop: true,
+            volume: 1,
+            // onend: function() {
+            //   console.log('Finished!');
+            // }
+            onplayerror: function() {
+                suono3.once('unlock', function() {
+                suono3.play();
+                });
+            }
+        });
+
         var larghezza_contenitore;
 
         function adatta_larghezza(contenitore){
@@ -3017,27 +3101,74 @@
                         $('.destinazione_raggiunta').removeClass('not-visible');
                     }
 
+                    // -------------------------------------------------------------------------------------------------------------------------- SIMULAZIONE ESPERIENZA INIZIO
+
+
                     if (check_destinazione){
                         if(turf.booleanPointInPolygon(user_turf, voce_narrante_1) && ((turf.booleanPointInPolygon(user_turf, campo_visivo_facciata)) == false) 
                         && ((turf.booleanPointInPolygon(user_turf, campo_visivo_laterale)) == false) && ((turf.booleanPointInPolygon(user_turf, campo_visivo_retro)) == false)){
                             jQuery(".dentro_fuori").text("voce narrante 1");
+                            if(tracce_sonore.voce_narrante_1 == "off"){
+                                tracce_sonore.voce_narrante_1 = "on";
+                                
+                                voce_narrante_1_howl.on('play', function(){
+                                voce_narrante_1_howl.fade(0, 1, 1000);
+                                });
+                                voce_narrante_1_howl.play();
+                            }
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) && (turf.booleanPointInPolygon(user_turf, campo_visivo_facciata))){
                             jQuery(".dentro_fuori").text("voce narrante 1 e campo visivo facciata");
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) && (turf.booleanPointInPolygon(user_turf, campo_visivo_laterale))){
                             jQuery(".dentro_fuori").text("voce narrante 1 e campo visivo laterale");
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) && (turf.booleanPointInPolygon(user_turf, campo_visivo_retro))){
                             jQuery(".dentro_fuori").text("voce narrante 1 e campo visivo retro");
+                            if(tracce_sonore.voce_narrante_1 == "off"){
+                                tracce_sonore.voce_narrante_1 = "on";
+                                
+                                voce_narrante_1_howl.on('play', function(){
+                                voce_narrante_1_howl.fade(0, 1, 1000);
+                                });
+                                voce_narrante_1_howl.play();
+                            }
                         }else if(((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) == false) && (turf.booleanPointInPolygon(user_turf, campo_visivo_retro))){
                             jQuery(".dentro_fuori").text("campo visivo retro");
+                            if(tracce_sonore.voce_narrante_1 == "on"){
+                                tracce_sonore.voce_narrante_1 = "off";
+                                
+                                voce_narrante_1_howl.fade(1, 0, 1000);
+                                setTimeout(function() {voce_narrante_1_howl.pause();}, 1000);
+                            }
                         }else if(turf.booleanPointInPolygon(user_turf, campo_visivo_demolizione)){
                             jQuery(".dentro_fuori").text("campo visivo demolizione");
                         }else if(turf.booleanPointInPolygon(user_turf, voce_narrante_2) && ((turf.booleanPointInPolygon(user_turf, campo_sonoro_demolizione)) == false) 
                         && ((turf.booleanPointInPolygon(user_turf, campo_visivo_sara_levi)) == false) && ((turf.booleanPointInPolygon(user_turf, campo_sonoro_sara_levi)) == false)){
                             jQuery(".dentro_fuori").text("voce narrante 2");
+                            if(tracce_sonore.voce_narrante_2 == "off"){
+                                tracce_sonore.voce_narrante_2 = "on";
+                                
+                                voce_narrante_2_howl.on('play', function(){
+                                voce_narrante_2_howl.fade(0, 1, 1000);
+                                });
+                                voce_narrante_2_howl.play();
+                            }
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_2)) && (turf.booleanPointInPolygon(user_turf, campo_sonoro_demolizione))){
                             jQuery(".dentro_fuori").text("voce narrante 2 e campo sonoro demolizione");
+                            if(tracce_sonore.voce_narrante_2 == "off"){
+                                tracce_sonore.voce_narrante_2 = "on";
+                                
+                                voce_narrante_2_howl.on('play', function(){
+                                voce_narrante_2_howl.fade(0, 1, 1000);
+                                });
+                                voce_narrante_2_howl.play();
+                            }
                         }else if(((turf.booleanPointInPolygon(user_turf, voce_narrante_2)) == false) && (turf.booleanPointInPolygon(user_turf, campo_sonoro_demolizione))){
                             jQuery(".dentro_fuori").text("campo sonoro demolizione");
+                            if(tracce_sonore.voce_narrante_2 == "on"){
+                                tracce_sonore.voce_narrante_2 = "off";
+                                
+                                voce_narrante_2_howl.fade(1, 0, 1000);
+                                setTimeout(function() {voce_narrante_2_howl.pause();}, 1000);
+                            }
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_2)) && (turf.booleanPointInPolygon(user_turf, campo_sonoro_sara_levi)) 
                         && ((turf.booleanPointInPolygon(user_turf, campo_visivo_sara_levi)) == false)){
                             jQuery(".dentro_fuori").text("voce narrante 2 e campo sonoro sara levi");
@@ -3046,8 +3177,23 @@
                             jQuery(".dentro_fuori").text("voce narrante 2, campo visivo sara levi e campo sonoro sara levi");
                         }else{
                             jQuery(".dentro_fuori").text("fuori");
+                            if(tracce_sonore.voce_narrante_1 == "on"){
+                                tracce_sonore.voce_narrante_1 = "off";
+                                
+                                voce_narrante_1_howl.fade(1, 0, 1000);
+                                setTimeout(function() {voce_narrante_1_howl.pause();}, 1000);
+                            }
+                            if(tracce_sonore.voce_narrante_2 == "on"){
+                                tracce_sonore.voce_narrante_2 = "off";
+                                
+                                voce_narrante_2_howl.fade(1, 0, 1000);
+                                setTimeout(function() {voce_narrante_2_howl.pause();}, 1000);
+                            }
                         }
                     }
+
+
+                    // -------------------------------------------------------------------------------------------------------------------------- SIMULAZIONE ESPERIENZA FInE
                 }
             });
 

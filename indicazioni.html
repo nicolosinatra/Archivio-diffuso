@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Display navigation directions</title>
+    <title>ARC</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
@@ -2844,7 +2844,7 @@
 	        $('.selector').css('width', larghezza_contenitore + 20); // 20 --> margini dx e sx del div attivo
         }
        
-        // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode
+        // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode inizio
 
         const origin = [12.910316279411177, 43.91162447859239];
 
@@ -2862,7 +2862,7 @@
             ]
         };
 
-        // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode
+        // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode fine
 
         let mouse = false;
         var mouse_pos = {};
@@ -2945,7 +2945,7 @@
             id_posizione_aggiornata = navigator.geolocation.watchPosition(success, error, options); 
 
 
-            // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode
+            // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode inizio
 
             //  <------ add questo per disattivare
 
@@ -3015,15 +3015,33 @@
                     if(turf.booleanPointInPolygon(user_turf, area_destinazione)){
                         console.log('sei_arrivato');
                         $('.destinazione_raggiunta').removeClass('not-visible');
-                    }else{
-                       
+                    }
+
+                    if (check_destinazione){
+                        if(turf.booleanPointInPolygon(user_turf, voce_narrante_1) && ((turf.booleanPointInPolygon(user_turf, campo_visivo_facciata)) == false) 
+                        && ((turf.booleanPointInPolygon(user_turf, campo_visivo_laterale)) == false) && ((turf.booleanPointInPolygon(user_turf, campo_visivo_retro)) == false)){
+                            jQuery(".dentro_fuori").text("voce narrante 1");
+                        }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) && (turf.booleanPointInPolygon(user_turf, campo_visivo_facciata))){
+                            jQuery(".dentro_fuori").text("campo visivo facciata e voce narrante 1");
+                        }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) && (turf.booleanPointInPolygon(user_turf, campo_visivo_laterale))){
+                            jQuery(".dentro_fuori").text("campo visivo laterale e voce narrante 1");
+                        }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) && (turf.booleanPointInPolygon(user_turf, campo_visivo_retro))){
+                            jQuery(".dentro_fuori").text("campo visivo retro e voce narrante 1");
+                        }else if(((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) == false) && (turf.booleanPointInPolygon(user_turf, campo_visivo_retro))){
+                            jQuery(".dentro_fuori").text("campo visivo retro e voce narrante 1");
+                        }else if(turf.booleanPointInPolygon(user_turf, campo_visivo_demolizione)){
+                            jQuery(".dentro_fuori").text("campo visivo demolizione");
+                        }else if(turf.booleanPointInPolygon(user_turf, voce_narrante_2)){
+                            jQuery(".dentro_fuori").text("voce narrante 2");
+                        }
+
                     }
                 }
             });
 
             // add questo per disattivare  ------> 
 
-           // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode
+           // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode fine
 
 
         })

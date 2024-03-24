@@ -324,7 +324,7 @@ p.hyper-mono{
 @media (min-width: 768px) { 
     h2.hyper{
         font-family: 'HyperCubeVF', sans-serif;
-        font-size: 60px;
+        font-size: 50px;
         font-weight: 400;
         letter-spacing: 1px;
     }

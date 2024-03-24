@@ -322,7 +322,12 @@ p.hyper-mono{
 
 /* ------------------------------- Break Points ------------------------------- */
 @media (min-width: 768px) { 
-    
+    h2.hyper{
+        font-family: 'HyperCubeVF', sans-serif;
+        font-size: 60px;
+        font-weight: 400;
+        letter-spacing: 1px;
+    }
 }
 
 /* ---------------------------------------- Scelta esperienza ---------------------------------- */

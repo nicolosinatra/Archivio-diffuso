@@ -44,6 +44,7 @@
     <div class="overlay">
         <button id="mouse"><p class="hyper-bold" style="margin: 0;">Test Mode</p></button>
     </div>
+    <img class="walk-man-icon not-visible" src="img/walk-man-active.svg">
 
     <div class="div_verifica_dentro_fuori" style="top:75% !important"><p class="dentro_fuori">loading</p></div>
     <!-- test mode -------------------------------------------------->
@@ -3084,8 +3085,13 @@
                 // relative to the top-left corner of the map.
                 // document.getElementById('info').innerHTML = JSON.stringify(e.lngLat.wrap()) + JSON.stringify(e.point);
 
+              
+              
+
                 if (mouse){
                     user_test.features[0].geometry.coordinates = [mouse_lng, mouse_lat];
+                    $('.walk-man-icon').removeClass('not-visible').css('left', e.point.x).css('top', e.point.y);
+
                     // Update the source with this new data
                     map_navigazione.getSource('point').setData(user_test);
 
@@ -3195,7 +3201,10 @@
 
                     // -------------------------------------------------------------------------------------------------------------------------- SIMULAZIONE ESPERIENZA FInE
                 }
-            });
+                else{
+                  $('.walk-man-icon').addClass('not-visible').css('left', 0).css('top', 0);
+                }
+              });
 
             // add questo per disattivare  ------> 
 

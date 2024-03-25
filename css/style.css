@@ -799,6 +799,14 @@ p.hyper-mono{
     right: 20px;
 }
 
+.walk-man-icon{
+    position: fixed;
+    width: 30px;
+    height: auto;
+    left: 50px;
+    top: 30px;
+}
+
 /* ------------------------------- Break Points ------------------------------- */
 
 @media (min-width: 768px) { 

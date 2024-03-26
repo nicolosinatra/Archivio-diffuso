@@ -66,10 +66,23 @@ $( document ).ready(function() {
     var div_width_off = '50px';
 
     // --------------------------------------------- breakpoints
-    if (window.innerWidth > 756){
+    if(window.innerWidth > 500){
+      div_width_off = '100px';
+    }
+    else if (window.innerWidth > 756){
       div_width_off = '350px';
     }
     // --------------------------------------------- breakpoints
+
+    var altezzacontenitore;
+    var larghezzacontenitore;
+
+    $(document).ready(function() {
+      altezzacontenitore = $(".slick-slide").outerHeight();
+      $(".container-tappe").css('height',altezzacontenitore);
+      larghezzacontenitore = $(".slick-slide").outerWidth();
+      $(".container-tappe").css("width",larghezzacontenitore);
+    });
 
 
     $('.slider').slick({
@@ -318,7 +331,7 @@ $( document ).ready(function() {
         }, 100);
         anime({
           targets: '.container-tappe.primo-novecento',
-          width: 265,
+          width: larghezzacontenitore+10,
           height: winHeight/100*83, 
           bottom: 30,
           easing: 'easeInOutQuad',
@@ -333,7 +346,7 @@ $( document ).ready(function() {
         }, 100);
         anime({
           targets: '.container-tappe.secondo-novecento',
-          width: 265,
+          width: larghezzacontenitore+10,
           height: winHeight/100*83, 
           bottom: 30,
           easing: 'easeInOutQuad',
@@ -348,7 +361,7 @@ $( document ).ready(function() {
         }, 100);
         anime({
           targets: '.container-tappe.manifesto',
-          width: 265,
+          width: larghezzacontenitore+10,
           height: winHeight/100*83, 
           bottom: 30,
           easing: 'easeInOutQuad',
@@ -363,7 +376,7 @@ $( document ).ready(function() {
         }, 100);
         anime({
           targets: '.container-tappe.aymonino',
-          width: 265,
+          width: larghezzacontenitore+10,
           height: winHeight/100*83, 
           bottom: 30,
           easing: 'easeInOutQuad',
@@ -378,7 +391,7 @@ $( document ).ready(function() {
         }, 100);
         anime({
           targets: '.container-tappe.fuori-centro',
-          width: 265,
+          width: larghezzacontenitore+10,
           height: winHeight/100*83, 
           bottom: 30,
           easing: 'easeInOutQuad',
@@ -403,7 +416,7 @@ $( document ).ready(function() {
       if(slide == 0){
         anime({
           targets: '.container-tappe.primo-novecento',
-          width: 255,
+          width: larghezzacontenitore,
           height: '170px', 
           bottom: 40,
           easing: 'easeInOutQuad',
@@ -413,7 +426,7 @@ $( document ).ready(function() {
       else if(slide == 1){
         anime({
           targets: '.container-tappe.secondo-novecento',
-          width: 255,
+          width: larghezzacontenitore,
           height: '170px', 
           bottom: 40,
           easing: 'easeInOutQuad',
@@ -423,7 +436,7 @@ $( document ).ready(function() {
       else if(slide == 2){
         anime({
           targets: '.container-tappe.manifesto',
-          width: 255,
+          width: larghezzacontenitore,
           height: '170px', 
           bottom: 40,
           easing: 'easeInOutQuad',
@@ -433,7 +446,7 @@ $( document ).ready(function() {
       else if(slide == 3){
         anime({
           targets: '.container-tappe.aymonino',
-          width: 255,
+          width: larghezzacontenitore,
           height: '170px', 
           bottom: 40,
           easing: 'easeInOutQuad',
@@ -443,7 +456,7 @@ $( document ).ready(function() {
       else if(slide == 4){
         anime({
           targets: '.container-tappe.fuori-centro',
-          width: 255,
+          width: larghezzacontenitore,
           height: '170px', 
           bottom: 40,
           easing: 'easeInOutQuad',
@@ -500,9 +513,12 @@ $( document ).ready(function() {
     }
     // --------------------------------------------- breakpoints
 
+    var altezzacontenitore;
     var larghezzacontenitore;
 
     $(document).ready(function() {
+      altezzacontenitore = $(".slick-slide").outerHeight();
+      $(".container-tappe").css('height',altezzacontenitore);
       larghezzacontenitore = $(".slick-slide").outerWidth();
       $(".container-tappe").css("width",larghezzacontenitore);
     });

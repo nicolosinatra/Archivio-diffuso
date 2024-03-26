@@ -934,10 +934,34 @@ p.hyper-mono{
     right: 40px;
 }
 
+.row-cover{
+    padding: 40px 40px 10px 40px;
+    margin: 0;
+}
+
+.col-cover{
+    margin: 0;
+    width: 50%;
+    float: left;
+}
+
+.row-cover h5, .row-cover p{
+    margin: 0;
+}
+
 /* ------------------------------- Break Points ------------------------------- */
 
-@media (min-width: 768px) { 
-    
+@media (min-width: 500px) { 
+    .row-cover{
+        padding: 80px 80px 20px 80px;
+    }
+
+    .row-cover h5.firs{
+        font-size: 30px;
+    }
+    .row-cover p.hyper{
+        font-size: 24px;
+    }
 }
 
 /* ----------------------------------------------- mappa ------------------------------------------- */

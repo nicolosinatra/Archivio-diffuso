@@ -3087,12 +3087,14 @@
                 } else {
                     mouse = true;
                     $('#mouse').addClass('active');
-                    map_navigazione.flyTo({
-                      center: [12.9111, 43.9120],
-                      duration: 1000,
-                      essential: true,
-                      zoom: 15
-                    });
+                    if(window.innerWidth>500){
+                        map_navigazione.flyTo({
+                        center: [12.9111, 43.9120],
+                        duration: 1000,
+                        essential: true,
+                        zoom: 15
+                      });
+                    }
                 }
             });
 
@@ -3112,7 +3114,7 @@
 
                 if (mouse){
                     user_test.features[0].geometry.coordinates = [mouse_lng, mouse_lat];
-                    $('.walk-man-icon').removeClass('not-visible').css('left', e.point.x).css('top', e.point.y);
+                   
 
                     // Update the source with this new data
                     map_navigazione.getSource('point').setData(user_test);
@@ -3564,6 +3566,8 @@
             
             map_navigazione.setPaintProperty('campi_interazione', 'fill-opacity-transition', { duration: 300 });
             map_navigazione.setPaintProperty('campi_interazione', 'fill-opacity', 1);
+
+            $('.walk-man-icon').removeClass('not-visible').css('left', e.point.x).css('top', e.point.y);
         });
         
 

@@ -46,7 +46,7 @@
     </div>
     <img class="walk-man-icon not-visible" src="img/walk-man-active.svg">
 
-    <div class="div_verifica_dentro_fuori" style="top:75% !important"><p class="dentro_fuori">loading</p></div>
+    <!-- <div class="div_verifica_dentro_fuori" style="top:75% !important"><p class="dentro_fuori">loading</p></div> -->
     <!-- test mode -------------------------------------------------->
 
 
@@ -68,6 +68,14 @@
             </svg>
         </div>
         <h5 class="firs txt-sei-arrivato">SEI GIUNT* A DESTINAZIONE!</h5>
+    </div>
+
+    <div class="cover-edificio not-visible">
+      <div class="container-img-edificio"> <img class="img-edificio" src="img/Palazzo_economia_cover.jpg"></div>
+      <div class="row">
+
+      </div>
+      
     </div>
 
     <a href="#"> <svg class="menu-button" xmlns="http://www.w3.org/2000/svg" width="42" height="30" viewBox="0 0 42 27" fill="none">
@@ -3476,6 +3484,10 @@
 
         $('.close-button-arrivato').click(function(){
             check_destinazione = true;
+
+            $('.cover-edificio').removeClass('not-visible');
+            
+
             $('.destinazione_raggiunta').fadeOut(500);
             $('.controls-profile-switcher').fadeOut(500);
 

@@ -3087,6 +3087,12 @@
                 } else {
                     mouse = true;
                     $('#mouse').addClass('active');
+                    map_navigazione.flyTo({
+                      center: [12.9111, 43.9120],
+                      duration: 1000,
+                      essential: true,
+                      zoom: 15
+                    });
                 }
             });
 

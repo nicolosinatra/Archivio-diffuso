@@ -453,6 +453,432 @@ $( document ).ready(function() {
     });
   }
 
+  /* ------------------------------------------------------------------------------------------ selezione itinerario test mode -------------------------------------- */  
+
+  else if(fileName[0] == 'scelta_itinerario_2.html'){
+    
+    // map.setLayoutProperty('path-architetture-manifesto', 'visibility', 'none');
+    if (window.innerWidth > 400){
+      map_scelta_itinerario = new mapboxgl.Map({
+        container: 'map-scelta-itinerario', // container ID
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        // style: 'mapbox://styles/mapbox/streets-v12', // style URL
+        style: 'mapbox://styles/nicolosinatra/clmnjwye901wi01r4h6n9fekx', // style URL
+        center: [12.909,  43.9075], // starting center in [lng, lat]
+        zoom: 15.3 // starting zoom
+      });
+    }else{ 
+      map_scelta_itinerario = new mapboxgl.Map({
+        container: 'map-scelta-itinerario', // container ID
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        // style: 'mapbox://styles/mapbox/streets-v12', // style URL
+        style: 'mapbox://styles/nicolosinatra/clmnjwye901wi01r4h6n9fekx', // style URL
+        center: [12.909,  43.9075], // starting center in [lng, lat]
+        zoom: 14.2 // starting zoom
+      });
+    }
+
+    
+
+    map_scelta_itinerario.on('load', function(){
+      map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'visible');
+      map_scelta_itinerario.setLayoutProperty('icone-edifici-primo-novecento', 'visibility', 'visible');
+      map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento', 'visibility', 'visible');
+      map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento-bg', 'visibility', 'visible');
+    })
+    
+
+    // quanto mostrare dei div affianco
+    var div_width_off = '50px';
+
+    // --------------------------------------------- breakpoints
+    if (window.innerWidth > 756){
+      div_width_off = '350px';
+    }
+    // --------------------------------------------- breakpoints
+
+
+    $('.slider').slick({
+      centerMode: true,
+      centerPadding: div_width_off,
+      slidesToShow: 1,
+      arrows: true,
+      responsive: [
+        {
+          breakpoint: 1000,
+          settings: {
+            arrows: true,
+            centerMode: true,
+            centerPadding: div_width_off,
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 1000,
+          settings: {
+            arrows: true,
+            centerMode: true,
+            centerPadding: div_width_off,
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+
+    $('.slider-nav-thumbnails').slick({
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      asNavFor: '.slider',
+      dots: true,
+      focusOnSelect: true
+    });
+
+    //set active class to first thumbnail slides
+    $('.slick-slide').eq(0).addClass('slick-active');
+
+    // On before slide change match active thumbnail to current slide
+    $('.slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+      var mySlideNumber = nextSlide;
+      $('.slick-slide').removeClass('slick-active');
+      $('.slick-slide').eq(mySlideNumber).addClass('slick-active');
+    });
+
+    var slide = 0;
+
+    //UPDATED 
+    $('.slider').on('afterChange', function(event, slick, currentSlide){  
+      console.log(currentSlide);
+      slide = currentSlide;
+
+      
+      // 0 --> edifici primo novecento
+      if(currentSlide == 0){
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-primo-novecento', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento-bg', 'visibility', 'visible');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-secondo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-secondo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-secondo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-secondo-novecento-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-aymonino', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-aymonino', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-aymonino', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-aymonino-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-fuori-dal-centro', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-fuori-dal-centro', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.flyTo({
+          center: [12.909,  43.9075], 
+          duration: 1000,
+          essential: true,
+          zoom: 15.3
+        });
+
+      // 1 --> edifici secondo novecento
+      }else if(currentSlide == 1){
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-secondo-novecento', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-secondo-novecento', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-secondo-novecento', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-secondo-novecento-bg', 'visibility', 'visible');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-aymonino', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-aymonino', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-aymonino', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-aymonino-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-fuori-dal-centro', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-fuori-dal-centro', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.flyTo({
+          center: [12.9095, 43.908],
+          duration: 1000,
+          essential: true,
+          zoom: 15
+        });
+      
+      // 2 --> architetture manifesto
+      }else if(currentSlide == 2){
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-secondo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-secondo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-secondo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-secondo-novecento-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-architetture-manifesto', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('icone-architetture-manifesto', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'visible');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-aymonino', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-aymonino', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-aymonino', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-aymonino-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-fuori-dal-centro', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-fuori-dal-centro', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.flyTo({
+          center: [12.909, 43.9098],
+          duration: 1000,
+          essential: true,
+          zoom: 15.5
+        });
+      
+      // 3 --> edifici aymonino
+      }else if(currentSlide == 3){
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-secondo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-secondo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-secondo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-secondo-novecento-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-aymonino', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-aymonino', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-aymonino', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-aymonino-bg', 'visibility', 'visible');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-fuori-dal-centro', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-fuori-dal-centro', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.flyTo({
+          center: [12.902, 43.8995],
+          duration: 1000,
+          essential: true,
+          zoom: 13.9
+        });
+
+      // 4 --> edifici fuori dal centro
+      }else if(currentSlide == 4){
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-primo-novecento-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-secondo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-secondo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-secondo-novecento', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-secondo-novecento-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-architetture-manifesto-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-aymonino', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-aymonino', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-aymonino', 'visibility', 'none');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-aymonino-bg', 'visibility', 'none');
+
+        map_scelta_itinerario.setLayoutProperty('nomi-edifici-fuori-dal-centro', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('icone-edifici-fuori-dal-centro', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro', 'visibility', 'visible');
+        map_scelta_itinerario.setLayoutProperty('path-edifici-fuori-dal-centro-bg', 'visibility', 'visible');
+
+        map_scelta_itinerario.flyTo({
+          center: [12.881, 43.883],
+          duration: 1000,
+          essential: true,
+          zoom: 13.65
+        });
+
+      }
+   
+
+      
+    });
+
+    var winHeight = window.innerHeight;
+
+    $('.content-slider').click(function() {
+      console.log(slide);
+      // mostrare div con capitoli itinerario
+      if (slide == 0){
+        $('.container-tappe.primo-novecento').css('opacity', '1');
+        setTimeout(() => {
+          anime({targets: '.container-contenuti-tappa-primo-novecento', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+        }, 100);
+        anime({
+          targets: '.container-tappe.primo-novecento',
+          width: 265,
+          height: winHeight/100*83, 
+          bottom: 30,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }); 
+        $('.container-tappe.primo-novecento').addClass('active');
+      }
+      else if (slide == 1){
+        $('.container-tappe.secondo-novecento').css('opacity', '1');
+        setTimeout(() => {
+          anime({targets: '.container-contenuti-tappa-secondo-novecento', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+        }, 100);
+        anime({
+          targets: '.container-tappe.secondo-novecento',
+          width: 265,
+          height: winHeight/100*83, 
+          bottom: 30,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }); 
+        $('.container-tappe.secondo-novecento').addClass('active');
+      }
+      else if (slide == 2){
+        $('.container-tappe.manifesto').css('opacity', '1');
+        setTimeout(() => {
+          anime({targets: '.container-contenuti-tappa-manifesto', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+        }, 100);
+        anime({
+          targets: '.container-tappe.manifesto',
+          width: 265,
+          height: winHeight/100*83, 
+          bottom: 30,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }); 
+        $('.container-tappe.manifesto').addClass('active');
+      }
+      else if (slide == 3){
+        $('.container-tappe.aymonino').css('opacity', '1');
+        setTimeout(() => {
+          anime({targets: '.container-contenuti-tappa-aymonino', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+        }, 100);
+        anime({
+          targets: '.container-tappe.aymonino',
+          width: 265,
+          height: winHeight/100*83, 
+          bottom: 30,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }); 
+        $('.container-tappe.aymonino').addClass('active');
+      }
+      else if (slide == 4){
+        $('.container-tappe.fuori-centro').css('opacity', '1');
+        setTimeout(() => {
+          anime({targets: '.container-contenuti-tappa-fuori-centro', opacity: 1, easing: 'easeInOutQuad', duration: 300});
+        }, 100);
+        anime({
+          targets: '.container-tappe.fuori-centro',
+          width: 265,
+          height: winHeight/100*83, 
+          bottom: 30,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }); 
+        $('.container-tappe.fuori-centro').addClass('active');
+      }
+      $('.container-tappe').css('pointer-events', 'all');
+          
+    });
+
+
+    
+    $('.close-button-tappe').click(function() {
+      $('.container-tappe').css('pointer-events', 'none');
+      setTimeout(() => {
+        anime({targets: '.container-tappe', opacity: 0, easing: 'easeInOutQuad', duration: 300});
+      }, 200);
+      setTimeout(() => {
+        anime({targets: '.container-contenuti-tappa', opacity: 0, easing: 'easeInOutQuad', duration: 200});
+      }, 10);
+      if(slide == 0){
+        anime({
+          targets: '.container-tappe.primo-novecento',
+          width: 255,
+          height: '170px', 
+          bottom: 40,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }) 
+      }
+      else if(slide == 1){
+        anime({
+          targets: '.container-tappe.secondo-novecento',
+          width: 255,
+          height: '170px', 
+          bottom: 40,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }) 
+      }
+      else if(slide == 2){
+        anime({
+          targets: '.container-tappe.manifesto',
+          width: 255,
+          height: '170px', 
+          bottom: 40,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }) 
+      }
+      else if(slide == 3){
+        anime({
+          targets: '.container-tappe.aymonino',
+          width: 255,
+          height: '170px', 
+          bottom: 40,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }) 
+      }
+      else if(slide == 4){
+        anime({
+          targets: '.container-tappe.fuori-centro',
+          width: 255,
+          height: '170px', 
+          bottom: 40,
+          easing: 'easeInOutQuad',
+          duration: 300
+        }) 
+      }      
+    });
+  }
+
   /* ------------------------------------------------------------------------------------------ esperienza sul luogo -------------------------------------- */  
   else if(fileName[0] == 'mappa.html'){
 

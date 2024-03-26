@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+        <title>Arc | mappa</title>
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link href="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css" rel="stylesheet">
+        <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+		<script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
+        <link rel="stylesheet" href="css/style.css">
+	</head>
+<head>
+
+<body class="mappa">
+
+    <div class="slider-container">
+		<!-- Slide principali -->
+		<div class="slider">
+			<div data-index="1">
+				<div class="content-slider 0 d-flex align-items-center justify-content-center" data-id="1">
+					<div class="card-slider-itinerari">
+						<div class="row">
+							<div class="col-12">
+								<h6 class="firs titoli-itinerari w">
+									EDIFICI DEL PRIMO NOVECENTO
+								</h6>
+							</div>
+						</div>
+						<div class="row" style="padding: 20px 0 0 0">
+							<div class="col-3 col-sm-2">
+								<svg class="clock" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+									<path d="M5 10H10V3" stroke="#FFF500" stroke-linejoin="bevel"/>
+									<path d="M10 0.5C15.2467 0.5 19.5 4.75329 19.5 10C19.5 15.2467 15.2467 19.5 10 19.5C4.75329 19.5 0.5 15.2467 0.5 10C0.5 4.75329 4.75329 0.5 10 0.5Z" stroke="#FFF500"/>
+								</svg>
+							</div>
+							<div class="col-9 d-flex align-items-center" style="padding: 0;">
+								<p class="hyper-mono m-0 w">45'</p>
+							</div>
+						</div>
+						<div class="row" style="padding: 10px 0 0 0">
+							<div class="col-3 col-sm-2">
+								<svg class="path" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+									<g clip-path="url(#clip0_239_664)">
+									<path d="M2.5 0.5C3.60457 0.5 4.5 1.39543 4.5 2.5C4.5 3.60457 3.60457 4.5 2.5 4.5C1.39543 4.5 0.5 3.60457 0.5 2.5C0.5 1.39543 1.39543 0.5 2.5 0.5Z" stroke="#FFF500"/>
+									<path d="M17.4656 15.4655C18.5701 15.4655 19.4656 16.3609 19.4656 17.4655C19.4656 18.5701 18.5701 19.4655 17.4656 19.4655C16.361 19.4655 15.4656 18.5701 15.4656 17.4655C15.4656 16.3609 16.361 15.4655 17.4656 15.4655Z" stroke="#FFF500"/>
+									<path d="M6.25 2.5H9.88461V17.5H13.75" stroke="#FFF500" stroke-linejoin="bevel"/>
+									</g>
+									<defs>
+									<clipPath id="clip0_239_664">
+									<rect width="20" height="20" fill="white"/>
+									</clipPath>
+									</defs>
+								</svg>
+							</div>
+							<div class="col-7 d-flex align-items-center" style="padding: 0;">
+								<p class="hyper-mono w">1.5 km</p>
+							</div>
+							<div class="col-2 d-flex align-items-center justify-content-center" style="padding: 0;">
+								<svg class="arrow-card" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+									<path d="M0 0L0 2.80025L11.8754 6.98467L11.8754 8.01563L0 12.1993L0 15L14.4 9.93012L14.4 5.06898L0 0Z" fill="#FFF500"/>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<!-- <section class="content-slider one" data-id="1"> 
+						
+					</section>  -->
+				</div>
+			</div>
+			<div data-index="2">
+				<div class="content-slider 1 d-flex align-items-center justify-content-center" data-id="2">
+					<div class="card-slider-itinerari">
+						<div class="row">
+							<div class="col-12">
+								<h6 class="firs titoli-itinerari w">
+									EDIFICI DEL SECONDO NOVECENTO
+								</h6>
+							</div>
+						</div>
+						<div class="row" style="padding: 20px 0 0 0">
+							<div class="col-3 col-sm-2">
+								<svg class="clock" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+									<path d="M5 10H10V3" stroke="#FFF500" stroke-linejoin="bevel"/>
+									<path d="M10 0.5C15.2467 0.5 19.5 4.75329 19.5 10C19.5 15.2467 15.2467 19.5 10 19.5C4.75329 19.5 0.5 15.2467 0.5 10C0.5 4.75329 4.75329 0.5 10 0.5Z" stroke="#FFF500"/>
+								</svg>
+							</div>
+							<div class="col-9 d-flex align-items-center" style="padding: 0;">
+								<p class="hyper-mono m-0 w">55'</p>
+							</div>
+						</div>
+						<div class="row" style="padding: 10px 0 0 0">
+							<div class="col-3 col-sm-2">
+								<svg class="path" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+									<g clip-path="url(#clip0_239_664)">
+									<path d="M2.5 0.5C3.60457 0.5 4.5 1.39543 4.5 2.5C4.5 3.60457 3.60457 4.5 2.5 4.5C1.39543 4.5 0.5 3.60457 0.5 2.5C0.5 1.39543 1.39543 0.5 2.5 0.5Z" stroke="#FFF500"/>
+									<path d="M17.4656 15.4655C18.5701 15.4655 19.4656 16.3609 19.4656 17.4655C19.4656 18.5701 18.5701 19.4655 17.4656 19.4655C16.361 19.4655 15.4656 18.5701 15.4656 17.4655C15.4656 16.3609 16.361 15.4655 17.4656 15.4655Z" stroke="#FFF500"/>
+									<path d="M6.25 2.5H9.88461V17.5H13.75" stroke="#FFF500" stroke-linejoin="bevel"/>
+									</g>
+									<defs>
+									<clipPath id="clip0_239_664">
+									<rect width="20" height="20" fill="white"/>
+									</clipPath>
+									</defs>
+								</svg>
+							</div>
+							<div class="col-7 d-flex align-items-center" style="padding: 0;">
+								<p class="hyper-mono m-0 w">2 km</p>
+							</div>
+							<div class="col-2 d-flex align-items-center justify-content-center" style="padding: 0;">
+								<svg class="arrow-card" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+									<path d="M0 0L0 2.80025L11.8754 6.98467L11.8754 8.01563L0 12.1993L0 15L14.4 9.93012L14.4 5.06898L0 0Z" fill="#FFF500"/>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<!-- <section class="content-slider one" data-id="1"> 
+						
+					</section>  -->
+				</div>
+			</div>
+			<div data-index="3">
+				<div class="content-slider 2 d-flex align-items-center justify-content-center" data-id="3">
+					<div class="card-slider-itinerari">
+						<div class="row">
+							<div class="col-12">
+								<h6 class="firs titoli-itinerari w">
+									ARCHITETTURE MANIFESTO
+								</h6>
+							</div>
+						</div>
+						<div class="row" style="padding: 20px 0 0 0">
+							<div class="col-3 col-sm-2">
+								<svg class="clock" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+									<path d="M5 10H10V3" stroke="#FFF500" stroke-linejoin="bevel"/>
+									<path d="M10 0.5C15.2467 0.5 19.5 4.75329 19.5 10C19.5 15.2467 15.2467 19.5 10 19.5C4.75329 19.5 0.5 15.2467 0.5 10C0.5 4.75329 4.75329 0.5 10 0.5Z" stroke="#FFF500"/>
+								</svg>
+							</div>
+							<div class="col-9 d-flex align-items-center" style="padding: 0;">
+								<p class="hyper-mono m-0 w">45'</p>
+							</div>
+						</div>
+						<div class="row" style="padding: 10px 0 0 0">
+							<div class="col-3 col-sm-2">
+								<svg class="path" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+									<g clip-path="url(#clip0_239_664)">
+									<path d="M2.5 0.5C3.60457 0.5 4.5 1.39543 4.5 2.5C4.5 3.60457 3.60457 4.5 2.5 4.5C1.39543 4.5 0.5 3.60457 0.5 2.5C0.5 1.39543 1.39543 0.5 2.5 0.5Z" stroke="#FFF500"/>
+									<path d="M17.4656 15.4655C18.5701 15.4655 19.4656 16.3609 19.4656 17.4655C19.4656 18.5701 18.5701 19.4655 17.4656 19.4655C16.361 19.4655 15.4656 18.5701 15.4656 17.4655C15.4656 16.3609 16.361 15.4655 17.4656 15.4655Z" stroke="#FFF500"/>
+									<path d="M6.25 2.5H9.88461V17.5H13.75" stroke="#FFF500" stroke-linejoin="bevel"/>
+									</g>
+									<defs>
+									<clipPath id="clip0_239_664">
+									<rect width="20" height="20" fill="white"/>
+									</clipPath>
+									</defs>
+								</svg>
+							</div>
+							<div class="col-7 d-flex align-items-center" style="padding: 0;">
+								<p class="hyper-mono m-0 w">1.5 km</p>
+							</div>
+							<div class="col-2 d-flex align-items-center justify-content-center" style="padding: 0;">
+								<svg class="arrow-card" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+									<path d="M0 0L0 2.80025L11.8754 6.98467L11.8754 8.01563L0 12.1993L0 15L14.4 9.93012L14.4 5.06898L0 0Z" fill="#FFF500"/>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<!-- <section class="content-slider one" data-id="1"> 
+						
+					</section>  -->
+				</div>
+			</div>
+			<div data-index="4">
+				<div class="content-slider 3 d-flex align-items-center justify-content-center" data-id="4">
+					<div class="card-slider-itinerari">
+						<div class="row">
+							<div class="col-12">
+								<h6 class="firs titoli-itinerari w">
+									EDIFICI DI CARLO AYMONINO
+								</h6>
+							</div>
+						</div>
+						<div class="row" style="padding: 20px 0 0 0">
+							<div class="col-3 col-sm-2">
+								<svg class="clock" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+									<path d="M5 10H10V3" stroke="#FFF500" stroke-linejoin="bevel"/>
+									<path d="M10 0.5C15.2467 0.5 19.5 4.75329 19.5 10C19.5 15.2467 15.2467 19.5 10 19.5C4.75329 19.5 0.5 15.2467 0.5 10C0.5 4.75329 4.75329 0.5 10 0.5Z" stroke="#FFF500"/>
+								</svg>
+							</div>
+							<div class="col-9 d-flex align-items-center" style="padding: 0;">
+								<p class="hyper-mono m-0 w">80'</p>
+							</div>
+						</div>
+						<div class="row" style="padding: 10px 0 0 0">
+							<div class="col-3 col-sm-2">
+								<svg class="path" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+									<g clip-path="url(#clip0_239_664)">
+									<path d="M2.5 0.5C3.60457 0.5 4.5 1.39543 4.5 2.5C4.5 3.60457 3.60457 4.5 2.5 4.5C1.39543 4.5 0.5 3.60457 0.5 2.5C0.5 1.39543 1.39543 0.5 2.5 0.5Z" stroke="#FFF500"/>
+									<path d="M17.4656 15.4655C18.5701 15.4655 19.4656 16.3609 19.4656 17.4655C19.4656 18.5701 18.5701 19.4655 17.4656 19.4655C16.361 19.4655 15.4656 18.5701 15.4656 17.4655C15.4656 16.3609 16.361 15.4655 17.4656 15.4655Z" stroke="#FFF500"/>
+									<path d="M6.25 2.5H9.88461V17.5H13.75" stroke="#FFF500" stroke-linejoin="bevel"/>
+									</g>
+									<defs>
+									<clipPath id="clip0_239_664">
+									<rect width="20" height="20" fill="white"/>
+									</clipPath>
+									</defs>
+								</svg>
+							</div>
+							<div class="col-7 d-flex align-items-center" style="padding: 0;">
+								<p class="hyper-mono m-0 w">3.8 km</p>
+							</div>
+							<div class="col-2 d-flex align-items-center justify-content-center" style="padding: 0;">
+								<svg class="arrow-card" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+									<path d="M0 0L0 2.80025L11.8754 6.98467L11.8754 8.01563L0 12.1993L0 15L14.4 9.93012L14.4 5.06898L0 0Z" fill="#FFF500"/>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<!-- <section class="content-slider one" data-id="1"> 
+						
+					</section>  -->
+				</div>
+			</div>
+			<div data-index="5">
+				<div class="content-slider 4 d-flex align-items-center justify-content-center" data-id="5">
+					<div class="card-slider-itinerari">
+						<div class="row">
+							<div class="col-12">
+								<h6 class="firs titoli-itinerari w">
+									EDIFICI FUORI DAL CENTRO STORICO
+								</h6>
+							</div>
+						</div>
+						<div class="row" style="padding: 20px 0 0 0">
+							<div class="col-3 col-sm-2">
+								<svg class="clock" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+									<path d="M5 10H10V3" stroke="#FFF500" stroke-linejoin="bevel"/>
+									<path d="M10 0.5C15.2467 0.5 19.5 4.75329 19.5 10C19.5 15.2467 15.2467 19.5 10 19.5C4.75329 19.5 0.5 15.2467 0.5 10C0.5 4.75329 4.75329 0.5 10 0.5Z" stroke="#FFF500"/>
+								</svg>
+							</div>
+							<div class="col-9 d-flex align-items-center" style="padding: 0;">
+								<p class="hyper-mono m-0 w">90'</p>
+							</div>
+						</div>
+						<div class="row" style="padding: 10px 0 0 0">
+							<div class="col-3 col-sm-2">
+								<svg class="path" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+									<g clip-path="url(#clip0_239_664)">
+									<path d="M2.5 0.5C3.60457 0.5 4.5 1.39543 4.5 2.5C4.5 3.60457 3.60457 4.5 2.5 4.5C1.39543 4.5 0.5 3.60457 0.5 2.5C0.5 1.39543 1.39543 0.5 2.5 0.5Z" stroke="#FFF500"/>
+									<path d="M17.4656 15.4655C18.5701 15.4655 19.4656 16.3609 19.4656 17.4655C19.4656 18.5701 18.5701 19.4655 17.4656 19.4655C16.361 19.4655 15.4656 18.5701 15.4656 17.4655C15.4656 16.3609 16.361 15.4655 17.4656 15.4655Z" stroke="#FFF500"/>
+									<path d="M6.25 2.5H9.88461V17.5H13.75" stroke="#FFF500" stroke-linejoin="bevel"/>
+									</g>
+									<defs>
+									<clipPath id="clip0_239_664">
+									<rect width="20" height="20" fill="white"/>
+									</clipPath>
+									</defs>
+								</svg>
+							</div>
+							<div class="col-7 d-flex align-items-center" style="padding: 0;">
+								<p class="hyper-mono m-0 w">4.3 km</p>
+							</div>
+							<div class="col-2 d-flex align-items-center justify-content-center" style="padding: 0;">
+								<svg class="arrow-card" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+									<path d="M0 0L0 2.80025L11.8754 6.98467L11.8754 8.01563L0 12.1993L0 15L14.4 9.93012L14.4 5.06898L0 0Z" fill="#FFF500"/>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<!-- <section class="content-slider one" data-id="1"> 
+						
+					</section>  -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <div id="map-scelta-itinerario"></div>
+
+	<a href="#"> <svg class="menu-button" xmlns="http://www.w3.org/2000/svg" width="42" height="30" viewBox="0 0 42 27" fill="none">
+        <rect x="1" y="1" width="40" height="4px" fill="#FFF500" stroke="black"/>
+        <rect x="1" y="12" width="40" height="4px" fill="#FFF500" stroke="black"/>
+        <rect x="1" y="23" width="40" height="4px" fill="#FFF500" stroke="black"/>
+    </svg></a>
+
+	<a href="index.html"><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="102" height="28" viewBox="0 0 102 28" fill="none">
+		<path d="M70.0344 0H72.8344V28H70.0344V0ZM71.4344 23.64H92.6744V28H71.4344V23.64ZM71.4344 0H99.7544V4.36H71.4344V0ZM98.3544 0H101.154V11.6H98.3544V0Z" fill="black"/>
+		<path d="M35.3391 0H38.1391V28H35.3391V0ZM50.4191 18.48H53.2191V28H50.4191V18.48ZM36.7391 16.28H66.4591V20.64H36.7391V16.28ZM36.7391 0H65.0591V4.36H36.7391V0ZM63.6591 0H66.4591V18.48H63.6591V0Z" fill="black"/>
+		<path d="M28.92 0H31.72V28H28.92V0ZM0.800003 0H3.6V28H0.800003V0ZM2.2 9H30.32V13.36H2.2V9ZM2.2 0H30.32V4.36H2.2V0Z" fill="black"/>
+		</svg>
+	</a>
+
+	
+
+
+
+<!-------------------------------------------------------------------------- Approfondimenti tappe -------------------------------------------------------------------------------------->
+
+
+	<div class="container-tappe primo-novecento">
+		<div class="container-contenuti-tappa container-contenuti-tappa-primo-novecento">
+			<div class="close-button-tappe">
+				<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewBox="0 0 21 19" fill="none">
+					<path d="M11.3986 9.5L20 17.973L18.973 19L10.5 10.3986L2.02703 19L1 17.973L9.60135 9.5L1 1.02703L2.02703 0L10.5 8.60135L18.973 0L20 1.02703L11.3986 9.5Z" fill="#F0F0F0"/>
+				</svg>
+			</div>
+			<h5 class="firs titolo-itinerario-tappe">
+				Edifici del primo novecento
+			</h5>
+			<div class="icone-e-txt-tappe d-flex align-items-center">
+				<svg class="clock tappe" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+					<path d="M5 10H10V3" stroke="#FFF500" stroke-linejoin="bevel"/>
+					<path d="M10 0.5C15.2467 0.5 19.5 4.75329 19.5 10C19.5 15.2467 15.2467 19.5 10 19.5C4.75329 19.5 0.5 15.2467 0.5 10C0.5 4.75329 4.75329 0.5 10 0.5Z" stroke="#FFF500"/>
+				</svg>
+				<p class="hyper-mono w tappe">45'</p>
+
+				<svg class="path tappe" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+					<g clip-path="url(#clip0_239_664)">
+					<path d="M2.5 0.5C3.60457 0.5 4.5 1.39543 4.5 2.5C4.5 3.60457 3.60457 4.5 2.5 4.5C1.39543 4.5 0.5 3.60457 0.5 2.5C0.5 1.39543 1.39543 0.5 2.5 0.5Z" stroke="#FFF500"/>
+					<path d="M17.4656 15.4655C18.5701 15.4655 19.4656 16.3609 19.4656 17.4655C19.4656 18.5701 18.5701 19.4655 17.4656 19.4655C16.361 19.4655 15.4656 18.5701 15.4656 17.4655C15.4656 16.3609 16.361 15.4655 17.4656 15.4655Z" stroke="#FFF500"/>
+					<path d="M6.25 2.5H9.88461V17.5H13.75" stroke="#FFF500" stroke-linejoin="bevel"/>
+					</g>
+					<defs>
+					<clipPath id="clip0_239_664">
+					<rect width="20" height="20" fill="white"/>
+					</clipPath>
+					</defs>
+				</svg>
+				<p class="hyper-mono w tappe">1.5km</p>
+			</div>
+			<p class="hyper body tappe w">Architetture al servizio del cittadino comprese tra il 1907 e il 1949.</p>
+
+			<div class="nomi-tappe-container row">
+				<div class="col-2 d-flex justify-content-center">
+					<div class="quadrati-tappe">
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+					</div>
+					<div class="linea-tappe"></div>
+				</div>
+				<div class="col-10 p-0">
+					<div class="nomi-tappe">
+						<h6 class="firs w">Stazione Ferroviaria</h6>
+						<h6 class="firs w">Liceo Mengaroni</h6>
+						<h6 class="firs w">Palazzo Economia Corporativa</h6>
+						<h6 class="firs w">Palazzo del Comune</h6>
+						<h6 class="firs w">Palazzo delle Poste</h6>
+					</div>
+				</div>
+			</div>
+
+			<a class="inizia-button link" href="indicazioni_2.html">
+				<h4 class="firs">INIZIA &nbsp;></h4>
+				<div class="underline"></div>
+			</a>
+		</div>
+	</div>
+
+	<div class="container-tappe secondo-novecento">
+		<div class="container-contenuti-tappa container-contenuti-tappa-secondo-novecento">
+			<div class="close-button-tappe">
+				<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewBox="0 0 21 19" fill="none">
+					<path d="M11.3986 9.5L20 17.973L18.973 19L10.5 10.3986L2.02703 19L1 17.973L9.60135 9.5L1 1.02703L2.02703 0L10.5 8.60135L18.973 0L20 1.02703L11.3986 9.5Z" fill="#F0F0F0"/>
+				</svg>
+			</div>
+			<h5 class="firs titolo-itinerario-tappe">
+				Edifici del secondo '900
+			</h5>
+			<div class="icone-e-txt-tappe d-flex align-items-center">
+				<svg class="clock tappe" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+					<path d="M5 10H10V3" stroke="#FFF500" stroke-linejoin="bevel"/>
+					<path d="M10 0.5C15.2467 0.5 19.5 4.75329 19.5 10C19.5 15.2467 15.2467 19.5 10 19.5C4.75329 19.5 0.5 15.2467 0.5 10C0.5 4.75329 4.75329 0.5 10 0.5Z" stroke="#FFF500"/>
+				</svg>
+				<p class="hyper-mono w tappe">55'</p>
+
+				<svg class="path tappe" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+					<g clip-path="url(#clip0_239_664)">
+					<path d="M2.5 0.5C3.60457 0.5 4.5 1.39543 4.5 2.5C4.5 3.60457 3.60457 4.5 2.5 4.5C1.39543 4.5 0.5 3.60457 0.5 2.5C0.5 1.39543 1.39543 0.5 2.5 0.5Z" stroke="#FFF500"/>
+					<path d="M17.4656 15.4655C18.5701 15.4655 19.4656 16.3609 19.4656 17.4655C19.4656 18.5701 18.5701 19.4655 17.4656 19.4655C16.361 19.4655 15.4656 18.5701 15.4656 17.4655C15.4656 16.3609 16.361 15.4655 17.4656 15.4655Z" stroke="#FFF500"/>
+					<path d="M6.25 2.5H9.88461V17.5H13.75" stroke="#FFF500" stroke-linejoin="bevel"/>
+					</g>
+					<defs>
+					<clipPath id="clip0_239_664">
+					<rect width="20" height="20" fill="white"/>
+					</clipPath>
+					</defs>
+				</svg>
+				<p class="hyper-mono w tappe">2km</p>
+			</div>
+			<p class="hyper body tappe w">Architetture che presentano una firma autoriale.</p>
+
+			<div class="nomi-tappe-container row">
+				<div class="col-2 d-flex justify-content-center">
+					<div class="quadrati-tappe">
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+					</div>
+					<div class="linea-tappe"></div>
+				</div>
+				<div class="col-10 p-0">
+					<div class="nomi-tappe">
+						<h6 class="firs w nomi-tappe-lunghi">Centro Direzionale Benelli</h6>
+						<h6 class="firs w">Biblioteca San Giovanni</h6>
+						<h6 class="firs w">Casa Parcheggio</h6>
+						<h6 class="firs w">Via S. Francesco</h6>
+						<h6 class="firs w"> Palazzo di Giustizia</h6>
+					</div>
+				</div>
+			</div>
+
+			<a class="inizia-button link" href="indicazioni_2.html">
+				<h4 class="firs">INIZIA &nbsp;></h4>
+				<div class="underline"></div>
+			</a>
+		</div>
+	</div>
+	
+	<div class="container-tappe manifesto">
+		<div class="container-contenuti-tappa container-contenuti-tappa-manifesto">
+			<div class="close-button-tappe">
+				<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewBox="0 0 21 19" fill="none">
+					<path d="M11.3986 9.5L20 17.973L18.973 19L10.5 10.3986L2.02703 19L1 17.973L9.60135 9.5L1 1.02703L2.02703 0L10.5 8.60135L18.973 0L20 1.02703L11.3986 9.5Z" fill="#F0F0F0"/>
+				</svg>
+			</div>
+			<h5 class="firs titolo-itinerario-tappe">
+				Architetture Manifesto
+			</h5>
+			<div class="icone-e-txt-tappe d-flex align-items-center">
+				<svg class="clock tappe" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+					<path d="M5 10H10V3" stroke="#FFF500" stroke-linejoin="bevel"/>
+					<path d="M10 0.5C15.2467 0.5 19.5 4.75329 19.5 10C19.5 15.2467 15.2467 19.5 10 19.5C4.75329 19.5 0.5 15.2467 0.5 10C0.5 4.75329 4.75329 0.5 10 0.5Z" stroke="#FFF500"/>
+				</svg>
+				<p class="hyper-mono w tappe">45'</p>
+	
+				<svg class="path tappe" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+					<g clip-path="url(#clip0_239_664)">
+					<path d="M2.5 0.5C3.60457 0.5 4.5 1.39543 4.5 2.5C4.5 3.60457 3.60457 4.5 2.5 4.5C1.39543 4.5 0.5 3.60457 0.5 2.5C0.5 1.39543 1.39543 0.5 2.5 0.5Z" stroke="#FFF500"/>
+					<path d="M17.4656 15.4655C18.5701 15.4655 19.4656 16.3609 19.4656 17.4655C19.4656 18.5701 18.5701 19.4655 17.4656 19.4655C16.361 19.4655 15.4656 18.5701 15.4656 17.4655C15.4656 16.3609 16.361 15.4655 17.4656 15.4655Z" stroke="#FFF500"/>
+					<path d="M6.25 2.5H9.88461V17.5H13.75" stroke="#FFF500" stroke-linejoin="bevel"/>
+					</g>
+					<defs>
+					<clipPath id="clip0_239_664">
+					<rect width="20" height="20" fill="white"/>
+					</clipPath>
+					</defs>
+				</svg>
+				<p class="hyper-mono w tappe">1.5km</p>
+			</div>
+			<p class="hyper body tappe w">Edifici che incarnano un modello teorico e stilistico nella loro realizzazione.</p>
+
+			<div class="nomi-tappe-container row">
+				<div class="col-2 d-flex justify-content-center">
+					<div class="quadrati-tappe">
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+					</div>
+					<div class="linea-tappe"></div>
+				</div>
+				<div class="col-10 p-0">
+					<div class="nomi-tappe">
+						<h6 class="firs w nomi-tappe-lunghi">Centro Direzionale Benelli </h6>
+						<h6 class="firs w">Biblioteca San Giovanni </h6>
+						<h6 class="firs w">Casa Parcheggio</h6>
+						<h6 class="firs w">Palazzo Economia Corporativa</h6>
+						<h6 class="firs w">Palazzo del comune</h6>
+					</div>
+				</div>
+			</div>
+
+			<a class="inizia-button link" href="indicazioni_2.html">
+				<h4 class="firs">INIZIA &nbsp;></h4>
+				<div class="underline"></div>
+			</a>
+		</div>
+	</div>
+
+	<div class="container-tappe aymonino">
+		<div class="container-contenuti-tappa container-contenuti-tappa-aymonino">
+			<div class="close-button-tappe">
+				<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewBox="0 0 21 19" fill="none">
+					<path d="M11.3986 9.5L20 17.973L18.973 19L10.5 10.3986L2.02703 19L1 17.973L9.60135 9.5L1 1.02703L2.02703 0L10.5 8.60135L18.973 0L20 1.02703L11.3986 9.5Z" fill="#F0F0F0"/>
+				</svg>
+			</div>
+			<h5 class="firs titolo-itinerario-tappe">
+				Edifici di Carlo Aymonino
+			</h5>
+			<div class="icone-e-txt-tappe d-flex align-items-center">
+				<svg class="clock tappe" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+					<path d="M5 10H10V3" stroke="#FFF500" stroke-linejoin="bevel"/>
+					<path d="M10 0.5C15.2467 0.5 19.5 4.75329 19.5 10C19.5 15.2467 15.2467 19.5 10 19.5C4.75329 19.5 0.5 15.2467 0.5 10C0.5 4.75329 4.75329 0.5 10 0.5Z" stroke="#FFF500"/>
+				</svg>
+				<p class="hyper-mono w tappe">80'</p>
+	
+				<svg class="path tappe" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+					<g clip-path="url(#clip0_239_664)">
+					<path d="M2.5 0.5C3.60457 0.5 4.5 1.39543 4.5 2.5C4.5 3.60457 3.60457 4.5 2.5 4.5C1.39543 4.5 0.5 3.60457 0.5 2.5C0.5 1.39543 1.39543 0.5 2.5 0.5Z" stroke="#FFF500"/>
+					<path d="M17.4656 15.4655C18.5701 15.4655 19.4656 16.3609 19.4656 17.4655C19.4656 18.5701 18.5701 19.4655 17.4656 19.4655C16.361 19.4655 15.4656 18.5701 15.4656 17.4655C15.4656 16.3609 16.361 15.4655 17.4656 15.4655Z" stroke="#FFF500"/>
+					<path d="M6.25 2.5H9.88461V17.5H13.75" stroke="#FFF500" stroke-linejoin="bevel"/>
+					</g>
+					<defs>
+					<clipPath id="clip0_239_664">
+					<rect width="20" height="20" fill="white"/>
+					</clipPath>
+					</defs>
+				</svg>
+				<p class="hyper-mono w tappe">3.8km</p>
+			</div>
+			<p class="hyper body tappe w">Edifici progettati dall'architetto Aymonino, tra il 1970 e il 1983.</p>
+
+			<div class="nomi-tappe-container aymonino row">
+				<div class="col-2 d-flex justify-content-center">
+					<div class="quadrati-tappe">
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+					</div>
+					<div class="linea-tappe"></div>
+				</div>
+				<div class="col-10 p-0">
+					<div class="nomi-tappe">
+						<h6 class="firs w">Campus Scolastico</h6>
+						<h6 class="firs w">Liceo Scientifico</h6>
+						<h6 class="firs w">Casa Parcheggio</h6>
+						<h6 class="firs w">Centro Direzionale Benelli</h6>
+					</div>
+				</div>
+			</div>
+
+			<a class="inizia-button link" href="indicazioni_2.html">
+				<h4 class="firs">INIZIA &nbsp;></h4>
+				<div class="underline"></div>
+			</a>
+		</div>
+	</div>
+
+	<div class="container-tappe fuori-centro">
+		<div class="container-contenuti-tappa container-contenuti-tappa-fuori-centro">
+			<div class="close-button-tappe">
+				<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewBox="0 0 21 19" fill="none">
+					<path d="M11.3986 9.5L20 17.973L18.973 19L10.5 10.3986L2.02703 19L1 17.973L9.60135 9.5L1 1.02703L2.02703 0L10.5 8.60135L18.973 0L20 1.02703L11.3986 9.5Z" fill="#F0F0F0"/>
+				</svg>
+			</div>
+			<h5 class="firs titolo-itinerario-tappe">
+				Edifici fuori dal centro storico
+			</h5>
+			<div class="icone-e-txt-tappe d-flex align-items-center">
+				<svg class="clock tappe" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+					<path d="M5 10H10V3" stroke="#FFF500" stroke-linejoin="bevel"/>
+					<path d="M10 0.5C15.2467 0.5 19.5 4.75329 19.5 10C19.5 15.2467 15.2467 19.5 10 19.5C4.75329 19.5 0.5 15.2467 0.5 10C0.5 4.75329 4.75329 0.5 10 0.5Z" stroke="#FFF500"/>
+				</svg>
+				<p class="hyper-mono w tappe">90'</p>
+	
+				<svg class="path tappe" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+					<g clip-path="url(#clip0_239_664)">
+					<path d="M2.5 0.5C3.60457 0.5 4.5 1.39543 4.5 2.5C4.5 3.60457 3.60457 4.5 2.5 4.5C1.39543 4.5 0.5 3.60457 0.5 2.5C0.5 1.39543 1.39543 0.5 2.5 0.5Z" stroke="#FFF500"/>
+					<path d="M17.4656 15.4655C18.5701 15.4655 19.4656 16.3609 19.4656 17.4655C19.4656 18.5701 18.5701 19.4655 17.4656 19.4655C16.361 19.4655 15.4656 18.5701 15.4656 17.4655C15.4656 16.3609 16.361 15.4655 17.4656 15.4655Z" stroke="#FFF500"/>
+					<path d="M6.25 2.5H9.88461V17.5H13.75" stroke="#FFF500" stroke-linejoin="bevel"/>
+					</g>
+					<defs>
+					<clipPath id="clip0_239_664">
+					<rect width="20" height="20" fill="white"/>
+					</clipPath>
+					</defs>
+				</svg>
+				<p class="hyper-mono w tappe">4.3km</p>
+			</div>
+			<p class="hyper body tappe w">Questo itinerario comprende un quartiere
+				popolare e alcuni edifici scolastici realizzati da Aymonino e Panella.</p>
+
+			<div class="nomi-tappe-container fuori-centro row">
+				<div class="col-2 d-flex justify-content-center">
+					<div class="quadrati-tappe">
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+						<div class="quadrato-tappa"></div>
+					</div>
+					<div class="linea-tappe"></div>
+				</div>
+				<div class="col-10 p-0">
+					<div class="nomi-tappe">
+						<h6 class="firs w">Edificio scolastico</h6>
+						<h6 class="firs w">Campus Scolastico</h6>
+						<h6 class="firs w">Liceo Scientifico</h6>
+						<h6 class="firs w">Quartiere cinque torri</h6>
+					</div>
+				</div>
+			</div>
+
+			<a class="inizia-button link" href="indicazioni_2.html">
+				<h4 class="firs">INIZIA &nbsp;></h4>
+				<div class="underline"></div>
+			</a>
+		</div>
+	</div>
+
+	 <!------------------------------------------------------------------------------------------ menu ---------------------------------------->
+
+	 <div class="div-menu">
+        <a href="#">
+            <svg class="close-button" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                <path d="M24 25L24 20.3329L4.20775 13.3589L4.20775 11.6406L24 4.66783L24 0L-4.60484e-07 8.4498L-1.16877e-06 16.5517L24 25Z" fill="black"/>
+            </svg>
+        </a>
+
+        <div class="container-fluid container-content-menu">
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu d-flex justify-content-center">
+                <a class="link-b text-center m-0" href="#">
+                    <h4 class="firs">LOGIN<td><nobr> &nbsp;></nobr></td></h4>
+                </a>
+            </div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu d-flex justify-content-center">
+                <a class="link-b text-center m-0" href="#">
+                    <h4 class="firs">ABOUT<td><nobr> &nbsp;></nobr></td></h4>
+                </a>
+            </div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu"></div>
+        </div>
+
+        <div class="container-fluid container-mura-menu">
+            <div class="row row-mura-menu"></div>
+            <div class="row row-mura-menu">
+                <div class="col-11 d-flex align-items-end">
+                    <div class="mura-menu-o"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-10"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-10"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-10"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+                <div class="col-9">
+                    <div class="mura-menu-o"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+            <div class="row row-mura-menu">
+                <div class="col-1"></div>
+                <div class="col-1 d-flex justify-content-end">
+                    <div class="mura-menu-v"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation.min.js'></script>
+	<script src='https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js'></script>
+	<script src="anime-master/lib/anime.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

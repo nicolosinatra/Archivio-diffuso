@@ -1,6 +1,9 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xvc2luYXRyYSIsImEiOiJjbGs4ZTd0aWowaXNqM2ZybzEzYmplaGF3In0.zJYGpj2MF2Nw8M8XHuXc8Q';
 
+
+
 $( document ).ready(function() {
+  
   var fileName = location.href.split("/").slice(-1); 
 
   /* ----------------------------------------------------------------------------------- per tutti ------------------------------------- */  

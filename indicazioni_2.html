@@ -2877,8 +2877,8 @@
             }
         });
 
-        var suono1 = new Howl({
-            src: 'audio/suono_1.mp3',
+        var campo_sonoro_sara_levi_howl = new Howl({
+            src: 'audio/children-playing.mp3',
             // autoplay: true,
             loop: true,
             volume: 1,
@@ -2886,14 +2886,14 @@
             //   console.log('Finished!');
             // }
             onplayerror: function() {
-                suono1.once('unlock', function() {
-                suono1.play();
+                campo_sonoro_sara_levi_howl.once('unlock', function() {
+                campo_sonoro_sara_levi_howl.play();
                 });
             }
         });
 
-        var suono2 = new Howl({
-            src: 'audio/suono_2.mp3',
+        var campo_sonoro_demolizione_howl = new Howl({
+            src: 'audio/demolizione_2.mp3',
             // autoplay: true,
             loop: true,
             volume: 1,
@@ -2901,26 +2901,12 @@
             //   console.log('Finished!');
             // }
             onplayerror: function() {
-                suono2.once('unlock', function() {
-                suono2.play();
+                campo_sonoro_demolizione_howl.once('unlock', function() {
+                campo_sonoro_demolizione_howl.play();
                 });
             }
         });
 
-        var suono3 = new Howl({
-            src: 'audio/suono_3.mp3',
-            // autoplay: true,
-            loop: true,
-            volume: 1,
-            // onend: function() {
-            //   console.log('Finished!');
-            // }
-            onplayerror: function() {
-                suono3.once('unlock', function() {
-                suono3.play();
-                });
-            }
-        });
 
         var larghezza_contenitore;
 
@@ -2959,14 +2945,6 @@
             center: [12.909, 43.909],
             zoom: 15.3
         });
-
-        var NavigationControl = new mapboxgl.NavigationControl({
-            showCompass: true,
-            showZoom: false
-        })
-
-        // Add zoom and rotation controls to the map.
-        map_navigazione.addControl(NavigationControl);
 
         const directions = new MapboxDirections({
             accessToken: mapboxgl.accessToken,
@@ -3121,11 +3099,13 @@
                                 voce_narrante_1_howl.fade(0, 1, 1000);
                                 });
                                 voce_narrante_1_howl.play();
-                            }
+                            }                            
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) && (turf.booleanPointInPolygon(user_turf, campo_visivo_facciata))){
                             jQuery(".dentro_fuori").text("voce narrante 1 e campo visivo facciata");
+                            
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) && (turf.booleanPointInPolygon(user_turf, campo_visivo_laterale))){
                             jQuery(".dentro_fuori").text("voce narrante 1 e campo visivo laterale");
+                            
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) && (turf.booleanPointInPolygon(user_turf, campo_visivo_retro))){
                             jQuery(".dentro_fuori").text("voce narrante 1 e campo visivo retro");
                             if(tracce_sonore.voce_narrante_1 == "off"){
@@ -3136,6 +3116,7 @@
                                 });
                                 voce_narrante_1_howl.play();
                             }
+                            
                         }else if(((turf.booleanPointInPolygon(user_turf, voce_narrante_1)) == false) && (turf.booleanPointInPolygon(user_turf, campo_visivo_retro))){
                             jQuery(".dentro_fuori").text("campo visivo retro");
                             if(tracce_sonore.voce_narrante_1 == "on"){
@@ -3144,6 +3125,7 @@
                                 voce_narrante_1_howl.fade(1, 0, 1000);
                                 setTimeout(function() {voce_narrante_1_howl.pause();}, 1000);
                             }
+                            
                         }else if(turf.booleanPointInPolygon(user_turf, campo_visivo_demolizione)){
                             jQuery(".dentro_fuori").text("campo visivo demolizione");
                         }else if(turf.booleanPointInPolygon(user_turf, voce_narrante_2) && ((turf.booleanPointInPolygon(user_turf, campo_sonoro_demolizione)) == false) 
@@ -3157,6 +3139,18 @@
                                 });
                                 voce_narrante_2_howl.play();
                             }
+                            if(tracce_sonore.campo_sonoro_demolizione == "on"){
+                                tracce_sonore.campo_sonoro_demolizione = "off";
+                                
+                                campo_sonoro_demolizione_howl.fade(1, 0, 1000);
+                                setTimeout(function() {campo_sonoro_demolizione_howl.pause();}, 1000);
+                            }
+                            if(tracce_sonore.campo_sonoro_sara_levi == "on"){
+                                tracce_sonore.campo_sonoro_sara_levi = "off";
+                                
+                                campo_sonoro_sara_levi_howl.fade(1, 0, 1000);
+                                setTimeout(function() {campo_sonoro_sara_levi_howl.pause();}, 1000);
+                            }
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_2)) && (turf.booleanPointInPolygon(user_turf, campo_sonoro_demolizione))){
                             jQuery(".dentro_fuori").text("voce narrante 2 e campo sonoro demolizione");
                             if(tracce_sonore.voce_narrante_2 == "off"){
@@ -3167,6 +3161,14 @@
                                 });
                                 voce_narrante_2_howl.play();
                             }
+                            if(tracce_sonore.campo_sonoro_demolizione == "off"){
+                                tracce_sonore.campo_sonoro_demolizione = "on";
+                                
+                                campo_sonoro_demolizione_howl.on('play', function(){
+                                campo_sonoro_demolizione_howl.fade(0, 1, 1000);
+                                });
+                                campo_sonoro_demolizione_howl.play();
+                            }
                         }else if(((turf.booleanPointInPolygon(user_turf, voce_narrante_2)) == false) && (turf.booleanPointInPolygon(user_turf, campo_sonoro_demolizione))){
                             jQuery(".dentro_fuori").text("campo sonoro demolizione");
                             if(tracce_sonore.voce_narrante_2 == "on"){
@@ -3175,12 +3177,36 @@
                                 voce_narrante_2_howl.fade(1, 0, 1000);
                                 setTimeout(function() {voce_narrante_2_howl.pause();}, 1000);
                             }
+                            if(tracce_sonore.campo_sonoro_demolizione == "off"){
+                                tracce_sonore.campo_sonoro_demolizione = "on";
+                                
+                                campo_sonoro_demolizione_howl.on('play', function(){
+                                campo_sonoro_demolizione_howl.fade(0, 1, 1000);
+                                });
+                                campo_sonoro_demolizione_howl.play();
+                            }
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_2)) && (turf.booleanPointInPolygon(user_turf, campo_sonoro_sara_levi)) 
                         && ((turf.booleanPointInPolygon(user_turf, campo_visivo_sara_levi)) == false)){
                             jQuery(".dentro_fuori").text("voce narrante 2 e campo sonoro sara levi");
+                            if(tracce_sonore.campo_sonoro_sara_levi == "off"){
+                                tracce_sonore.campo_sonoro_sara_levi = "on";
+                                
+                                campo_sonoro_sara_levi_howl.on('play', function(){
+                                campo_sonoro_sara_levi_howl.fade(0, 1, 1000);
+                                });
+                                campo_sonoro_sara_levi_howl.play();
+                            }
                         }else if((turf.booleanPointInPolygon(user_turf, voce_narrante_2)) && (turf.booleanPointInPolygon(user_turf, campo_sonoro_sara_levi)) 
                         && (turf.booleanPointInPolygon(user_turf, campo_visivo_sara_levi))){
                             jQuery(".dentro_fuori").text("voce narrante 2, campo visivo sara levi e campo sonoro sara levi");
+                            if(tracce_sonore.campo_sonoro_sara_levi == "off"){
+                                tracce_sonore.campo_sonoro_sara_levi = "on";
+                                
+                                campo_sonoro_sara_levi_howl.on('play', function(){
+                                campo_sonoro_sara_levi_howl.fade(0, 1, 1000);
+                                });
+                                campo_sonoro_sara_levi_howl.play();
+                            }
                         }else{
                             jQuery(".dentro_fuori").text("fuori");
                             if(tracce_sonore.voce_narrante_1 == "on"){
@@ -3195,6 +3221,18 @@
                                 voce_narrante_2_howl.fade(1, 0, 1000);
                                 setTimeout(function() {voce_narrante_2_howl.pause();}, 1000);
                             }
+                            if(tracce_sonore.campo_sonoro_demolizione == "on"){
+                                tracce_sonore.campo_sonoro_demolizione = "off";
+                                
+                                campo_sonoro_demolizione_howl.fade(1, 0, 1000);
+                                setTimeout(function() {campo_sonoro_demolizione_howl.pause();}, 1000);
+                            }
+                            if(tracce_sonore.campo_sonoro_sara_levi == "on"){
+                                tracce_sonore.campo_sonoro_sara_levi = "off";
+                                
+                                campo_sonoro_sara_levi_howl.fade(1, 0, 1000);
+                                setTimeout(function() {campo_sonoro_sara_levi_howl.pause();}, 1000);
+                            }
                         }
                     }
 
@@ -3206,7 +3244,7 @@
                 }
               });
 
-            // add questo per disattivare  ------> 
+           // add questo per disattivare  ------> 
 
            // ------------------------------------------------------------------------------------------------------------------------------------------------ test mode fine
 

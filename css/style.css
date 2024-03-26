@@ -664,7 +664,7 @@ p.hyper-mono{
 @media (min-width: 500px) { 
 
    
-    h5.firs{
+    h5.titolo-itinerario-tappe{
         font-family: 'FirsNeueVF', sans-serif;
         font-size: 32px;
         font-weight: 400;
@@ -674,7 +674,7 @@ p.hyper-mono{
         margin: 0;
     }
     
-    h6.firs{
+    .card-slider-itinerari h6.firs{
         font-family: 'FirsNeueVF', sans-serif;
         font-size: 24px;
         text-transform: uppercase;
@@ -691,7 +691,7 @@ p.hyper-mono{
         letter-spacing: 1px;
     }
     
-    p.hyper-mono{
+    icone-e-txt-tappe p.hyper-mono, .card-slider-itinerari p.hyper-mono{
         font-family: 'HyperCubeVF', sans-serif;
         font-size: 20px;
         line-height: normal;

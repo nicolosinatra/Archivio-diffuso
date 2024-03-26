@@ -3087,6 +3087,20 @@
                 } else {
                     mouse = true;
                     $('#mouse').addClass('active');
+
+
+                    map_navigazione.setPaintProperty('directions-route-line-alt', 'line-opacity-transition', { duration: 300 });
+                    map_navigazione.setPaintProperty('directions-route-line-casing', 'line-opacity-transition', { duration: 100 });
+                    map_navigazione.setPaintProperty('directions-route-line', 'line-opacity-transition', { duration: 300 });
+
+                    map_navigazione.setPaintProperty('directions-route-line-alt', 'line-opacity', 0);
+                    map_navigazione.setPaintProperty('directions-route-line-casing', 'line-opacity', 0);
+                    map_navigazione.setPaintProperty('directions-route-line', 'line-opacity', 0);
+
+                    setTimeout(500, function(){
+                        $('.controls-profile-switcher').addClass('not-visible');
+                    }); 
+
                     if(window.innerWidth>500){
                         map_navigazione.flyTo({
                         center: [12.9111, 43.9120],
@@ -3095,6 +3109,9 @@
                         zoom: 15
                       });
                     }
+
+
+                    $('.destinazione_raggiunta').removeClass('not-visible');
                 }
             });
 
@@ -3526,6 +3543,10 @@
 
             $('.logo.b').addClass('not-visible');
             $('.logo.w').removeClass('not-visible');
+
+            setTimeout(500, function(){
+              $('.destinazione_raggiunta').addClass('not-visible');
+            }); 
         });
 
         $('.inizia-esperienza').click(function(){
@@ -3551,18 +3572,6 @@
           }
           
             
-            map_navigazione.setPaintProperty('directions-route-line-alt', 'line-opacity-transition', { duration: 300 });
-            map_navigazione.setPaintProperty('directions-route-line-casing', 'line-opacity-transition', { duration: 100 });
-            map_navigazione.setPaintProperty('directions-route-line', 'line-opacity-transition', { duration: 300 });
-
-            map_navigazione.setPaintProperty('directions-route-line-alt', 'line-opacity', 0);
-            map_navigazione.setPaintProperty('directions-route-line-casing', 'line-opacity', 0);
-            map_navigazione.setPaintProperty('directions-route-line', 'line-opacity', 0);
-
-            setTimeout(500, function(){
-                $('.destinazione_raggiunta').addClass('not-visible');
-                $('.controls-profile-switcher').addClass('not-visible');
-            }); 
             
             map_navigazione.setPaintProperty('campi_interazione', 'fill-opacity-transition', { duration: 300 });
             map_navigazione.setPaintProperty('campi_interazione', 'fill-opacity', 1);

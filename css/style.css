@@ -949,6 +949,37 @@ p.hyper-mono{
     margin: 0;
 }
 
+.campi-visivi{
+    position: fixed;
+    width: 100vw;
+    height: 100svh;
+    overflow: hidden;
+    margin: 0;
+    z-index: 5;
+}
+
+.oultine_cerchio_map{
+    width: 190px;
+    height: 190px;
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    border-radius: 100px;
+    border: #FFF500 solid 5px;
+    box-shadow: 0px 0px 16.3px 0px rgba(0, 0, 0, 0.50) inset;
+    z-index: 6;
+    pointer-events: none;
+}
+
+#map_campi_visivi{
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    border-radius: 100px;
+}
+
 /* ------------------------------- Break Points ------------------------------- */
 
 @media (min-width: 500px) { 

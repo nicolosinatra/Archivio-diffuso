@@ -2,13 +2,20 @@
 
 @media (min-width: 960px) { 
     .check_device{
-        display: block;
+        display: block !important;
         background-color: #000;
         z-index: 3;
         position: fixed;
         width: 100vw;
         height: 100svh;
         height: 100vh;
+    }
+    .message_container{
+        width: 550px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: fixed;
     }
 }
 

@@ -1,3 +1,16 @@
+/* ---------------------------------------- Check Device --> mobile web app ---------------- */
+
+@media (min-width: 960px) { 
+    .check_device{
+        display: block;
+        background-color: #000;
+        z-index: 3;
+        position: fixed;
+        width: 100vw;
+        height: 100svh;
+        height: 100vh;
+    }
+}
 
 /* ---------------------------------------- Design System ---------------------------------- */
 
@@ -127,6 +140,10 @@ p.hyper-mono{
 
 .mapboxgl-control-container .mapboxgl-ctrl-bottom-right{
     display: none !important;
+}
+
+.check_device{
+    display: none;
 }
 
 /* ---------------------------------------- Index e Index Qr code ---------------------------------- */

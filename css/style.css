@@ -295,6 +295,7 @@ p.hyper-mono{
 }
 
 .close-button{
+    cursor: pointer;
     position: absolute;
     top: 30px;
     left: 30px;
@@ -571,6 +572,7 @@ p.hyper-mono{
 }
 
 .close-button-tappe{
+    cursor: pointer;
     position: absolute;
     top: 20px;
     right: 20px;
@@ -580,6 +582,7 @@ p.hyper-mono{
 }
 
 .close-button-x svg{
+    cursor: pointer;
     vertical-align: top;
 }
 
